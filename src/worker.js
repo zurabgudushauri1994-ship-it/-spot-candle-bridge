@@ -28,9 +28,9 @@ function closedRows(rows, minutes, nowMs) {
 async function oneFrame(symbol, label, nowMs) {
   const [interval, minutes] = FRAMES[label];
   const url = new URL(BYBIT_KLINE);
-  url.search = new URLSearchParams({ category: "spot", symbol, interval, limit: String(COUNT + 2) });
-  const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "SpotCandleBridge/2.0" }, cf: { cacheTtl: 10, cacheEverything: true } });
-  if (!response.ok) throw new Error(`Bybit HTTP ${response.status}`);
+  url.search = new URLSearchParams({ category: "spot", symbol, interval, limit: String(COUNT + 2), end: String(Math.floor(nowMs / 10_000) * 10_000) });
+  const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "SpotCandleBridge/2.0" }, cf: { cacheTtlByStatus: { "200-299": 10, "400-599": -1 }, cacheEverything: true } });
+  if (!response.ok) throw new Error(`Bybit HTTP ${response.status} (${symbol} ${label})`);
   const payload = await response.json();
   if (payload.retCode !== 0 || !Array.isArray(payload.result?.list)) throw new Error(`Bybit ${payload.retCode ?? "bad response"}`);
   const rows = closedRows(payload.result.list, minutes, nowMs);
