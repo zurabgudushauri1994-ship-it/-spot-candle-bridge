@@ -16,6 +16,7 @@ INTERVALS = {"15m": ("15", "15m", 15), "1h": ("60", "1h", 60), "4h": ("240", "4h
 SYMBOLS = [s.strip().upper() for s in os.getenv("SYMBOLS", "PUMPUSDT,ALGOUSDT,NEARUSDT,ICPUSDT,BTCUSDT,SOLUSDT,TIAUSDT").split(",") if s.strip()]
 COUNT = min(250, max(40, int(os.getenv("CANDLE_COUNT", "220"))))
 OUTPUT = Path(os.getenv("OUTPUT", "data/latest.json"))
+HTTP_TIMEOUT_SECONDS = max(2, min(15, int(os.getenv("HTTP_TIMEOUT_SECONDS", "5"))))
 # Default to strict Bybit-only operation.  A fallback may be enabled manually
 # for diagnostics, but it is always labelled and never represents Bybit data.
 ALLOW_BINANCE_FALLBACK = os.getenv("ALLOW_BINANCE_FALLBACK", "0").lower() in {"1", "true", "yes"}
@@ -24,14 +25,14 @@ ALLOW_BINANCE_FALLBACK = os.getenv("ALLOW_BINANCE_FALLBACK", "0").lower() in {"1
 def http_json(url: str, query: dict[str, object]) -> object:
     req = Request(url + "?" + urlencode(query), headers={"User-Agent": "SpotCandleBridge/1.0", "Accept": "application/json"})
     last_error: Exception | None = None
-    for retry in range(3):
+    for retry in range(2):
         try:
-            with urlopen(req, timeout=12) as response:
+            with urlopen(req, timeout=HTTP_TIMEOUT_SECONDS) as response:
                 return json.load(response)
         except Exception as exc:
             last_error = exc
-            if retry < 2:
-                time.sleep(0.8 * (retry + 1))
+            if retry < 1:
+                time.sleep(0.5)
     raise RuntimeError(f"HTTP request failed: {last_error}")
 
 
