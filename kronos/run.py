@@ -7,8 +7,8 @@ from pathlib import Path
 import random
 import sys
 import time
+import subprocess
 from datetime import datetime, timezone
-from urllib.request import Request, urlopen
 
 import numpy as np
 import pandas as pd
@@ -48,8 +48,10 @@ def validate_frame(rows, frame, generated_ms, checked_ms):
 def fetch_snapshot(symbols):
     url = BRIDGE + "?symbols=" + ",".join(symbols)
     for attempt in range(3):
-        with urlopen(Request(url, headers={"Accept": "application/json"}), timeout=90) as response:
-            payload = json.load(response)
+        # This user-owned public Worker accepts standard curl API requests.
+        # No browser impersonation or exchange authentication is involved.
+        response = subprocess.run(["curl", "--silent", "--show-error", "--fail-with-body", "--max-time", "90", url], check=True, capture_output=True, text=True)
+        payload = json.loads(response.stdout)
         checked_ms = int(time.time() * 1000)
         if payload.get("source") != "bybit_spot" or payload.get("market_type") != "spot_only":
             raise ValueError("wrong market source")
