@@ -3,14 +3,21 @@
 import concurrent.futures, datetime, json, math, pathlib, time, urllib.request, urllib.parse
 
 ROOT="https://api.bybit.com/v5/market/"
+HOSTS=["https://api.bybit.com/v5/market/","https://api.bytick.com/v5/market/","https://api.bybit.nl/v5/market/"]
 OUT=pathlib.Path("data/chat-radar")
 def get(endpoint, params):
-    url=ROOT+endpoint+"?"+urllib.parse.urlencode(params)
-    req=urllib.request.Request(url,headers={"User-Agent":"ChatSpotRadar/1.0"})
-    with urllib.request.urlopen(req,timeout=12) as response:
-        body=json.load(response)
-    if body.get("retCode")!=0: raise ValueError(str(body.get("retMsg")))
-    return body["result"]
+    errors=[]
+    for host in HOSTS:
+        try:
+            url=host+endpoint+"?"+urllib.parse.urlencode(params)
+            req=urllib.request.Request(url,headers={"User-Agent":"Mozilla/5.0 ChatSpotRadar/1.1","Accept":"application/json"})
+            with urllib.request.urlopen(req,timeout=12) as response:
+                body=json.load(response)
+            if body.get("retCode")!=0: raise ValueError(str(body.get("retMsg")))
+            return body["result"]
+        except Exception as e:
+            errors.append(f"{host}: {e}")
+    raise RuntimeError("All Bybit endpoints failed: "+"; ".join(errors))
 def ema(vals,n):
     v=vals[0]; a=2/(n+1)
     for x in vals[1:]: v=a*x+(1-a)*v
