@@ -25,3 +25,9 @@ This project is READ-ONLY: no trading or account API, no secrets, no positions, 
 ## Technical caveat
 
 Bybit may reject a request depending on the caller's country or network. In that case the endpoint returns `status: "unavailable"` and a reason; it does not silently return another exchange's data.
+
+## Kronos integration for ChatGPT
+
+The actual Kronos-mini model now runs in GitHub Actions on closed Bybit data for BTC, SOL and PUMP at 15m, 1h and 4h. See [Kronos setup and ChatGPT usage](kronos/README.md), [latest readable report](data/kronos/latest.md), and [full results](data/kronos/latest.json).
+
+The job is scheduled every 15 minutes, subject to GitHub scheduling delays. ChatGPT reads the latest saved report through the GitHub connection; it does not run model weights inside the chat. Historical evaluation is reported separately from forecasts, including the unchanged-price baseline. Reject invalid forecasts and check report age before analysis.
