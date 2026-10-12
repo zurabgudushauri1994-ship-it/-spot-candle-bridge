@@ -5,6 +5,13 @@ import concurrent.futures, datetime, json, math, pathlib, time, urllib.request, 
 ROOT="https://api.bybit.com/v5/market/"
 HOSTS=["https://api.bybit.com/v5/market/","https://api.bytick.com/v5/market/","https://api.bybit.nl/v5/market/"]
 OUT=pathlib.Path("data/chat-radar")
+BINANCE="https://data-api.binance.vision/api/v3/"
+ACTIVE_SOURCE="bybit_spot"
+def binance_get(endpoint,params=None):
+    url=BINANCE+endpoint+"?"+urllib.parse.urlencode(params or {})
+    req=urllib.request.Request(url,headers={"User-Agent":"ChatSpotRadar/1.2"})
+    with urllib.request.urlopen(req,timeout=15) as response:
+        return json.load(response)
 def get(endpoint, params):
     errors=[]
     for host in HOSTS:
@@ -25,7 +32,7 @@ def ema(vals,n):
 def evaluate(symbol,turnover):
     now=int(time.time()*1000)
     def candles(interval,period):
-        rows=get("kline",{"category":"spot","symbol":symbol,"interval":interval,"limit":120})["list"]
+        rows=(get("kline",{"category":"spot","symbol":symbol,"interval":interval,"limit":120})["list"] if ACTIVE_SOURCE=="bybit_spot" else binance_get("klines",{"symbol":symbol,"interval":{"15":"15m","60":"1h","240":"4h"}[interval],"limit":120}))
         data=sorted((int(r[0]),*[float(v) for v in r[1:6]]) for r in rows if int(r[0])+period*60000<=now-5000)
         if len(data)<55: raise ValueError("insufficient closed candles")
         if now-(data[-1][0]+period*60000)>period*120000: raise ValueError("stale candles")
@@ -52,12 +59,19 @@ def evaluate(symbol,turnover):
     state="ENTRY_CANDIDATE" if score>=75 and breakout and trend["1h"]=="up" and trend["4h"]=="up" and rv>=1.2 else "WATCH" if score>=55 else "AVOID"
     return {"symbol":symbol,"score":score,"state":state,"closed_15m_utc":datetime.datetime.fromtimestamp((a[-1][0]+900000)/1000,datetime.timezone.utc).isoformat(),"price_at_close":entry,"entry_reference":entry if state!="AVOID" else None,"stop_reference":stop if state!="AVOID" else None,"tp_reference":tp if state!="AVOID" else None,"rsi":round(rsi,1),"relative_volume":round(rv,2),"breakout":breakout,"trend":trend,"turnover24h_usdt":turnover}
 def main():
+    global ACTIVE_SOURCE
     OUT.mkdir(parents=True,exist_ok=True)
     stamp=datetime.datetime.now(datetime.timezone.utc).isoformat()
-    report={"generated_at_utc":stamp,"source":"bybit_spot","status":"unavailable","scanned":0,"requested":100,"candidates":[],"errors":[],"disclaimer":"Read-only signals, not orders; validate current price, spread and execution."}
+    report={"generated_at_utc":stamp,"source":"bybit_spot","status":"unavailable","scanned":0,"requested":100,"candidates":[],"errors":[],"disclaimer":"Binance prices are NOT Bybit executable prices. Verify symbol listing, live Bybit quote, spread and risk."}
     try:
-        tickers=get("tickers",{"category":"spot"})["list"]
-        pairs=sorted([(t["symbol"],float(t.get("turnover24h") or 0)) for t in tickers if t["symbol"].endswith("USDT") and float(t.get("turnover24h") or 0)>=1000000 and not any(x in t["symbol"] for x in ("3LUSDT","3SUSDT","5LUSDT","5SUSDT"))],key=lambda x:-x[1])[:100]
+        try:
+            tickers=get("tickers",{"category":"spot"})["list"]
+        except Exception as bybit_error:
+            report["errors"].append({"source":"bybit_spot","reason":str(bybit_error)[:300]})
+            ACTIVE_SOURCE="binance_spot"
+            tickers=binance_get("ticker/24hr")
+        report["source"]=ACTIVE_SOURCE
+        pairs=sorted([(t["symbol"],float(t.get("turnover24h") or t.get("quoteVolume") or 0)) for t in tickers if t["symbol"].endswith("USDT") and float(t.get("turnover24h") or t.get("quoteVolume") or 0)>=1000000 and not any(x in t["symbol"] for x in ("3LUSDT","3SUSDT","5LUSDT","5SUSDT"))],key=lambda x:-x[1])[:100]
         with concurrent.futures.ThreadPoolExecutor(max_workers=5) as pool:
             futures={pool.submit(evaluate,*p):p[0] for p in pairs}
             for f in concurrent.futures.as_completed(futures):
@@ -68,7 +82,7 @@ def main():
         report["status"]="ok" if report["scanned"]>=80 else "partial" if report["scanned"] else "unavailable"
     except Exception as e: report["errors"].append({"reason":str(e)[:200]})
     (OUT/"latest.json").write_text(json.dumps(report,indent=2,ensure_ascii=False))
-    lines=["# Bybit Spot Radar 100",f"Updated UTC: {stamp}",f"Status: {report['status']} | analyzed: {report['scanned']}/100","", "| Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |","|---|---:|---|---:|---:|---:|---:|---:|"]
+    lines=["# Bybit Spot Radar 100",f"Updated UTC: {stamp}",f"Status: {report['status']} | Source: {report['source']} | analyzed: {report['scanned']}/100","", "| Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |","|---|---:|---|---:|---:|---:|---:|---:|"]
     for x in report["candidates"][:20]:
         fmt=lambda v: "-" if v is None else f"{v:.8g}"
         lines.append(f"| {x['symbol']} | {x['score']} | {x['state']} | {fmt(x['entry_reference'])} | {fmt(x['stop_reference'])} | {fmt(x['tp_reference'])} | {x['rsi']} | {x['relative_volume']} |")
