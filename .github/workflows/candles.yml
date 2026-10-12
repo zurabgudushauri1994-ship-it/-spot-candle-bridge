@@ -1,5 +1,8 @@
 name: Spot candle bridge
 on:
+  push:
+    paths-ignore:
+      - 'data/latest.json'
   schedule:
     # 15-minute cadence, away from the busiest :00 schedule; execution may be delayed.
     - cron: '7,22,37,52 * * * *'
