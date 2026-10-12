@@ -6,7 +6,7 @@
 const BYBIT_KLINE = "https://api.bybit.com/v5/market/kline";
 const FRAMES = { "15m": ["15", 15], "1h": ["60", 60], "4h": ["240", 240] };
 const DEFAULT_SYMBOLS = ["PUMPUSDT", "ALGOUSDT", "NEARUSDT", "ICPUSDT", "BTCUSDT", "SOLUSDT", "TIAUSDT"];
-const MAX_SYMBOLS = 12;
+const MAX_SYMBOLS = 8;
 const COUNT = 200;
 
 function symbolsFrom(request) {
@@ -29,7 +29,16 @@ async function oneFrame(symbol, label, nowMs) {
   const [interval, minutes] = FRAMES[label];
   const url = new URL(BYBIT_KLINE);
   url.search = new URLSearchParams({ category: "spot", symbol, interval, limit: String(COUNT + 2), end: String(Math.floor(nowMs / 10_000) * 10_000) });
-  const response = await fetch(url, { headers: { accept: "application/json", "user-agent": "SpotCandleBridge/2.0" }, cf: { cacheTtlByStatus: { "200-299": 10, "400-599": -1 }, cacheEverything: true } });
+  let response;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    response = await fetch(url, { headers: { accept: "application/json", "user-agent": "SpotCandleBridge/2.0" }, cf: { cacheTtlByStatus: { "200-299": 10, "400-599": -1 }, cacheEverything: true } });
+    if (response.ok || (response.status !== 403 && response.status < 500)) break;
+    if (attempt === 0) {
+      await response.body?.cancel();
+      await new Promise((resolve) => setTimeout(resolve, 300));
+      url.searchParams.set("end", String(nowMs - 1000));
+    }
+  }
   if (!response.ok) throw new Error(`Bybit HTTP ${response.status} (${symbol} ${label})`);
   const payload = await response.json();
   if (payload.retCode !== 0 || !Array.isArray(payload.result?.list)) throw new Error(`Bybit ${payload.retCode ?? "bad response"}`);
@@ -55,7 +64,10 @@ export default {
     const nowMs = Date.now();
     const symbols = symbolsFrom(request);
     if (!symbols.length) return Response.json({ error: "Provide a valid symbols query, e.g. ?symbols=BTCUSDT,SOLUSDT" }, { status: 400 });
-    const results = await Promise.all(symbols.map(async (symbol) => [symbol, await oneSymbol(symbol, nowMs)]));
+    const results = [];
+    for (let i = 0; i < symbols.length; i += 2) {
+      results.push(...await Promise.all(symbols.slice(i, i + 2).map(async (symbol) => [symbol, await oneSymbol(symbol, nowMs)])));
+    }
     return Response.json({ schema_version: "2.0", generated_at_utc: new Date(nowMs).toISOString(), generated_at_ms: nowMs, source: "bybit_spot", market_type: "spot_only", not_trading_advice: true, columns: ["open_time_ms", "open", "high", "low", "close", "base_volume"], symbols: Object.fromEntries(results) }, { headers: { "cache-control": "public, max-age=10", "access-control-allow-origin": "*" } });
   },
 };
