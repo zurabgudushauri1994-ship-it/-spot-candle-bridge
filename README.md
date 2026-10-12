@@ -4,7 +4,7 @@ A free, read-only Cloudflare Worker that exposes **real closed Bybit spot candle
 
 ## How it works
 
-1. Cloudflare runs the Worker outside GitHub's US-hosted Action runners.
+1. `wrangler.toml` sets `placement.region = "aws:eu-central-1"` so Cloudflare executes the Worker near Frankfurt. Check the response header `cf-placement: remote-FRA`; without this placement a request from a US client may be rejected by Bybit.
 2. The Worker fetches only Bybit's public spot endpoint; **no exchange login or API key**.
 3. Every request returns only closed 15m, 1h and 4h candles. It never substitutes Binance or another exchange.
 4. The endpoint is public JSON, so ChatGPT can inspect it by URL after deployment.
