@@ -139,11 +139,70 @@ async function perpetualSnapshot(nowMs) {
   };
 }
 
+
+/** Native Bybit PUMPFUNUSDT perpetual candles for any supported interval. */
+const PERP_NATIVE_INTERVALS = new Set(["1","3","5","15","30","60","120","240","360","720","D","W","M"]);
+function perpNativeEnd(start, interval) {
+  if (interval === "M") {
+    const d = new Date(start);
+    return Date.UTC(d.getUTCFullYear(), d.getUTCMonth() + 1, 1);
+  }
+  if (interval === "W") return start + 7 * 86400000;
+  if (interval === "D") return start + 86400000;
+  return start + Number(interval) * 60000;
+}
+async function fetchPerpNative(interval, nowMs) {
+  if (!PERP_NATIVE_INTERVALS.has(interval)) throw new Error("Unsupported Bybit candle interval");
+  const symbol = "PUMPFUNUSDT";
+  const url = new URL(BYBIT_KLINE);
+  url.search = new URLSearchParams({category:"linear", symbol, interval, limit:"203"});
+  const response = await fetch(url, {
+    headers: {accept:"application/json", "user-agent":"PUMP-Native-OHLC/1.0"},
+    cf: {cacheTtlByStatus: {"200-299": 8, "400-599": -1}, cacheEverything:true}
+  });
+  if (!response.ok) throw new Error("Bybit HTTP " + response.status);
+  const data = await response.json();
+  if (data.retCode !== 0 || data.result?.symbol !== symbol || data.result?.category !== "linear" || !Array.isArray(data.result?.list))
+    throw new Error("Bybit perpetual source verification failed");
+  const seen = new Map();
+  for (const raw of data.result.list) {
+    const row = [Number(raw[0]), ...raw.slice(1,6).map(Number)];
+    const [stamp, open, high, low, close, volume] = row;
+    if (![stamp,open,high,low,close,volume].every(Number.isFinite) || !(low>0 && low<=Math.min(open,close) && high>=Math.max(open,close) && volume>=0)) 
+      throw new Error("Invalid native Bybit OHLCV row");
+    if (perpNativeEnd(stamp,interval)>nowMs-3000) continue;
+    seen.set(stamp,[stamp,...raw.slice(1,6).map(String)]);
+  }
+  const rows=[...seen.values()].sort((a,b)=>a[0]-b[0]).slice(-200);
+  if (rows.length<20) throw new Error("Insufficient closed native Bybit candles");
+  for (let i=1;i<rows.length;i++) {
+    if (rows[i][0]!==perpNativeEnd(rows[i-1][0],interval)) throw new Error("Gap in native Bybit candles");
+  }
+  const closed=perpNativeEnd(rows.at(-1)[0],interval);
+  const ms = interval==="M" ? 35*86400000 : interval==="W" ? 7*86400000 : interval==="D" ? 86400000 : Number(interval)*60000;
+  if (nowMs-closed>2*ms+120000) throw new Error("Stale native Bybit candles");
+  return {status:"ok",source:"bybit_v5_linear_perpetual",market_type:"linear_perpetual",symbol,category:"linear",interval,
+    generated_at_ms:nowMs,generated_at_utc:new Date(nowMs).toISOString(),last_closed_utc:new Date(closed).toISOString(),
+    columns:["open_time_ms","open","high","low","close","base_volume"],rows,
+    note:"Only closed trade-price OHLCV. Market order trigger price types may differ."};
+}
+
 export default {
   async fetch(request) {
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405 });
     const nowMs = Date.now();
     const page = new URL(request.url);
+    if (page.pathname === "/perp-candles") {
+      const interval=page.searchParams.get("interval") || "1";
+      if (!PERP_NATIVE_INTERVALS.has(interval))
+        return Response.json({status:"invalid",reason:"Allowed: 1,3,5,15,30,60,120,240,360,720,D,W,M"}, {status:400,headers:{"access-control-allow-origin":"*"}});
+      try {
+        const report=await fetchPerpNative(interval,nowMs);
+        return Response.json(report,{headers:{"cache-control":"public, max-age=8","access-control-allow-origin":"*"}});
+      } catch(error) {
+        return Response.json({status:"unavailable",source:null,reason:String(error.message || error)}, {status:502,headers:{"access-control-allow-origin":"*"}});
+      }
+    }
     if (page.pathname === "/perp") {
       try {
         const report = await perpetualSnapshot(nowMs);
