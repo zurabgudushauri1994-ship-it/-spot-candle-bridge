@@ -88,59 +88,100 @@ function paint(){
  const el=document.createElement("span");el.textContent=k+": "+v;$("stats").appendChild(el);
  }
 }
-function rowsFromNative(d) {
- if(d.status!=="ok"||d.source!=="bybit_v5_linear_perpetual"||d.market_type!=="linear_perpetual"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||!Array.isArray(d.rows))throw Error("Bybit Perpetual -lähde ei täsmää");
- return d.rows.map(r=>r.map(Number));
+
+const NATIVE="https://api.bybit.com/v5/market/kline";
+const ARCHIVE="https://raw.githubusercontent.com/zurabgudushauri1994-ship-it/-spot-candle-bridge/main/data/perp/latest.json";
+let pending=false;
+function nativeTF(tf){return tf==="1440"?"D":tf}
+function tfLen(tf){return tf==="M"?31*86400000:tf==="W"?7*86400000:tf==="D"?86400000:Number(tf)*60000}
+function candleEnd(stamp,tf){
+ if(tf==="M"){const d=new Date(stamp);return Date.UTC(d.getUTCFullYear(),d.getUTCMonth()+1,1)}
+ return stamp+tfLen(tf)
 }
-async function getJSON(url) {
- const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),12000);
+function checked(rows,tf){
+ if(!Array.isArray(rows))throw Error("OHLC-kynttilöitä ei ole");
+ const a=[];
+ for(const raw of rows){
+  const x=raw.map(Number);
+  const [ts,o,h,l,c,v]=x;
+  if(x.length<6||x.some(z=>!Number.isFinite(z))||!(l>0&&l<=Math.min(o,c)&&Math.max(o,c)<=h&&v>=0))throw Error("Virheellinen OHLCV");
+  if(candleEnd(ts,tf)<=Date.now()-2500)a.push(x.slice(0,6));
+ }
+ a.sort((x,y)=>x[0]-y[0]);
+ const clean=a.filter((x,i)=>i===0||x[0]!==a[i-1][0]);
+ if(clean.length<4)throw Error("Ei riittävästi sulkeutuneita kynttilöitä");
+ for(let i=1;i<clean.length;i++)if(clean[i][0]!==candleEnd(clean[i-1][0],tf))throw Error("OHLC-aikasarjassa aukko");
+ return clean;
+}
+async function getJSON(url){
+ const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),8500);
  try{
-  const res=await fetch(url,{cache:"no-store",signal:ctl.signal,headers:{Accept:"application/json"}});
-  if(!res.ok)throw Error("HTTP "+res.status);
-  return await res.json();
- }finally{clearTimeout(timer);}
+  const r=await fetch(url,{cache:"no-store",signal:ctl.signal,headers:{Accept:"application/json"}});
+  if(!r.ok)throw Error("HTTP "+r.status);
+  return await r.json();
+ }finally{clearTimeout(timer)}
 }
-function validatePayload(d){
- if(d.status!=="ok"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||d.market_type!=="linear_perpetual"||!["bybit_v5_linear_perpetual","bybit_v5_linear_perpetual_via_cloudflare_worker"].includes(d.source))
- throw Error("Lähde ei ole vahvistettua Bybitin Perpetual-dataa");
- const ago=Date.now()-Number(d.generated_at_ms);
- if(ago< -120000||ago>180000)throw Error("Tietosyöte ei ole ajantasainen ("+Math.round(ago/60000)+" min)");
+function verify(d){
+ if(d.status!=="ok"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||
+    d.market_type!=="linear_perpetual"||
+    !["bybit_v5_linear_perpetual","bybit_v5_linear_perpetual_via_cloudflare_worker"].includes(d.source))
+  throw Error("Bybit Perpetual -alkuperää ei ole vahvistettu");
+}
+async function acquire(tf){
+ const stamp=Date.now(),errs=[],normalized=nativeTF(tf);
+ try{
+  const d=await getJSON(URL.replace(/\/perp$/,"/perp-candles")+"?interval="+encodeURIComponent(normalized)+"&t="+stamp);
+  verify(d);
+  if(d.interval!==normalized||Math.abs(stamp-Number(d.generated_at_ms))>180000)throw Error("Aikaväli tai aikaleima ei täsmää");
+  return {rows:checked(d.rows,normalized),src:"Cloudflare · Bybit Native"};
+ }catch(e){errs.push("Cloudflare native: "+e.message)}
+ try{
+  const q=new URLSearchParams({category:"linear",symbol:"PUMPFUNUSDT",interval:normalized,limit:"200"});
+  const d=await getJSON(NATIVE+"?"+q.toString());
+  if(d.retCode!==0||d.result?.category!=="linear"||d.result?.symbol!=="PUMPFUNUSDT")throw Error("Pörssin symboli tai markkinaluokka ei täsmää");
+  return {rows:checked(d.result.list,normalized),src:"Bybit V5 suoraan"};
+ }catch(e){errs.push("Bybit suoraan: "+e.message)}
+ for(const [path,title,archived] of [[URL,"Cloudflare-varayhteys",false],[ARCHIVE,"GitHub-varakopio",true]]){
+  try{
+   if(normalized==="W"||normalized==="M")throw Error("Viikko/kuukausi vaatii Bybitin oman aikavälin");
+   const d=await getJSON(path+"?t="+stamp);
+   verify(d);
+   if(!archived&&Math.abs(stamp-Number(d.generated_at_ms))>180000)throw Error("Varayhteyden data on vanhaa");
+   const key={"1":"1m","15":"15m","60":"1h","240":"4h"}[normalized];
+   const rows=key?d.timeframes?.[key]:convert(d,Number(normalized));
+   return {rows:checked(rows,normalized),src:title,archived};
+  }catch(e){errs.push(title+": "+e.message)}
+ }
+ throw Error("Kaikki datayhteydet epäonnistuivat: "+errs.join(" / ").slice(0,260));
 }
 async function load(){
- if(busy)return;busy=true;$("refresh").disabled=true;$("error").textContent="";$("status").textContent="Haetaan sulkeutuneet kynttilät…";
- const tf=$("tf").value,bybitInterval=tf==="1440"?"D":tf,stamp=Date.now();
- let problem="";
+ if(busy){pending=true;return}
+ busy=true;pending=false;$("refresh").disabled=true;
+ const tf=$("tf").value,norm=nativeTF(tf);
+ $("status").textContent="Haetaan Bybitin OHLC-kynttilöitä…";$("error").textContent="";
  try{
-  let data,mode;
-  try{
-   data=await getJSON(URL.replace(/\/perp$/,"/perp-candles")+"?interval="+encodeURIComponent(bybitInterval)+"&t="+stamp);
-   validatePayload(data);
-   if(data.interval!==bybitInterval)throw Error("Aikavälin vahvistus epäonnistui");
-   view=rowsFromNative(data);mode="Bybitin oma "+tf+" -aikaväli";
-  }catch(e){
-   problem=String(e.message||e);
-   if(tf==="W"||tf==="M")throw Error("Viikko- ja kuukausikynttilät vaativat uuden Worker-version: "+problem);
-   data=await getJSON(URL+"?t="+stamp);
-   validatePayload(data);
-   view=convert(data,Number(tf));mode="Bybit OHLCV, yhdistetyt kynttilät";
-  }
-  if(view.length<4)throw Error("Liian vähän valmiita kynttilöitä");
-  payload=data;selected=null;
-  const lastClosed=data.rows?Date.parse(data.last_closed_utc):view.at(-1)[0]+Number(tf)*60000;
-  const period=tf==="W"?7*86400000:tf==="M"?31*86400000:Number(tf)*60000;
-  const age=Date.now()-lastClosed;
-  const label=new Date(Number(data.generated_at_ms)).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",hour:"2-digit",minute:"2-digit"});
-  $("status").textContent=mode+" · Haettu "+label+" · Viimeisin kynttilä sulkeutui "+
-     new Date(lastClosed).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",hour:"2-digit",minute:"2-digit"})+
-     (age>Math.max(180000,period+120000)?" · VANHENTUNUT KYNTTILÄ":" · Tuore");
-  $("status").style.color=age>Math.max(180000,period+120000)?"#ffb1b7":"#bce8d3";
+  const d=await acquire(tf);
+  if($("tf").value!==tf){pending=true;return}
+  view=d.rows;selected=null;
+  const last=candleEnd(view.at(-1)[0],norm),age=Date.now()-last;
+  const stale=age>tfLen(norm)+120000;
+  $("status").style.color=stale?"#ffadb1":"#bce5d2";
+  $("status").textContent=(stale?"⚠ VANHA DATA":"● TUORE")+" · "+d.src+
+   " · Viimeisin sulkeutuminen "+new Date(last).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",day:"numeric",month:"numeric",hour:"2-digit",minute:"2-digit"})+
+   (stale?" · Ei treidisignaaliksi":"");
+  if(stale)$("error").textContent="Tietoa näytetään vain historiallisena. Älä käytä sitä nykyisen treidin päätöksen perusteena.";
   paint();
- }catch(e){payload=null;view=[];$("status").textContent="Ei ajantasaista kynttilädataa";$("status").style.color="#ffb1b7";$("error").textContent=String(e.message||e);paint();}
- finally{busy=false;$("refresh").disabled=false;}
+ }catch(e){
+  view=[];$("status").style.color="#ffadb1";$("status").textContent="⚠ TUOREITA KYNTTILÖITÄ EI SAATU";
+  $("error").textContent=String(e.message||e);paint();
+ }finally{
+  busy=false;$("refresh").disabled=false;
+  if(pending){pending=false;load()}
+ }
 }
 $("tf").addEventListener("change",load);
 $("refresh").addEventListener("click",load);
 $("chart").addEventListener("click",e=>{if(!view.length)return;const rect=$("chart").getBoundingClientRect(),x=e.clientX-rect.left,count=Math.min(view.length,70),i=Math.floor((x-10)/((Math.max(300,rect.width)-10-83)/count));selected=Math.max(0,Math.min(count-1,i));paint();});
-window.addEventListener("resize",paint);load();setInterval(load,60000);
+window.addEventListener("resize",paint);load();setInterval(()=>{if(document.visibilityState==="visible")load()},20000);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")load()});
 })();
 </script></body></html>
