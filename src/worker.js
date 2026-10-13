@@ -94,11 +94,64 @@ async function oneSymbol(symbol, nowMs) {
   }
 }
 
+
+/**
+ * Dedicated Bybit USDT perpetual reader. Never substitutes spot candles.
+ * Read-only and no API credentials. /perp returns closed OHLCV bars.
+ */
+async function perpetualSnapshot(nowMs) {
+  const symbol = "PUMPFUNUSDT";
+  const frames = { "1m": ["1", 1, 120], "15m": ["15", 15, 180], "1h": ["60", 60, 120], "4h": ["240", 240, 90] };
+  const entries = await Promise.all(Object.entries(frames).map(async ([name, [interval, minutes, count]]) => {
+    const url = new URL(BYBIT_KLINE);
+    url.search = new URLSearchParams({category: "linear", symbol, interval, limit: String(count + 3)});
+    const resp = await fetch(url, {
+      headers: {accept: "application/json", "user-agent": "PUMP-Perp-Reader/1.0"},
+      cf: {cacheTtlByStatus: {"200-299": 10, "400-599": -1}, cacheEverything: true}
+    });
+    if (!resp.ok) throw new Error("Bybit perpetual HTTP " + resp.status + " (" + name + ")");
+    const payload = await resp.json();
+    if (payload.retCode !== 0 || payload.result?.symbol !== symbol || payload.result?.category !== "linear" || !Array.isArray(payload.result?.list))
+      throw new Error("Bybit perpetual wrong symbol/category or invalid response (" + name + ")");
+    const values = closedRows(payload.result.list, minutes, nowMs).slice(-count);
+    if (values.length < 20) throw new Error("Insufficient closed candles (" + name + ")");
+    const step = minutes * 60000;
+    for (let i = 1; i < values.length; i++) {
+      if (values[i][0] - values[i-1][0] !== step) throw new Error("Missing perpetual candles (" + name + ")");
+    }
+    for (const row of values) {
+      const [, a, h, l, c, v] = row.map(Number);
+      if (!(l > 0 && l <= Math.min(a,c) && h >= Math.max(a,c) && v >= 0)) throw new Error("Invalid perpetual OHLCV");
+    }
+    if (nowMs - (values.at(-1)[0] + step) > (2 * step + 120000))
+      throw new Error("Stale perpetual bars (" + name + ")");
+    return [name, values];
+  }));
+  const timeframes = Object.fromEntries(entries);
+  return {
+    status: "ok", source: "bybit_v5_linear_perpetual", market_type: "linear_perpetual",
+    category: "linear", symbol, generated_at_ms: nowMs,
+    generated_at_utc: new Date(nowMs).toISOString(),
+    columns: ["open_time_ms","open","high","low","close","base_volume"],
+    last_closed_utc: Object.fromEntries(Object.entries(frames).map(([name, [, mins]]) =>
+      [name, new Date(timeframes[name].at(-1)[0] + mins * 60000).toISOString()])),
+    timeframes, note: "Only closed trade-price bars. Mark-price SL triggers and intrabar event order are not implied."
+  };
+}
+
 export default {
   async fetch(request) {
     if (request.method !== "GET") return new Response("Method not allowed", { status: 405 });
     const nowMs = Date.now();
     const page = new URL(request.url);
+    if (page.pathname === "/perp") {
+      try {
+        const report = await perpetualSnapshot(nowMs);
+        return Response.json(report, { headers: { "cache-control": "public, max-age=10", "access-control-allow-origin": "*" } });
+      } catch (error) {
+        return Response.json({ status: "unavailable", source: null, category: "linear", reason: String(error.message || error) }, { status: 502 });
+      }
+    }
     if (page.pathname === "/history") {
       const symbol = page.searchParams.get("symbol")?.trim().toUpperCase();
       const interval = page.searchParams.get("interval");
