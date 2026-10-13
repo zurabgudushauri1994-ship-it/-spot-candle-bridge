@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="fi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>PUMP · Bybit Perpetual OHLCV</title>
+<style>
+:root{color-scheme:dark;font-family:system-ui,-apple-system,sans-serif;background:#0c1421;color:#e7eef7}
+body{margin:0;padding:16px;max-width:1000px;margin-inline:auto}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px}
+h1{font-size:19px;margin:0 0 5px}
+small{color:#a8b9ce}
+.controls{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}
+button,select{background:#263b52;color:white;border:1px solid #486079;border-radius:9px;padding:11px;font-size:14px;cursor:pointer}
+button{background:#1d694a}
+#status{font-size:12px;line-height:1.5;color:#c7d7e9;margin-bottom:8px}
+#error{color:#ffb1b7}
+#chart{display:block;width:100%;height:420px;border:1px solid #374b63;border-radius:12px;background:#101d2d;touch-action:pan-y}
+.stats{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-variant-numeric:tabular-nums;margin:12px 0}
+.stats span{color:#bdcbdb}
+a{color:#9fd6ff}
+</style></head><body>
+<header><div><h1>PUMPFUNUSDT – Bybit Perpetual</h1><small>Sulkeutuneet oikeat OHLCV-kynttilät • Ei treidaustoimeksiantoja</small></div></header>
+<div class="controls">
+<label>Aikaväli <select id="tf">
+<option value="1">1 min</option><option value="3">3 min</option><option value="5">5 min</option>
+<option value="15">15 min</option><option value="30">30 min</option><option value="60">1 h</option>
+<option value="120">2 h</option><option value="240">4 h</option><option value="360">6 h</option>
+<option value="720">12 h</option><option value="1440">1 päivä</option>
+</select></label>
+<button id="refresh">↻ Päivitä nyt</button></div>
+<div id="status" role="status">Ladataan tuoreita Bybit-kynttilöitä…</div>
+<div id="error"></div>
+<canvas id="chart"></canvas>
+<div class="stats" id="stats"></div>
+<small>Lähde: <a href="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp" target="_blank" rel="noopener">oma Bybit-perpetual-lukija</a>. Väliarvot 3m/5m/30m/2h/6h/12h/1d yhdistetään pienemmistä täydellisistä Bybit-kynttilöistä UTC-rajoilla. Näytetään vain sulkeutuneita kynttilöitä. Reaaliaikaisuus tarkistetaan aikaleimasta; GitHubin tallennettu raportti ei ole live-hinta.</small>
+<script>
+(()=>{"use strict";
+const URL="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp";
+const sourceIntervals={1:[1,1],3:[1,3],5:[1,5],15:[15,15],30:[15,30],60:[60,60],120:[60,120],240:[240,240],360:[60,360],720:[240,720],1440:[240,1440]};
+const $=id=>document.getElementById(id),ctx=$("chart").getContext("2d");let payload=null,view=[],busy=false,selected=null;
+const n=(v)=>Number(v).toFixed(6);
+function convert(data,target){
+ const [base]=sourceIntervals[target],raw=data.timeframes?.[base===1?"1m":base===15?"15m":base===60?"1h":"4h"];
+ if(!Array.isArray(raw)||raw.length<4)throw Error("Kynttiläsarja puuttuu: "+base+"m");
+ const groups=new Map(),unit=target*60000,bms=base*60000;
+ for(const row of raw){
+ const [ts,o,h,l,c,v]=row.map(Number);
+ if(!Number.isFinite(ts)||!(l>0&&l<=Math.min(o,c)&&h>=Math.max(o,c)&&v>=0))throw Error("Virheellistä OHLCV-dataa");
+ const bucket=Math.floor(ts/unit)*unit;
+ if(!groups.has(bucket))groups.set(bucket,[]);
+ groups.get(bucket).push([ts,o,h,l,c,v]);
+ }
+ const result=[];
+ for(const [bucket,rows] of groups){
+ rows.sort((a,b)=>a[0]-b[0]);
+ if(rows.length!==target/base||rows[0][0]!==bucket||rows.at(-1)[0]+bms!==bucket+unit)continue;
+ if(rows.some((r,i)=>i&&r[0]-rows[i-1][0]!==bms))continue;
+ result.push([bucket,rows[0][1],Math.max(...rows.map(r=>r[2])),Math.min(...rows.map(r=>r[3])),rows.at(-1)[4],rows.reduce((s,r)=>s+r[5],0)]);
+ }
+ return result.sort((a,b)=>a[0]-b[0]);
+}
+function paint(){
+ const canvas=$("chart"),rect=canvas.getBoundingClientRect(),W=Math.max(300,Math.round(rect.width)),H=Math.max(300,Math.round(rect.height)),dpr=Math.min(devicePixelRatio||1,2);
+ canvas.width=W*dpr;canvas.height=H*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ ctx.fillStyle="#101d2d";ctx.fillRect(0,0,W,H);
+ if(!view.length)return;
+ const a=view.slice(-70),L=10,R=83,T=18,B=33,chartH=H-T-B-66,CW=W-L-R;
+ const hi=Math.max(...a.map(r=>r[2])),lo=Math.min(...a.map(r=>r[3])),pad=(hi-lo)*.14||.00001;
+ const ymax=hi+pad,ymin=lo-pad,y=v=>T+(ymax-v)/(ymax-ymin)*chartH;
+ ctx.strokeStyle="#52677c44";ctx.font="11px system-ui";ctx.textAlign="left";
+ for(let i=0;i<=5;i++){const v=ymin+(ymax-ymin)*i/5,py=y(v);ctx.beginPath();ctx.moveTo(L,py);ctx.lineTo(W-R,py);ctx.stroke();ctx.fillStyle="#a7bacf";ctx.fillText(n(v),W-R+6,py+4)}
+ const step=CW/a.length,bw=Math.max(2,Math.min(12,step*.67));
+ for(let i=0;i<a.length;i++){
+  const r=a[i],x=L+(i+.5)*step,c=r[4]>=r[1]?"#50d6a2":"#f47e91";
+  ctx.strokeStyle=c;ctx.lineWidth=1.3;ctx.beginPath();ctx.moveTo(x,y(r[2]));ctx.lineTo(x,y(r[3]));ctx.stroke();
+  ctx.fillStyle=c;ctx.fillRect(x-bw/2,y(Math.max(r[1],r[4])),bw,Math.max(1.5,Math.abs(y(r[1])-y(r[4]))));
+ }
+ const maxVol=Math.max(...a.map(r=>r[5]),1);
+ a.forEach((r,i)=>{const height=r[5]/maxVol*52,x=L+(i+.5)*step;ctx.fillStyle=r[4]>=r[1]?"#50d6a258":"#f47e9158";ctx.fillRect(x-bw/2,H-B-60+(60-height),bw,height)});
+ ctx.fillStyle="#b8c8d7";ctx.font="10px system-ui";
+ for(const i of [0,Math.floor((a.length-1)/2),a.length-1]){
+ const x=L+(i+.5)*step,t=new Date(a[i][0]).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"});
+ ctx.textAlign=i===0?"left":i===a.length-1?"right":"center";ctx.fillText(t,x,H-11);
+ }
+ if(selected!==null&&a[selected]){
+ const x=L+(selected+.5)*step;ctx.strokeStyle="#c9dfecaa";ctx.setLineDash([2,4]);ctx.beginPath();ctx.moveTo(x,T);ctx.lineTo(x,H-B);ctx.stroke();ctx.setLineDash([]);
+ }
+ const r=a[selected??a.length-1];$("stats").textContent="";
+ for(const [k,v] of [["Aika",new Date(r[0]).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki"})],["O",n(r[1])],["H",n(r[2])],["L",n(r[3])],["C",n(r[4])],["Vol",Math.round(r[5]).toLocaleString("fi-FI")]]){
+ const el=document.createElement("span");el.textContent=k+": "+v;$("stats").appendChild(el);
+ }
+}
+function recalc(){
+ if(!payload)return;
+ const interval=Number($("tf").value);view=convert(payload,interval);selected=null;
+ if(view.length<4)throw Error("Liian vähän täydellisiä kynttilöitä tällä aikavälillä");
+ const newest=view.at(-1)[0]+interval*60000;
+ const now=Date.now(),age=now-newest;
+ if(age>Math.max(3*60000,interval*60000+2*60000))$("status").textContent+=" • HUOM: valitun aikavälin viimeinen valmis kynttilä on vanha.";
+ paint();
+}
+async function load(){
+ if(busy)return;busy=true;$("refresh").disabled=true;$("error").textContent="";$("status").textContent="Haetaan Bybitiltä…";
+ try{
+ const r=await fetch(URL+"?cacheBust="+Date.now(),{cache:"no-store",headers:{Accept:"application/json"}});
+ if(!r.ok)throw Error("Palvelin vastasi HTTP "+r.status);
+ const d=await r.json();
+ if(d.status!=="ok"||d.source!=="bybit_v5_linear_perpetual"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||d.market_type!=="linear_perpetual")throw Error("Lähdettä ei voitu vahvistaa Bybit perpetualiksi");
+ const age=Date.now()-Number(d.generated_at_ms);
+ if(age< -120000||age>180000)throw Error("Aikaleima on vanhentunut ("+Math.round(age/60000)+" minuuttia)");
+ payload=d;
+ $("status").textContent="Bybit Perpetual · raportti "+new Date(Number(d.generated_at_ms)).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki"})+" · Vahvistettu lähde";
+ recalc();
+ }catch(e){payload=null;view=[];$("status").textContent="Ei ajantasaista kynttilädataa";$("error").textContent=String(e.message||e);paint();}
+ finally{busy=false;$("refresh").disabled=false;}
+}
+$("tf").addEventListener("change",()=>{try{recalc();}catch(e){$("error").textContent=String(e.message||e);}});
+$("refresh").addEventListener("click",load);
+$("chart").addEventListener("click",e=>{if(!view.length)return;const rect=$("chart").getBoundingClientRect(),x=e.clientX-rect.left,count=Math.min(view.length,70),i=Math.floor((x-10)/((Math.max(300,rect.width)-10-83)/count));selected=Math.max(0,Math.min(count-1,i));paint();});
+window.addEventListener("resize",paint);load();setInterval(load,60000);
+})();
+</script></body></html>
