@@ -16,8 +16,43 @@ button{background:#1d694a}
 .stats{display:flex;gap:12px;flex-wrap:wrap;font-size:13px;font-variant-numeric:tabular-nums;margin:12px 0}
 .stats span{color:#bdcbdb}
 a{color:#9fd6ff}
+
+/* Analyst War Arena integrated UI */
+#war-arena{margin:22px 0 32px;padding:0;border:1px solid #3d5164;border-radius:18px;overflow:hidden;background:#111d2a}
+#war-arena .war-head{padding:17px 16px;background:linear-gradient(115deg,#273c50,#142234);display:flex;gap:9px;align-items:center;justify-content:space-between}
+#war-arena .war-head h2{font-size:19px;line-height:1.3;margin:0}
+#war-arena .war-head p{margin:4px 0 0;color:#aebed0;font-size:11px}
+#war-arena .war-badge{border:1px solid #455c75;border-radius:99px;padding:5px 8px;font-size:10px;color:#ccd9eb}
+#war-arena .war-actions{display:flex;gap:8px;padding:13px 14px;flex-wrap:wrap;background:#182637}
+#war-arena button{font-size:13px;font-weight:750;min-height:40px}
+#war-arena button.primary{background:#206c50;border-color:#34896e}
+#war-arena button:disabled{opacity:.45;cursor:not-allowed}
+#war-arena .war-status{font-size:11px;color:#b7cbdd;padding:10px 14px;background:#122131;line-height:1.5}
+#war-arena .war-overview{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;padding:12px;background:#162438}
+#war-arena .war-army{border:1px solid #354960;border-radius:10px;padding:11px 7px;text-align:center;background:#1d2c41}
+#war-arena .war-army span{display:block;font-size:10px;color:#bed0df}
+#war-arena .war-army strong{display:block;font-size:23px;margin:3px 0}
+#war-arena canvas{width:100%;height:395px;display:block;background:#132923;touch-action:manipulation}
+#war-arena .war-talk{padding:14px;background:#18283a;min-height:125px;border-top:1px solid #314459}
+#war-arena #war-speaker{font-size:13px;font-weight:800;margin:5px 0 7px}
+#war-arena #war-speech{font-size:12px;line-height:1.6;color:#d5e4f0}
+#war-arena #war-signal{font-size:24px;font-weight:900;line-height:1.2}
+#war-arena .war-summary{border-top:1px solid #30445b;background:#111f30;padding:14px;display:grid;gap:7px}
+#war-arena .war-small{font-size:11px;color:#aabed1;line-height:1.5}
+#war-arena .war-roster-head{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+#war-arena #war-roles{max-height:370px;overflow-y:auto;margin-top:8px}
+#war-arena #war-roles[hidden]{display:none}
+#war-arena .war-role{display:flex;align-items:flex-start;gap:9px;padding:9px 2px;border-top:1px solid #29384a}
+#war-arena .war-role-dot{border-radius:50%;width:9px;height:9px;flex:0 0 9px;margin-top:6px}
+#war-arena .war-role strong{font-size:12px}
+#war-arena .war-role small{display:block;font-size:11px;color:#aec1d4;line-height:1.5;margin-top:3px}
+.anchorlinks{display:flex;gap:7px;flex-wrap:wrap;margin:16px 0}
+.anchorlinks a{background:#25394c;border:1px solid #415971;border-radius:8px;padding:9px 13px;text-decoration:none;font-weight:650;font-size:12px}
+@media(max-width:520px){#war-arena .war-head h2{font-size:17px}#war-arena canvas{height:360px}#war-arena .war-actions button{flex:1}#war-arena .war-army strong{font-size:20px}}
 </style></head><body>
 <header><div><h1>PUMPFUNUSDT – Bybit Perpetual</h1><small>Sulkeutuneet oikeat OHLCV-kynttilät • Ei treidaustoimeksiantoja</small></div></header>
+<nav class="anchorlinks"><a href="#chart-section">📈 Kynttilät</a><a href="#war-arena">⚔ 100 sotilasta</a></nav>
+<div id="chart-section"></div>
 <div class="controls">
 <label>Aikaväli <select id="tf">
 <option value="1">1 min</option><option value="3">3 min</option><option value="5">5 min</option>
@@ -31,6 +66,39 @@ a{color:#9fd6ff}
 <canvas id="chart"></canvas>
 <div class="stats" id="stats"></div>
 <small>Lähde: <a href="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp" target="_blank" rel="noopener">oma Bybit-perpetual-lukija</a>. Uusi Worker-versio hakee jokaisen aikavälin suoraan Bybitiltä. Vanhempi Worker yhdistää tarvittaessa 3m/5m/30m/2h/6h/12h/1d kynttilöitä täydellisistä OHLC-arvoista. Näytetään vain sulkeutuneita kynttilöitä. Reaaliaikaisuus tarkistetaan aikaleimasta; GitHubin tallennettu raportti ei ole live-hinta.</small>
+
+<section id="war-arena" aria-label="Analyst War Arena 50 asiantuntijan väittely ja 100 sotilasta">
+ <div class="war-head">
+  <div><h2>⚔ Analyst War Arena 3.0</h2><p>50 analyysiroolia · 100 sotilasta · perustuu Bybitin oikeisiin OHLCV-kynttilöihin</p></div>
+  <span class="war-badge">DATA → RAATI → SOTA</span>
+ </div>
+ <div class="war-actions">
+  <button id="war-analyze" class="primary">↻ Analysoi nyt</button>
+  <button id="war-play" disabled>⚔ Aloita sota</button>
+  <button id="war-speed">Nopeus 1×</button>
+ </div>
+ <div class="war-status" id="war-status" role="status">Odotetaan tuoretta Bybit-dataa</div>
+ <div class="war-overview">
+  <div class="war-army"><span>🔴 LASKEE</span><strong id="army-bear" style="color:#f36b7f">–</strong><span>sotilasta</span></div>
+  <div class="war-army"><span>🟡 EPÄVARMA</span><strong id="army-neutral" style="color:#ecc870">–</strong><span>sotilasta</span></div>
+  <div class="war-army"><span>🟢 NOUSEE</span><strong id="army-bull" style="color:#44d79d">–</strong><span>sotilasta</span></div>
+ </div>
+ <canvas id="war-canvas" role="img" aria-label="Animoitu sadan asiantuntijasotilaan sota-areena"></canvas>
+ <div class="war-talk">
+  <div class="war-small" id="war-step">Odota markkinadatan latausta</div>
+  <div id="war-speaker">Kriittinen väittely</div>
+  <div id="war-speech">Jokainen rooli esittää kantansa ja vastapuoli haastaa näkemyksen. Sota visualisoi signaaleja, ei ennusta satunnaisesti.</div>
+ </div>
+ <div class="war-summary">
+  <div id="war-signal" style="color:#ecc870">Suunta: ODOTTAA</div>
+  <div class="war-small" id="war-conf">Kynttiläanalyysi latautuu</div>
+  <div class="war-small" id="war-indicators"></div>
+  <div class="war-small" id="war-counts">50 roolia · 100 sotilasta</div>
+  <div class="war-roster-head"><strong style="font-size:13px">Asiantuntijoiden perustelut</strong><button id="war-toggle-roles">Näytä 50 asiantuntijaa</button></div>
+  <div id="war-roles" hidden></div>
+  <div class="war-small">Vain vahvistetut sulkeutuneet 1m, 15m, 1h ja 4h kynttilät. Roolit ovat yhden mallin simuloituja analyysinäkökulmia, eivät 50 itsenäistä ammattilaista. Sota ei anna varmaa nousu-/laskuennustetta. Puuttuvat tiedot pysyvät epävarmoina. Ei automaattista oikean rahan kaupankäyntiä.</div>
+ </div>
+</section>
 <script>
 (()=>{"use strict";
 const URL="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp";
@@ -199,4 +267,6 @@ $("refresh").addEventListener("click",load);
 $("chart").addEventListener("click",e=>{if(!view.length)return;const rect=$("chart").getBoundingClientRect(),x=e.clientX-rect.left,count=Math.min(view.length,70),i=Math.floor((x-10)/((Math.max(300,rect.width)-10-83)/count));selected=Math.max(0,Math.min(count-1,i));paint();});
 window.addEventListener("resize",paint);load();setInterval(()=>{if(document.visibilityState==="visible")load()},20000);document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="visible")load()});
 })();
-</script></body></html>
+</script>
+<script src="/arena.js" defer></script>
+</body></html>
