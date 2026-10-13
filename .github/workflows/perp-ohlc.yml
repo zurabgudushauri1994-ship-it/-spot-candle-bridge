@@ -1,0 +1,37 @@
+name: Bybit PUMP Perpetual OHLCV
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'perp/**'
+      - '.github/workflows/perp-ohlc.yml'
+  schedule:
+    - cron: '2,17,32,47 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bybit-perp-ohlc
+  cancel-in-progress: false
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+        with:
+          python-version: '3.11'
+      - name: Fetch real PUMPFUNUSDT linear candles
+        run: python perp/fetch_ohlc.py
+      - name: Publish for ChatGPT
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/perp/latest.json data/perp/latest.md
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'Refresh Bybit PUMP perpetual OHLCV'
+          git pull --rebase origin main
+          git push origin HEAD:main
