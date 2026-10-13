@@ -90,6 +90,10 @@ function paint(){
 }
 
 const NATIVE="https://api.bybit.com/v5/market/kline";
+const LOCAL_KEY="pump-perp-ohclv-verified-";
+function saveLocal(tf,rows){try{localStorage.setItem(LOCAL_KEY+tf,JSON.stringify({storedAt:Date.now(),source:"bybit_v5_linear_perpetual",rows:rows.slice(-200)}))}catch(_){}}
+function getLocal(tf){try{const d=JSON.parse(localStorage.getItem(LOCAL_KEY+tf)||"null");return d?.source==="bybit_v5_linear_perpetual"?checked(d.rows,nativeTF(tf)):null}catch(_){return null}}
+function nativeTF(tf){return tf==="1440"?"D":tf}
 const ARCHIVE="https://raw.githubusercontent.com/zurabgudushauri1994-ship-it/-spot-candle-bridge/main/data/perp/latest.json";
 let pending=false;
 function nativeTF(tf){return tf==="1440"?"D":tf}
@@ -148,7 +152,7 @@ async function acquire(tf){
    verify(d);
    if(!archived&&Math.abs(stamp-Number(d.generated_at_ms))>180000)throw Error("Varayhteyden data on vanhaa");
    const key={"1":"1m","15":"15m","60":"1h","240":"4h"}[normalized];
-   const rows=key?d.timeframes?.[key]:convert(d,Number(normalized));
+   const rows=key?d.timeframes?.[key]:convert(d,Number(tf));
    return {rows:checked(rows,normalized),src:title,archived};
   }catch(e){errs.push(title+": "+e.message)}
  }
@@ -162,7 +166,7 @@ async function load(){
  try{
   const d=await acquire(tf);
   if($("tf").value!==tf){pending=true;return}
-  view=d.rows;selected=null;
+  view=d.rows;selected=null;saveLocal(tf,view);
   const last=candleEnd(view.at(-1)[0],norm),age=Date.now()-last;
   const stale=age>tfLen(norm)+120000;
   $("status").style.color=stale?"#ffadb1":"#bce5d2";
@@ -172,8 +176,13 @@ async function load(){
   if(stale)$("error").textContent="Tietoa näytetään vain historiallisena. Älä käytä sitä nykyisen treidin päätöksen perusteena.";
   paint();
  }catch(e){
-  view=[];$("status").style.color="#ffadb1";$("status").textContent="⚠ TUOREITA KYNTTILÖITÄ EI SAATU";
-  $("error").textContent=String(e.message||e);paint();
+  const archive=getLocal(tf);
+  view=archive||[];
+  selected=null;
+  $("status").style.color="#ffadb1";
+  $("status").textContent=archive?"⚠ OFFLINE · VAIN AIEMPI OHLC-HISTORIA":"⚠ TUOREITA KYNTTILÖITÄ EI SAATU";
+  $("error").textContent=String(e.message||e)+" · Ei kelpaa uudeksi treidisignaaliksi.";
+  paint();
  }finally{
   busy=false;$("refresh").disabled=false;
   if(pending){pending=false;load()}
