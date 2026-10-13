@@ -67,8 +67,63 @@ def rows_for(frame: str, period: int, limit: int, now_ms: int) -> list[list]:
     return ordered
 
 
+WORKER_URL = "https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp"
+
+
+def fetch_worker(now_ms: int) -> dict:
+    """Prefer the existing Frankfurt-hosted, read-only Bybit proxy."""
+    req = Request(WORKER_URL, headers={"Accept": "application/json", "User-Agent": "PUMP-Perp-Candle-Reader/1.0"})
+    with urlopen(req, timeout=45) as reply:
+        payload = json.load(reply)
+    if not isinstance(payload, dict) or payload.get("status") != "ok":
+        raise RuntimeError("Worker did not return verified perpetual candles")
+    if payload.get("source") != "bybit_v5_linear_perpetual" or payload.get("market_type") != "linear_perpetual":
+        raise ValueError("Worker source mismatch; spot substitution prohibited")
+    if payload.get("symbol") != SYMBOL or payload.get("category") != CATEGORY:
+        raise ValueError("Worker market mismatch")
+    ts = int(payload.get("generated_at_ms", 0))
+    if abs(now_ms - ts) > 120_000:
+        raise ValueError("Worker snapshot older than two minutes")
+    raw_frames = payload.get("timeframes", {})
+    verified_frames = {}
+    for name, (period, limit) in FRAMES.items():
+        raw = raw_frames.get(name)
+        if not isinstance(raw, list) or len(raw) < 20:
+            raise ValueError("Worker missing candle history for " + name)
+        prev = None
+        rows = []
+        for row in raw:
+            start = int(row[0])
+            if prev is not None and start - prev != period * 60_000:
+                raise ValueError("Worker data gap for " + name)
+            prev = start
+            if start + period * 60_000 > ts - 3000:
+                raise ValueError("Worker included unfinished candle")
+            op, hi, lo, cl, vol = [float(x) for x in row[1:6]]
+            if not (lo > 0 and lo <= min(op, cl) and max(op, cl) <= hi and vol >= 0):
+                raise ValueError("Invalid Worker OHLCV")
+            rows.append([start, *[str(x) for x in row[1:6]]])
+        if now_ms - (rows[-1][0] + period * 60_000) > (period * 120_000 + 120_000):
+            raise ValueError("Stale Worker timeframe " + name)
+        verified_frames[name] = rows[-limit:]
+    return {
+        "status": "ok", "source": "bybit_v5_linear_perpetual_via_cloudflare_worker",
+        "symbol": SYMBOL, "category": CATEGORY,
+        "generated_at_ms": ts, "generated_at_utc": utc(ts),
+        "columns": ["open_time_ms", "open", "high", "low", "close", "base_volume"],
+        "timeframes": verified_frames,
+        "last_closed_utc": {name: utc(frames[-1][0] + FRAMES[name][0] * 60000)
+                            for name, frames in verified_frames.items()},
+        "note": "Closed Bybit linear perpetual trade-price OHLCV. Intrabar event ordering and mark-price triggers unverified."
+    }
+
+
 def build() -> dict:
     now_ms = int(time.time() * 1000)
+    try:
+        return fetch_worker(now_ms)
+    except Exception as exc:
+        print("Cloudflare Bybit perpetual bridge unavailable; trying direct Bybit:", str(exc)[:220])
     instrument = fetch("/v5/market/instruments-info", {"category": CATEGORY, "symbol": SYMBOL})
     found = [x for x in instrument.get("result", {}).get("list", []) if x.get("symbol") == SYMBOL]
     if not found or found[0].get("status") != "Trading":
