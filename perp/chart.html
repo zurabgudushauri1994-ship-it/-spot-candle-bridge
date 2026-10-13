@@ -23,14 +23,14 @@ a{color:#9fd6ff}
 <option value="1">1 min</option><option value="3">3 min</option><option value="5">5 min</option>
 <option value="15">15 min</option><option value="30">30 min</option><option value="60">1 h</option>
 <option value="120">2 h</option><option value="240">4 h</option><option value="360">6 h</option>
-<option value="720">12 h</option><option value="1440">1 päivä</option>
+<option value="720">12 h</option><option value="1440">1 päivä</option><option value="W">1 viikko</option><option value="M">1 kuukausi</option>
 </select></label>
 <button id="refresh">↻ Päivitä nyt</button></div>
 <div id="status" role="status">Ladataan tuoreita Bybit-kynttilöitä…</div>
 <div id="error"></div>
 <canvas id="chart"></canvas>
 <div class="stats" id="stats"></div>
-<small>Lähde: <a href="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp" target="_blank" rel="noopener">oma Bybit-perpetual-lukija</a>. Väliarvot 3m/5m/30m/2h/6h/12h/1d yhdistetään pienemmistä täydellisistä Bybit-kynttilöistä UTC-rajoilla. Näytetään vain sulkeutuneita kynttilöitä. Reaaliaikaisuus tarkistetaan aikaleimasta; GitHubin tallennettu raportti ei ole live-hinta.</small>
+<small>Lähde: <a href="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp" target="_blank" rel="noopener">oma Bybit-perpetual-lukija</a>. Uusi Worker-versio hakee jokaisen aikavälin suoraan Bybitiltä. Vanhempi Worker yhdistää tarvittaessa 3m/5m/30m/2h/6h/12h/1d kynttilöitä täydellisistä OHLC-arvoista. Näytetään vain sulkeutuneita kynttilöitä. Reaaliaikaisuus tarkistetaan aikaleimasta; GitHubin tallennettu raportti ei ole live-hinta.</small>
 <script>
 (()=>{"use strict";
 const URL="https://spot-candle-bridge.zurab-gudushauri1994.workers.dev/perp";
@@ -88,31 +88,57 @@ function paint(){
  const el=document.createElement("span");el.textContent=k+": "+v;$("stats").appendChild(el);
  }
 }
-function recalc(){
- if(!payload)return;
- const interval=Number($("tf").value);view=convert(payload,interval);selected=null;
- if(view.length<4)throw Error("Liian vähän täydellisiä kynttilöitä tällä aikavälillä");
- const newest=view.at(-1)[0]+interval*60000;
- const now=Date.now(),age=now-newest;
- if(age>Math.max(3*60000,interval*60000+2*60000))$("status").textContent+=" • HUOM: valitun aikavälin viimeinen valmis kynttilä on vanha.";
- paint();
+function rowsFromNative(d) {
+ if(d.status!=="ok"||d.source!=="bybit_v5_linear_perpetual"||d.market_type!=="linear_perpetual"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||!Array.isArray(d.rows))throw Error("Bybit Perpetual -lähde ei täsmää");
+ return d.rows.map(r=>r.map(Number));
+}
+async function getJSON(url) {
+ const ctl=new AbortController(),timer=setTimeout(()=>ctl.abort(),12000);
+ try{
+  const res=await fetch(url,{cache:"no-store",signal:ctl.signal,headers:{Accept:"application/json"}});
+  if(!res.ok)throw Error("HTTP "+res.status);
+  return await res.json();
+ }finally{clearTimeout(timer);}
+}
+function validatePayload(d){
+ if(d.status!=="ok"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||d.market_type!=="linear_perpetual"||!["bybit_v5_linear_perpetual","bybit_v5_linear_perpetual_via_cloudflare_worker"].includes(d.source))
+ throw Error("Lähde ei ole vahvistettua Bybitin Perpetual-dataa");
+ const ago=Date.now()-Number(d.generated_at_ms);
+ if(ago< -120000||ago>180000)throw Error("Tietosyöte ei ole ajantasainen ("+Math.round(ago/60000)+" min)");
 }
 async function load(){
- if(busy)return;busy=true;$("refresh").disabled=true;$("error").textContent="";$("status").textContent="Haetaan Bybitiltä…";
+ if(busy)return;busy=true;$("refresh").disabled=true;$("error").textContent="";$("status").textContent="Haetaan sulkeutuneet kynttilät…";
+ const tf=$("tf").value,bybitInterval=tf==="1440"?"D":tf,stamp=Date.now();
+ let problem="";
  try{
- const r=await fetch(URL+"?cacheBust="+Date.now(),{cache:"no-store",headers:{Accept:"application/json"}});
- if(!r.ok)throw Error("Palvelin vastasi HTTP "+r.status);
- const d=await r.json();
- if(d.status!=="ok"||d.source!=="bybit_v5_linear_perpetual"||d.category!=="linear"||d.symbol!=="PUMPFUNUSDT"||d.market_type!=="linear_perpetual")throw Error("Lähdettä ei voitu vahvistaa Bybit perpetualiksi");
- const age=Date.now()-Number(d.generated_at_ms);
- if(age< -120000||age>180000)throw Error("Aikaleima on vanhentunut ("+Math.round(age/60000)+" minuuttia)");
- payload=d;
- $("status").textContent="Bybit Perpetual · raportti "+new Date(Number(d.generated_at_ms)).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki"})+" · Vahvistettu lähde";
- recalc();
- }catch(e){payload=null;view=[];$("status").textContent="Ei ajantasaista kynttilädataa";$("error").textContent=String(e.message||e);paint();}
+  let data,mode;
+  try{
+   data=await getJSON(URL.replace(/\/perp$/,"/perp-candles")+"?interval="+encodeURIComponent(bybitInterval)+"&t="+stamp);
+   validatePayload(data);
+   if(data.interval!==bybitInterval)throw Error("Aikavälin vahvistus epäonnistui");
+   view=rowsFromNative(data);mode="Bybitin oma "+tf+" -aikaväli";
+  }catch(e){
+   problem=String(e.message||e);
+   if(tf==="W"||tf==="M")throw Error("Viikko- ja kuukausikynttilät vaativat uuden Worker-version: "+problem);
+   data=await getJSON(URL+"?t="+stamp);
+   validatePayload(data);
+   view=convert(data,Number(tf));mode="Bybit OHLCV, yhdistetyt kynttilät";
+  }
+  if(view.length<4)throw Error("Liian vähän valmiita kynttilöitä");
+  payload=data;selected=null;
+  const lastClosed=data.rows?Date.parse(data.last_closed_utc):view.at(-1)[0]+Number(tf)*60000;
+  const period=tf==="W"?7*86400000:tf==="M"?31*86400000:Number(tf)*60000;
+  const age=Date.now()-lastClosed;
+  const label=new Date(Number(data.generated_at_ms)).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",hour:"2-digit",minute:"2-digit"});
+  $("status").textContent=mode+" · Haettu "+label+" · Viimeisin kynttilä sulkeutui "+
+     new Date(lastClosed).toLocaleString("fi-FI",{timeZone:"Europe/Helsinki",hour:"2-digit",minute:"2-digit"})+
+     (age>Math.max(180000,period+120000)?" · VANHENTUNUT KYNTTILÄ":" · Tuore");
+  $("status").style.color=age>Math.max(180000,period+120000)?"#ffb1b7":"#bce8d3";
+  paint();
+ }catch(e){payload=null;view=[];$("status").textContent="Ei ajantasaista kynttilädataa";$("status").style.color="#ffb1b7";$("error").textContent=String(e.message||e);paint();}
  finally{busy=false;$("refresh").disabled=false;}
 }
-$("tf").addEventListener("change",()=>{try{recalc();}catch(e){$("error").textContent=String(e.message||e);}});
+$("tf").addEventListener("change",load);
 $("refresh").addEventListener("click",load);
 $("chart").addEventListener("click",e=>{if(!view.length)return;const rect=$("chart").getBoundingClientRect(),x=e.clientX-rect.left,count=Math.min(view.length,70),i=Math.floor((x-10)/((Math.max(300,rect.width)-10-83)/count));selected=Math.max(0,Math.min(count-1,i));paint();});
 window.addEventListener("resize",paint);load();setInterval(load,60000);
