@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-15T15:08:42.186763+00:00
+Updated UTC: 2026-10-15T19:15:57.143074+00:00
 Status: ok | Source: binance_spot | analyzed: 99/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| ZKUSDT | 100 | ENTRY_CANDIDATE | 0.01722 | 0.01605 | 0.01956 | 58.8 | 2.33 |
-| PYTHUSDT | 100 | ENTRY_CANDIDATE | 0.08977 | 0.08063 | 0.10805 | 61.5 | 2.28 |
-| GRAMUSDT | 83 | WATCH | 1.372 | 1.331 | 1.454 | 68.0 | 1.43 |
-| FDUSDUSDT | 75 | WATCH | 0.9989 | 0.998 | 1.0007 | 75.0 | 4.91 |
-| QNTUSDT | 75 | WATCH | 205.78 | 192.65 | 232.04 | 63.0 | 3.68 |
-| FILUSDT | 75 | WATCH | 1.0566 | 0.9999 | 1.17 | 65.1 | 1.84 |
-| AVAUSDT | 75 | WATCH | 0.2803 | 0.2591 | 0.3227 | 68.8 | 2.61 |
-| ZAMAUSDT | 70 | WATCH | 0.0768 | 0.06929 | 0.09182 | 75.9 | 0.98 |
-| POLUSDT | 68 | WATCH | 0.0948 | 0.09136 | 0.10168 | 60.2 | 1.37 |
-| SNXXBUSDT | 68 | WATCH | 10.01 | 8.78 | 12.47 | 58.1 | 1.47 |
-| JTOUSDT | 65 | WATCH | 0.4629 | 0.4337 | 0.5213 | 54.5 | 3.21 |
-| XRPUSDT | 60 | WATCH | 1.3245 | 1.284 | 1.4055 | 59.1 | 1.07 |
-| SNDKBUSDT | 60 | WATCH | 1357.55 | 1278.31 | 1516.03 | 57.4 | 0.76 |
-| NILUSDT | 60 | WATCH | 0.08921 | 0.08414 | 0.09935 | 62.4 | 0.58 |
-| CRVUSDT | 60 | WATCH | 0.3498 | 0.3374 | 0.3746 | 48.7 | 0.63 |
-| DUSKUSDT | 60 | WATCH | 0.1156 | 0.1047 | 0.1374 | 76.6 | 1.67 |
-| OPENUSDT | 55 | WATCH | 0.0978 | 0.0951 | 0.1032 | 55.2 | 370.12 |
-| BTCUSDT | 50 | AVOID | - | - | - | 60.8 | 1.88 |
-| ETHUSDT | 50 | AVOID | - | - | - | 62.0 | 1.9 |
-| SOLUSDT | 50 | AVOID | - | - | - | 69.2 | 2.25 |
+| GRAMUSDT | 93 | ENTRY_CANDIDATE | 1.387 | 1.336 | 1.489 | 69.7 | 1.3 |
+| TRXUSDT | 85 | WATCH | 0.3325 | 0.3296 | 0.3383 | 66.7 | 0.71 |
+| AEROUSDT | 85 | WATCH | 0.9074 | 0.8455 | 1.0312 | 60.0 | 1.05 |
+| ONDOUSDT | 75 | WATCH | 0.4686 | 0.4251 | 0.5556 | 64.5 | 0.37 |
+| QQQBUSDT | 75 | WATCH | 728.59 | 718.04 | 749.69 | 64.3 | 0.71 |
+| HBARUSDT | 75 | WATCH | 0.08483 | 0.08054 | 0.09341 | 68.6 | 1.13 |
+| SKHYBUSDT | 75 | WATCH | 146.26 | 140.01 | 158.76 | 63.6 | 0.35 |
+| APTUSDT | 75 | WATCH | 0.836 | 0.7606 | 0.9868 | 56.9 | 1.6 |
+| TQQQBUSDT | 75 | WATCH | 73.82 | 70.6 | 80.26 | 63.5 | 0.13 |
+| PENDLEUSDT | 75 | WATCH | 2.103 | 1.931 | 2.447 | 62.9 | 0.3 |
+| SUSDT | 75 | WATCH | 0.05848 | 0.05224 | 0.07096 | 69.6 | 4.61 |
+| FILUSDT | 68 | WATCH | 1.1117 | 1.0076 | 1.3199 | 76.7 | 1.18 |
+| BNBUSDT | 65 | WATCH | 734.01 | 713.92 | 774.19 | 54.3 | 1.55 |
+| SOXLBUSDT | 65 | WATCH | 106.36 | 96.9 | 125.28 | 62.4 | 1.92 |
+| MUBUSDT | 65 | WATCH | 920.32 | 870.4 | 1020.16 | 59.2 | 1.72 |
+| CRCLBUSDT | 60 | WATCH | 86.26 | 77.58 | 103.62 | 66.9 | 0.14 |
+| ZROUSDT | 60 | WATCH | 2.129 | 1.813 | 2.761 | 57.1 | 0.44 |
+| ARBUSDT | 60 | WATCH | 0.1936 | 0.1728 | 0.2352 | 64.7 | 0.54 |
+| MSTRBUSDT | 60 | WATCH | 149.73 | 136.66 | 175.87 | 57.8 | 0.16 |
+| XPLUSDT | 60 | WATCH | 0.08673 | 0.08203 | 0.09613 | 63.4 | 0.68 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
