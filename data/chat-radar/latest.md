@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-15T00:37:25.198771+00:00
+Updated UTC: 2026-10-15T05:20:52.396584+00:00
 Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| UUSDT | 75 | WATCH | 1.0003 | 1.0001 | 1.0007 | 66.7 | 1.77 |
-| BERAUSDT | 75 | WATCH | 0.2433 | 0.2371 | 0.2557 | 59.6 | 4.16 |
-| GNSUSDT | 75 | WATCH | 0.557 | 0.501 | 0.669 | 67.0 | 3.37 |
-| NILUSDT | 60 | WATCH | 0.09136 | 0.08277 | 0.10854 | 56.5 | 0.29 |
-| XUSDUSDT | 60 | WATCH | 1.0012 | 1.001 | 1.0016 | 62.5 | 0.06 |
-| ZKUSDT | 60 | WATCH | 0.01595 | 0.01487 | 0.01811 | 93.1 | 2.48 |
-| USDCUSDT | 58 | WATCH | 1.00112 | 1.00098 | 1.0014 | 59.0 | 1.34 |
-| USD1USDT | 50 | AVOID | - | - | - | 56.7 | 0.85 |
-| BNBUSDT | 50 | AVOID | - | - | - | 68.9 | 0.45 |
-| RLUSDUSDT | 50 | AVOID | - | - | - | 66.7 | 0.01 |
-| MUBARAKUSDT | 50 | AVOID | - | - | - | 66.1 | 0.37 |
-| BATUSDT | 50 | AVOID | - | - | - | 57.0 | 1.82 |
-| MARSCOINUSDT | 50 | AVOID | - | - | - | 60.8 | 0.7 |
-| AEROUSDT | 50 | AVOID | - | - | - | 62.2 | 0.29 |
-| ASTERUSDT | 50 | AVOID | - | - | - | 53.4 | 0.53 |
-| MITOUSDT | 50 | AVOID | - | - | - | 60.6 | 1.78 |
-| APTUSDT | 48 | AVOID | - | - | - | 59.7 | 1.25 |
-| EURUSDT | 45 | AVOID | - | - | - | 86.8 | 0.74 |
-| GTCUSDT | 43 | AVOID | - | - | - | 48.7 | 1.21 |
-| HYPEUSDT | 40 | AVOID | - | - | - | 51.7 | 0.44 |
+| ZKUSDT | 60 | WATCH | 0.01811 | 0.01494 | 0.02445 | 73.7 | 1.59 |
+| NILUSDT | 60 | WATCH | 0.08748 | 0.0823 | 0.09784 | 53.3 | 0.45 |
+| PAXGUSDT | 50 | AVOID | - | - | - | 51.7 | 0.35 |
+| EURUSDT | 50 | AVOID | - | - | - | 53.1 | 0.25 |
+| PYTHUSDT | 50 | AVOID | - | - | - | 49.3 | 1.0 |
+| GLMRUSDT | 50 | AVOID | - | - | - | 53.3 | 1.06 |
+| USDCUSDT | 43 | AVOID | - | - | - | 49.1 | 1.18 |
+| USD1USDT | 40 | AVOID | - | - | - | 49.2 | 1.63 |
+| XAUTUSDT | 40 | AVOID | - | - | - | 53.8 | 0.19 |
+| QQQBUSDT | 40 | AVOID | - | - | - | 58.7 | 1.79 |
+| WALUSDT | 35 | AVOID | - | - | - | 32.6 | 1.87 |
+| INTCBUSDT | 33 | AVOID | - | - | - | 48.5 | 1.35 |
+| XUSDUSDT | 30 | AVOID | - | - | - | 44.4 | 0.0 |
+| SOXLBUSDT | 25 | AVOID | - | - | - | 53.9 | 0.58 |
+| NVDABUSDT | 25 | AVOID | - | - | - | 61.5 | 0.35 |
+| MUBARAKUSDT | 25 | AVOID | - | - | - | 37.1 | 0.6 |
+| EPICUSDT | 25 | AVOID | - | - | - | 57.6 | 0.97 |
+| GRAMUSDT | 25 | AVOID | - | - | - | 52.0 | 1.0 |
+| BATUSDT | 25 | AVOID | - | - | - | 62.4 | 0.45 |
+| TQQQBUSDT | 25 | AVOID | - | - | - | 57.8 | 0.53 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
