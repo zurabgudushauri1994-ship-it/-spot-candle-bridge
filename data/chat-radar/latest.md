@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-18T01:00:33.500251+00:00
+Updated UTC: 2026-10-18T05:50:33.345047+00:00
 Status: ok | Source: binance_spot | analyzed: 97/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USD1USDT | 60 | WATCH | 1.00029 | 1.00022 | 1.00043 | 61.1 | 0.37 |
-| UUSDT | 60 | WATCH | 1.0007 | 1.0005 | 1.0011 | 50.0 | 0.61 |
-| ERAUSDT | 60 | WATCH | 0.0695 | 0.0614 | 0.0857 | 94.3 | 3.82 |
-| GTCUSDT | 50 | AVOID | - | - | - | 55.9 | 1.6 |
-| FDUSDUSDT | 50 | AVOID | - | - | - | 66.7 | 2.34 |
-| GRAMUSDT | 50 | AVOID | - | - | - | 59.4 | 0.38 |
-| DUSKUSDT | 50 | AVOID | - | - | - | 69.5 | 0.67 |
-| RSRUSDT | 45 | AVOID | - | - | - | 70.7 | 0.76 |
-| MEGAUSDT | 45 | AVOID | - | - | - | 54.6 | 1.61 |
-| ETHFIUSDT | 45 | AVOID | - | - | - | 65.0 | 0.68 |
-| LSKUSDT | 43 | AVOID | - | - | - | 80.5 | 1.2 |
-| USDCUSDT | 35 | AVOID | - | - | - | 52.6 | 0.1 |
-| INJUSDT | 35 | AVOID | - | - | - | 85.9 | 7.56 |
-| RLUSDUSDT | 35 | AVOID | - | - | - | 57.1 | 0.0 |
-| HBARUSDT | 35 | AVOID | - | - | - | 73.3 | 0.5 |
-| MSTRBUSDT | 35 | AVOID | - | - | - | 75.5 | 0.11 |
-| AMPUSDT | 35 | AVOID | - | - | - | 51.2 | 0.2 |
-| OGNUSDT | 35 | AVOID | - | - | - | 76.3 | 0.41 |
-| AXLUSDT | 35 | AVOID | - | - | - | 51.0 | 0.38 |
-| EIGENUSDT | 33 | AVOID | - | - | - | 59.3 | 1.43 |
+| AVAUSDT | 60 | WATCH | 0.395 | 0.3661 | 0.4528 | 60.1 | 0.38 |
+| GTCUSDT | 60 | WATCH | 0.27767 | 0.228 | 0.37701 | 60.5 | 0.63 |
+| MUBARAKUSDT | 58 | WATCH | 0.05644 | 0.05547 | 0.05838 | 61.9 | 1.29 |
+| AXLUSDT | 50 | AVOID | - | - | - | 48.8 | 4.9 |
+| AMPUSDT | 50 | AVOID | - | - | - | 64.4 | 0.5 |
+| SANDUSDT | 45 | AVOID | - | - | - | 84.9 | 0.86 |
+| ASTERUSDT | 43 | AVOID | - | - | - | 55.0 | 1.46 |
+| BTCUSDT | 35 | AVOID | - | - | - | 50.5 | 0.44 |
+| ERAUSDT | 35 | AVOID | - | - | - | 42.6 | 0.51 |
+| BCHUSDT | 35 | AVOID | - | - | - | 45.0 | 1.67 |
+| PAXGUSDT | 35 | AVOID | - | - | - | 87.5 | 0.26 |
+| EURUSDT | 35 | AVOID | - | - | - | 70.0 | 0.98 |
+| DUSKUSDT | 35 | AVOID | - | - | - | 51.0 | 0.52 |
+| ETHUSDT | 33 | AVOID | - | - | - | 49.2 | 1.3 |
+| XAUTUSDT | 33 | AVOID | - | - | - | 95.7 | 1.17 |
+| LINKUSDT | 30 | AVOID | - | - | - | 49.0 | 1.66 |
+| USDCUSDT | 25 | AVOID | - | - | - | 57.1 | 0.39 |
+| NEARUSDT | 25 | AVOID | - | - | - | 49.3 | 0.37 |
+| BNBUSDT | 25 | AVOID | - | - | - | 47.9 | 1.59 |
+| KORUBUSDT | 25 | AVOID | - | - | - | 64.5 | 0.45 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
