@@ -1,9 +1,9 @@
 {
   "schema_version": "1.0",
   "status": "ok",
-  "generated_at_utc": "2026-10-18T09:40:56.413696+00:00",
-  "input_generated_at_utc": "2026-10-18T09:40:46.875Z",
-  "input_sha256": "f2762786200e13283fb5e0fc076f7109d51482505fc5c0ec8ecf63029a4013bc",
+  "generated_at_utc": "2026-10-18T13:36:41.343581+00:00",
+  "input_generated_at_utc": "2026-10-18T13:36:34.016Z",
+  "input_sha256": "6cb56fbe71360656687cb1b085443905d0f6c2f1800c4b8d0faf320a0f7d6ff5",
   "source": "bybit_spot",
   "model": {
     "id": "NeoQuasar/Kronos-mini",
@@ -26,271 +26,157 @@
     "BTCUSDT": {
       "15m": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:30:00Z",
+        "last_closed_at_utc": "2026-10-18T13:30:00Z",
         "technical": {
-          "last_close": 82020.5,
-          "ema20": 81776.19205105932,
-          "ema50": 81699.11748097057,
-          "rsi14": 68.79547562321719,
-          "atr14": 106.46215530174604,
-          "macd_histogram": 19.08431677373521,
-          "volume_vs_previous20": 1.2477286034270774,
-          "trend": "up",
-          "breakout_previous20": false
-        },
-        "forecast": {
-          "status": "rejected",
-          "reason": "model_generated_invalid_ohlcv",
-          "invalid_paths": 5
-        },
-        "evaluation": {
-          "cutoffs": 3,
-          "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.09718701894437928,
-          "flat_price_close_mae_pct": 0.09301830539066523,
-          "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 2,
-          "validation_status": "small_holdout_smoke_test_only",
-          "profitable_after_costs": "not_tested"
-        }
-      },
-      "1h": {
-        "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:00:00Z",
-        "technical": {
-          "last_close": 81730.5,
-          "ema20": 81645.50066981153,
-          "ema50": 81695.80575070085,
-          "rsi14": 53.06803587300267,
-          "atr14": 238.3456130459983,
-          "macd_histogram": 29.23608006375572,
-          "volume_vs_previous20": 0.7410976377699905,
+          "last_close": 81566.9,
+          "ema20": 81944.71357427422,
+          "ema50": 81853.39340650968,
+          "rsi14": 30.864638496001703,
+          "atr14": 123.7795611090815,
+          "macd_histogram": -55.263773701166365,
+          "volume_vs_previous20": 2.3390963449555433,
           "trend": "mixed",
           "breakout_previous20": false
         },
         "forecast": {
           "status": "ok",
           "future_open_times_utc": [
-            "2026-10-18T09:00:00Z",
-            "2026-10-18T10:00:00Z",
-            "2026-10-18T11:00:00Z",
-            "2026-10-18T12:00:00Z"
+            "2026-10-18T13:30:00Z",
+            "2026-10-18T13:45:00Z",
+            "2026-10-18T14:00:00Z",
+            "2026-10-18T14:15:00Z"
           ],
           "median_ohlcv": [
             [
-              81742.046875,
-              81836.8046875,
-              81535.0703125,
-              81665.359375,
-              161.3905792236328
+              81616.5859375,
+              81727.5859375,
+              81522.6015625,
+              81611.1640625,
+              121.61175537109375
             ],
             [
-              81671.890625,
-              81791.8046875,
-              81542.25,
-              81648.0546875,
-              127.75741577148438
+              81555.375,
+              81726.0234375,
+              81398.2890625,
+              81622.4375,
+              84.95597076416016
             ],
             [
-              81700.234375,
-              81840.765625,
-              81585.5078125,
-              81749.015625,
-              135.454833984375
+              81648.5234375,
+              81702.265625,
+              81548.2265625,
+              81585.546875,
+              98.34129333496094
             ],
             [
-              81751.328125,
-              81870.6640625,
-              81560.6328125,
-              81651.0859375,
-              277.2654724121094
+              81612.4765625,
+              81704.3515625,
+              81546.6640625,
+              81618.5078125,
+              62.714271545410156
             ]
           ],
           "close_min": [
-            81654.078125,
-            81584.765625,
-            81307.046875,
-            80977.953125
+            81525.21875,
+            81480.8046875,
+            81440.3203125,
+            81435.296875
           ],
           "close_max": [
-            81758.5703125,
-            81862.375,
-            81976.8671875,
-            81865.28125
+            81745.2890625,
+            81702.6171875,
+            81721.609375,
+            81835.9296875
           ],
           "sampled_close_paths": [
             [
-              81758.5703125,
-              81862.375,
-              81976.8671875,
-              81865.28125
+              81704.9296875,
+              81622.4375,
+              81585.546875,
+              81705.6171875
             ],
             [
-              81665.359375,
-              81726.4140625,
-              81752.40625,
-              81651.0859375
+              81611.1640625,
+              81594.046875,
+              81471.421875,
+              81435.296875
             ],
             [
-              81705.296875,
-              81648.0546875,
-              81749.015625,
-              81760.75
+              81525.21875,
+              81641.1015625,
+              81657.8359375,
+              81618.5078125
             ],
             [
-              81654.078125,
-              81631.515625,
-              81307.046875,
-              80977.953125
+              81568.65625,
+              81480.8046875,
+              81440.3203125,
+              81444.453125
             ],
             [
-              81665.359375,
-              81584.765625,
-              81336.640625,
-              81186.109375
+              81745.2890625,
+              81702.6171875,
+              81721.609375,
+              81835.9296875
             ]
           ],
           "sampled_paths": 5,
           "dispersion_is_calibrated_confidence_interval": false,
-          "terminal_median_return_pct": -0.09716576125191612,
-          "bias": "down"
+          "terminal_median_return_pct": 0.06327053314518771,
+          "bias": "up"
         },
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.2829598599373098,
-          "flat_price_close_mae_pct": 0.24965139753173443,
+          "kronos_close_mae_pct": 0.18036461092916778,
+          "flat_price_close_mae_pct": 0.14607128491196747,
           "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 2,
+          "direction_correct_cutoffs": 1,
+          "validation_status": "small_holdout_smoke_test_only",
+          "profitable_after_costs": "not_tested"
+        }
+      },
+      "1h": {
+        "input_candles": 200,
+        "last_closed_at_utc": "2026-10-18T13:00:00Z",
+        "technical": {
+          "last_close": 81975.3,
+          "ema20": 81782.75470846015,
+          "ema50": 81750.53811212574,
+          "rsi14": 57.31514639514933,
+          "atr14": 244.39140742264772,
+          "macd_histogram": 47.885079813099125,
+          "volume_vs_previous20": 0.6711227693507527,
+          "trend": "up",
+          "breakout_previous20": false
+        },
+        "forecast": {
+          "status": "rejected",
+          "reason": "model_generated_invalid_ohlcv",
+          "invalid_paths": 1
+        },
+        "evaluation": {
+          "cutoffs": 3,
+          "predicted_candles_per_cutoff": 4,
+          "kronos_close_mae_pct": 0.3611564840577456,
+          "flat_price_close_mae_pct": 0.27861096494014276,
+          "beats_flat_on_this_sample": false,
+          "direction_correct_cutoffs": 1,
           "validation_status": "small_holdout_smoke_test_only",
           "profitable_after_costs": "not_tested"
         }
       },
       "4h": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T08:00:00Z",
+        "last_closed_at_utc": "2026-10-18T12:00:00Z",
         "technical": {
-          "last_close": 81682.9,
-          "ema20": 81877.95726066643,
-          "ema50": 82426.51774371626,
-          "rsi14": 46.250993698499904,
-          "atr14": 729.0167974965533,
-          "macd_histogram": 43.30129469569317,
-          "volume_vs_previous20": 0.38569560175921724,
-          "trend": "down",
-          "breakout_previous20": false
-        },
-        "forecast": {
-          "status": "ok",
-          "future_open_times_utc": [
-            "2026-10-18T08:00:00Z",
-            "2026-10-18T12:00:00Z",
-            "2026-10-18T16:00:00Z",
-            "2026-10-18T20:00:00Z"
-          ],
-          "median_ohlcv": [
-            [
-              81816.109375,
-              81951.328125,
-              81381.0078125,
-              81591.015625,
-              714.0457763671875
-            ],
-            [
-              81580.984375,
-              81790.59375,
-              81111.0859375,
-              81588.3203125,
-              651.7935791015625
-            ],
-            [
-              81467.234375,
-              81651.625,
-              81004.6640625,
-              81326.5,
-              982.0238037109375
-            ],
-            [
-              81281.1953125,
-              81507.7265625,
-              80802.4375,
-              81070.828125,
-              790.802001953125
-            ]
-          ],
-          "close_min": [
-            81240.7109375,
-            81080.1171875,
-            80243.9140625,
-            80461.453125
-          ],
-          "close_max": [
-            81802.9140625,
-            82091.5546875,
-            82119.2734375,
-            81594.1953125
-          ],
-          "sampled_close_paths": [
-            [
-              81240.7109375,
-              81080.1171875,
-              80243.9140625,
-              80461.453125
-            ],
-            [
-              81455.21875,
-              81432.125,
-              81028.0625,
-              80475.1484375
-            ],
-            [
-              81728.0078125,
-              81654.6015625,
-              81453.0078125,
-              81070.828125
-            ],
-            [
-              81802.9140625,
-              82091.5546875,
-              82119.2734375,
-              81594.1953125
-            ],
-            [
-              81591.015625,
-              81588.3203125,
-              81326.5,
-              81248.9140625
-            ]
-          ],
-          "sampled_paths": 5,
-          "dispersion_is_calibrated_confidence_interval": false,
-          "terminal_median_return_pct": -0.7493268174856627,
-          "bias": "down"
-        },
-        "evaluation": {
-          "cutoffs": 3,
-          "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.5229972401501892,
-          "flat_price_close_mae_pct": 0.45433008166447425,
-          "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 2,
-          "validation_status": "small_holdout_smoke_test_only",
-          "profitable_after_costs": "not_tested"
-        }
-      }
-    },
-    "SOLUSDT": {
-      "15m": {
-        "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:30:00Z",
-        "technical": {
-          "last_close": 103.91,
-          "ema20": 103.55802447014725,
-          "ema50": 103.65496826042934,
-          "rsi14": 57.93834468254497,
-          "atr14": 0.3267589688810914,
-          "macd_histogram": 0.026183538297295222,
-          "volume_vs_previous20": 0.573585521330886,
+          "last_close": 82062.5,
+          "ema20": 81895.5327581301,
+          "ema50": 82411.99117589027,
+          "rsi14": 50.45963823199653,
+          "atr14": 722.8228351256774,
+          "macd_histogram": 71.6354212382937,
+          "volume_vs_previous20": 0.7606189494345599,
           "trend": "mixed",
           "breakout_previous20": false
         },
@@ -302,232 +188,264 @@
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.2014601469931937,
-          "flat_price_close_mae_pct": 0.21534449370435865,
-          "beats_flat_on_this_sample": true,
-          "direction_correct_cutoffs": 3,
+          "kronos_close_mae_pct": 0.7007731468797975,
+          "flat_price_close_mae_pct": 0.5924402567054249,
+          "beats_flat_on_this_sample": false,
+          "direction_correct_cutoffs": 1,
+          "validation_status": "small_holdout_smoke_test_only",
+          "profitable_after_costs": "not_tested"
+        }
+      }
+    },
+    "SOLUSDT": {
+      "15m": {
+        "input_candles": 200,
+        "last_closed_at_utc": "2026-10-18T13:30:00Z",
+        "technical": {
+          "last_close": 102.98,
+          "ema20": 103.85408325410128,
+          "ema50": 103.80627813454267,
+          "rsi14": 33.06317688791225,
+          "atr14": 0.3487534252386527,
+          "macd_histogram": -0.0779435189705533,
+          "volume_vs_previous20": 1.5407128171206084,
+          "trend": "mixed",
+          "breakout_previous20": false
+        },
+        "forecast": {
+          "status": "ok",
+          "future_open_times_utc": [
+            "2026-10-18T13:30:00Z",
+            "2026-10-18T13:45:00Z",
+            "2026-10-18T14:00:00Z",
+            "2026-10-18T14:15:00Z"
+          ],
+          "median_ohlcv": [
+            [
+              103.21817016601562,
+              103.53667449951172,
+              102.9117202758789,
+              103.29324340820312,
+              2175.7197265625
+            ],
+            [
+              103.39698028564453,
+              103.58231353759766,
+              103.16010284423828,
+              103.40255737304688,
+              1084.4510498046875
+            ],
+            [
+              103.41609191894531,
+              103.56915283203125,
+              103.12852478027344,
+              103.36183166503906,
+              1452.96533203125
+            ],
+            [
+              103.3603515625,
+              103.56035614013672,
+              103.10543823242188,
+              103.34310913085938,
+              1400.0748291015625
+            ]
+          ],
+          "close_min": [
+            103.03327178955078,
+            103.15313720703125,
+            103.10460662841797,
+            103.20821380615234
+          ],
+          "close_max": [
+            103.4871597290039,
+            103.50595092773438,
+            103.79606628417969,
+            103.78119659423828
+          ],
+          "sampled_close_paths": [
+            [
+              103.4871597290039,
+              103.50595092773438,
+              103.79606628417969,
+              103.78119659423828
+            ],
+            [
+              103.03327178955078,
+              103.15313720703125,
+              103.10460662841797,
+              103.34310913085938
+            ],
+            [
+              103.29324340820312,
+              103.40255737304688,
+              103.5403060913086,
+              103.20821380615234
+            ],
+            [
+              103.25611114501953,
+              103.41535949707031,
+              103.32879638671875,
+              103.2840805053711
+            ],
+            [
+              103.41153717041016,
+              103.37947082519531,
+              103.36183166503906,
+              103.3792724609375
+            ]
+          ],
+          "sampled_paths": 5,
+          "dispersion_is_calibrated_confidence_interval": false,
+          "terminal_median_return_pct": 0.35260160308736577,
+          "bias": "up"
+        },
+        "evaluation": {
+          "cutoffs": 3,
+          "predicted_candles_per_cutoff": 4,
+          "kronos_close_mae_pct": 0.36350122239608096,
+          "flat_price_close_mae_pct": 0.2510651830159496,
+          "beats_flat_on_this_sample": false,
+          "direction_correct_cutoffs": 2,
           "validation_status": "small_holdout_smoke_test_only",
           "profitable_after_costs": "not_tested"
         }
       },
       "1h": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:00:00Z",
+        "last_closed_at_utc": "2026-10-18T13:00:00Z",
         "technical": {
-          "last_close": 103.19,
-          "ema20": 103.75391174227433,
-          "ema50": 104.2130129283685,
-          "rsi14": 43.07163742322464,
-          "atr14": 0.7119772813794953,
-          "macd_histogram": 0.001818978581156705,
-          "volume_vs_previous20": 0.4329917811307504,
-          "trend": "down",
+          "last_close": 104.06,
+          "ema20": 103.83634674988764,
+          "ema50": 104.18203241693953,
+          "rsi14": 51.720737531866874,
+          "atr14": 0.6883970935192348,
+          "macd_histogram": 0.08625772338142029,
+          "volume_vs_previous20": 2.154696215470683,
+          "trend": "mixed",
           "breakout_previous20": false
         },
         "forecast": {
-          "status": "ok",
-          "future_open_times_utc": [
-            "2026-10-18T09:00:00Z",
-            "2026-10-18T10:00:00Z",
-            "2026-10-18T11:00:00Z",
-            "2026-10-18T12:00:00Z"
-          ],
-          "median_ohlcv": [
-            [
-              103.3179931640625,
-              103.70104217529297,
-              103.03227233886719,
-              103.36296081542969,
-              3587.9541015625
-            ],
-            [
-              103.11763000488281,
-              103.71732330322266,
-              102.69783782958984,
-              103.41138458251953,
-              5078.162109375
-            ],
-            [
-              103.52098083496094,
-              103.75813293457031,
-              102.81015014648438,
-              103.10089111328125,
-              8581.017578125
-            ],
-            [
-              103.46493530273438,
-              103.67880249023438,
-              102.13679504394531,
-              102.65251922607422,
-              11420.8046875
-            ]
-          ],
-          "close_min": [
-            103.17362976074219,
-            102.20428466796875,
-            102.3294906616211,
-            102.0210952758789
-          ],
-          "close_max": [
-            103.6621322631836,
-            103.56322479248047,
-            103.51438903808594,
-            103.40731048583984
-          ],
-          "sampled_close_paths": [
-            [
-              103.17362976074219,
-              102.20428466796875,
-              102.3294906616211,
-              102.8883056640625
-            ],
-            [
-              103.3506088256836,
-              103.37997436523438,
-              102.79071044921875,
-              102.65251922607422
-            ],
-            [
-              103.6621322631836,
-              103.48894500732422,
-              103.14278411865234,
-              102.0210952758789
-            ],
-            [
-              103.36296081542969,
-              103.56322479248047,
-              103.10089111328125,
-              102.34075164794922
-            ],
-            [
-              103.39912414550781,
-              103.41138458251953,
-              103.51438903808594,
-              103.40731048583984
-            ]
-          ],
-          "sampled_paths": 5,
-          "dispersion_is_calibrated_confidence_interval": false,
-          "terminal_median_return_pct": -0.5208651748481286,
-          "bias": "down"
+          "status": "rejected",
+          "reason": "model_generated_invalid_ohlcv",
+          "invalid_paths": 1
         },
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.7002710771322327,
-          "flat_price_close_mae_pct": 0.6742839388704804,
+          "kronos_close_mae_pct": 0.6130811857289553,
+          "flat_price_close_mae_pct": 0.5760948020258753,
           "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 1,
+          "direction_correct_cutoffs": 2,
           "validation_status": "small_holdout_smoke_test_only",
           "profitable_after_costs": "not_tested"
         }
       },
       "4h": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T08:00:00Z",
+        "last_closed_at_utc": "2026-10-18T12:00:00Z",
         "technical": {
-          "last_close": 103.29,
-          "ema20": 104.76198951990602,
-          "ema50": 107.12949223579683,
-          "rsi14": 41.68932248021826,
-          "atr14": 1.8081091942808014,
-          "macd_histogram": 0.07523311649726261,
-          "volume_vs_previous20": 0.27746659925045,
+          "last_close": 103.94,
+          "ema20": 104.6837048014745,
+          "ema50": 107.00404214245714,
+          "rsi14": 44.717579912261016,
+          "atr14": 1.7761013069337703,
+          "macd_histogram": 0.09047167298008452,
+          "volume_vs_previous20": 0.9146849535582934,
           "trend": "down",
           "breakout_previous20": false
         },
         "forecast": {
           "status": "ok",
           "future_open_times_utc": [
-            "2026-10-18T08:00:00Z",
             "2026-10-18T12:00:00Z",
             "2026-10-18T16:00:00Z",
-            "2026-10-18T20:00:00Z"
+            "2026-10-18T20:00:00Z",
+            "2026-10-19T00:00:00Z"
           ],
           "median_ohlcv": [
             [
-              104.18072509765625,
-              104.38373565673828,
-              103.07147216796875,
-              103.52305603027344,
-              26557.44921875
+              103.76070404052734,
+              104.06244659423828,
+              102.70234680175781,
+              103.23329162597656,
+              33434.3203125
             ],
             [
-              103.48014068603516,
-              103.98695373535156,
-              102.26629638671875,
-              103.00402069091797,
-              35088.07421875
+              103.18406677246094,
+              103.74363708496094,
+              102.06861877441406,
+              102.78451538085938,
+              38069.76171875
             ],
             [
-              103.71698760986328,
-              104.25770568847656,
-              102.01097106933594,
-              102.72561645507812,
-              65026.62109375
+              102.5291748046875,
+              103.49528503417969,
+              101.5842056274414,
+              102.52948760986328,
+              33068.87890625
             ],
             [
-              102.9963607788086,
-              103.35933685302734,
-              101.72871398925781,
-              102.15191650390625,
-              46768.4296875
+              102.77948760986328,
+              102.93955993652344,
+              101.56198120117188,
+              101.97563171386719,
+              47082.1875
             ]
           ],
           "close_min": [
-            103.0640869140625,
-            102.03326416015625,
-            102.47380065917969,
-            101.26603698730469
+            102.65931701660156,
+            101.77991485595703,
+            101.73480987548828,
+            100.97555541992188
           ],
           "close_max": [
-            104.962890625,
-            103.7459945678711,
-            103.50981903076172,
-            103.65263366699219
+            104.77043151855469,
+            104.14251708984375,
+            103.76309204101562,
+            103.54976654052734
           ],
           "sampled_close_paths": [
             [
-              104.5413818359375,
-              103.62965393066406,
-              103.50981903076172,
-              103.3531723022461
+              104.43253326416016,
+              104.14251708984375,
+              103.76309204101562,
+              103.54976654052734
             ],
             [
-              103.0640869140625,
-              102.03326416015625,
-              102.72561645507812,
-              103.65263366699219
+              102.65931701660156,
+              101.77991485595703,
+              102.52948760986328,
+              103.45526885986328
             ],
             [
-              104.962890625,
-              103.7459945678711,
-              102.95848846435547,
-              102.15191650390625
+              104.77043151855469,
+              103.59091186523438,
+              102.77075958251953,
+              101.97563171386719
             ],
             [
-              103.52305603027344,
-              103.00402069091797,
-              102.47380065917969,
-              101.26603698730469
+              103.23329162597656,
+              102.78451538085938,
+              101.73480987548828,
+              100.97555541992188
             ],
             [
-              103.52042388916016,
-              102.7945327758789,
-              102.69862365722656,
-              101.96878051757812
+              103.20083618164062,
+              102.5695571899414,
+              102.06696319580078,
+              101.48143768310547
             ]
           ],
           "sampled_paths": 5,
           "dispersion_is_calibrated_confidence_interval": false,
-          "terminal_median_return_pct": -1.101833184329326,
+          "terminal_median_return_pct": -1.8899059901219983,
           "bias": "down"
         },
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.980782193186659,
-          "flat_price_close_mae_pct": 0.9300390099074604,
+          "kronos_close_mae_pct": 1.2469405827009803,
+          "flat_price_close_mae_pct": 1.1327503708349431,
           "beats_flat_on_this_sample": false,
           "direction_correct_cutoffs": 3,
           "validation_status": "small_holdout_smoke_test_only",
@@ -538,16 +456,16 @@
     "PUMPUSDT": {
       "15m": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:30:00Z",
+        "last_closed_at_utc": "2026-10-18T13:30:00Z",
         "technical": {
-          "last_close": 0.004303,
-          "ema20": 0.004295890995967007,
-          "ema50": 0.00433391206709438,
-          "rsi14": 49.67523061984842,
-          "atr14": 2.656660344574819e-05,
-          "macd_histogram": 5.036016273025093e-06,
-          "volume_vs_previous20": 2.9003493317057085,
-          "trend": "mixed",
+          "last_close": 0.004254,
+          "ema20": 0.004287884504856621,
+          "ema50": 0.004314150782857548,
+          "rsi14": 37.84123384163074,
+          "atr14": 2.506777034288028e-05,
+          "macd_histogram": -4.2503435507728705e-06,
+          "volume_vs_previous20": 0.3811135902631578,
+          "trend": "down",
           "breakout_previous20": false
         },
         "forecast": {
@@ -558,25 +476,55 @@
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 0.5883552700294209,
-          "flat_price_close_mae_pct": 0.352611668493684,
-          "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 1,
+          "kronos_close_mae_pct": 0.43854928883644906,
+          "flat_price_close_mae_pct": 0.5609551482221284,
+          "beats_flat_on_this_sample": true,
+          "direction_correct_cutoffs": 2,
           "validation_status": "small_holdout_smoke_test_only",
           "profitable_after_costs": "not_tested"
         }
       },
       "1h": {
         "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T09:00:00Z",
+        "last_closed_at_utc": "2026-10-18T13:00:00Z",
         "technical": {
-          "last_close": 0.004275,
-          "ema20": 0.004368637235749978,
-          "ema50": 0.004448610393505764,
-          "rsi14": 35.87868087027189,
-          "atr14": 6.896867739817501e-05,
-          "macd_histogram": -8.993054831386014e-06,
-          "volume_vs_previous20": 0.251805509482341,
+          "last_close": 0.00427,
+          "ema20": 0.00434444260993197,
+          "ema50": 0.004426174526585978,
+          "rsi14": 37.74160882787834,
+          "atr14": 6.411108675744842e-05,
+          "macd_histogram": -8.5376372807621e-07,
+          "volume_vs_previous20": 0.2163390389224575,
+          "trend": "down",
+          "breakout_previous20": false
+        },
+        "forecast": {
+          "status": "rejected",
+          "reason": "model_generated_invalid_ohlcv",
+          "invalid_paths": 2
+        },
+        "evaluation": {
+          "cutoffs": 3,
+          "predicted_candles_per_cutoff": 4,
+          "kronos_close_mae_pct": 1.312749107103657,
+          "flat_price_close_mae_pct": 0.6342955807237454,
+          "beats_flat_on_this_sample": false,
+          "direction_correct_cutoffs": 3,
+          "validation_status": "small_holdout_smoke_test_only",
+          "profitable_after_costs": "not_tested"
+        }
+      },
+      "4h": {
+        "input_candles": 200,
+        "last_closed_at_utc": "2026-10-18T12:00:00Z",
+        "technical": {
+          "last_close": 0.004285,
+          "ema20": 0.004509813145379715,
+          "ema50": 0.004852597641550927,
+          "rsi14": 36.98683053549722,
+          "atr14": 0.00017542241894331982,
+          "macd_histogram": 1.0968587943192674e-05,
+          "volume_vs_previous20": 0.39498041450868626,
           "trend": "down",
           "breakout_previous20": false
         },
@@ -588,122 +536,10 @@
         "evaluation": {
           "cutoffs": 3,
           "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 1.2208477600511287,
-          "flat_price_close_mae_pct": 1.3708075595956581,
+          "kronos_close_mae_pct": 2.798625520164522,
+          "flat_price_close_mae_pct": 3.037937959000215,
           "beats_flat_on_this_sample": true,
-          "direction_correct_cutoffs": 3,
-          "validation_status": "small_holdout_smoke_test_only",
-          "profitable_after_costs": "not_tested"
-        }
-      },
-      "4h": {
-        "input_candles": 200,
-        "last_closed_at_utc": "2026-10-18T08:00:00Z",
-        "technical": {
-          "last_close": 0.004279,
-          "ema20": 0.004533477687171145,
-          "ema50": 0.004875791748491092,
-          "rsi14": 36.6914404735179,
-          "atr14": 0.00018214721606897455,
-          "macd_histogram": 1.5092458239986725e-05,
-          "volume_vs_previous20": 0.3076681892527532,
-          "trend": "down",
-          "breakout_previous20": false
-        },
-        "forecast": {
-          "status": "ok",
-          "future_open_times_utc": [
-            "2026-10-18T08:00:00Z",
-            "2026-10-18T12:00:00Z",
-            "2026-10-18T16:00:00Z",
-            "2026-10-18T20:00:00Z"
-          ],
-          "median_ohlcv": [
-            [
-              0.004289599601179361,
-              0.004313929937779903,
-              0.004184866789728403,
-              0.004231971688568592,
-              195107664.0
-            ],
-            [
-              0.0042129927314817905,
-              0.0042381901293993,
-              0.004031590651720762,
-              0.00412744702771306,
-              206875424.0
-            ],
-            [
-              0.004080737009644508,
-              0.0041881138458848,
-              0.003999588545411825,
-              0.004090455360710621,
-              157936000.0
-            ],
-            [
-              0.004061179701238871,
-              0.004110325593501329,
-              0.003981221001595259,
-              0.004025396890938282,
-              257468576.0
-            ]
-          ],
-          "close_min": [
-            0.004159476142376661,
-            0.004080107435584068,
-            0.0038135647773742676,
-            0.00391557440161705
-          ],
-          "close_max": [
-            0.004425920080393553,
-            0.004394846502691507,
-            0.0044587114825844765,
-            0.0045056515373289585
-          ],
-          "sampled_close_paths": [
-            [
-              0.004425920080393553,
-              0.004394846502691507,
-              0.0044587114825844765,
-              0.0045056515373289585
-            ],
-            [
-              0.004201837815344334,
-              0.00412744702771306,
-              0.004119998775422573,
-              0.004113973584026098
-            ],
-            [
-              0.0042655980214476585,
-              0.004080107435584068,
-              0.0038135647773742676,
-              0.00391557440161705
-            ],
-            [
-              0.004231971688568592,
-              0.004094522446393967,
-              0.004040341824293137,
-              0.004025396890938282
-            ],
-            [
-              0.004159476142376661,
-              0.004172397777438164,
-              0.004090455360710621,
-              0.003948455676436424
-            ]
-          ],
-          "sampled_paths": 5,
-          "dispersion_is_calibrated_confidence_interval": false,
-          "terminal_median_return_pct": -5.926691027382979,
-          "bias": "down"
-        },
-        "evaluation": {
-          "cutoffs": 3,
-          "predicted_candles_per_cutoff": 4,
-          "kronos_close_mae_pct": 4.179849465836982,
-          "flat_price_close_mae_pct": 2.1918751325713624,
-          "beats_flat_on_this_sample": false,
-          "direction_correct_cutoffs": 3,
+          "direction_correct_cutoffs": 2,
           "validation_status": "small_holdout_smoke_test_only",
           "profitable_after_costs": "not_tested"
         }
@@ -711,5 +547,5 @@
     }
   },
   "automatic_trading": false,
-  "runtime_seconds": 9.74
+  "runtime_seconds": 11.23
 }
