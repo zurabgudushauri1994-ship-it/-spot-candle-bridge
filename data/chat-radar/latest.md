@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-18T14:04:16.378968+00:00
+Updated UTC: 2026-10-18T17:19:39.443805+00:00
 Status: ok | Source: binance_spot | analyzed: 97/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USDCUSDT | 75 | WATCH | 1.00123 | 1.00113 | 1.00143 | 62.5 | 5.12 |
-| EURUSDT | 75 | WATCH | 1.1248 | 1.1244679 | 1.1254643 | 66.7 | 1.73 |
-| AVAUSDT | 60 | WATCH | 0.4169 | 0.3607 | 0.5293 | 63.5 | 0.9 |
-| AMPUSDT | 60 | WATCH | 0.000743 | 0.000708 | 0.000813 | 51.0 | 0.09 |
-| LTCUSDT | 55 | WATCH | 59.71 | 58.87 | 61.39 | 58.8 | 2.2 |
-| OGNUSDT | 40 | AVOID | - | - | - | 58.5 | 1.56 |
-| SANDUSDT | 35 | AVOID | - | - | - | 57.3 | 0.93 |
-| GTCUSDT | 35 | AVOID | - | - | - | 56.1 | 1.08 |
-| RLUSDUSDT | 35 | AVOID | - | - | - | 60.0 | 0.04 |
-| SUSDT | 35 | AVOID | - | - | - | 50.1 | 0.45 |
-| FDUSDUSDT | 30 | AVOID | - | - | - | 50.0 | 0.47 |
-| USD1USDT | 25 | AVOID | - | - | - | 45.5 | 2.63 |
-| ASTERUSDT | 25 | AVOID | - | - | - | 33.8 | 2.49 |
-| ALTUSDT | 25 | AVOID | - | - | - | 50.0 | 1.11 |
-| EPICUSDT | 25 | AVOID | - | - | - | 60.6 | 0.55 |
-| MUBARAKUSDT | 25 | AVOID | - | - | - | 52.3 | 0.54 |
-| BATUSDT | 25 | AVOID | - | - | - | 46.0 | 1.65 |
-| DASHUSDT | 25 | AVOID | - | - | - | 36.0 | 1.92 |
-| DUSKUSDT | 25 | AVOID | - | - | - | 39.9 | 1.92 |
-| HBARUSDT | 20 | AVOID | - | - | - | 42.7 | 0.66 |
+| MUBARAKUSDT | 75 | WATCH | 0.05666 | 0.05455 | 0.06088 | 65.2 | 2.73 |
+| AMPUSDT | 60 | WATCH | 0.000753 | 0.000724 | 0.000811 | 56.9 | 0.35 |
+| EPICUSDT | 50 | AVOID | - | - | - | 78.5 | 2.03 |
+| ACMUSDT | 50 | AVOID | - | - | - | 57.9 | 0.22 |
+| ALTUSDT | 43 | AVOID | - | - | - | 62.5 | 1.3 |
+| FETUSDT | 40 | AVOID | - | - | - | 49.1 | 2.59 |
+| EIGENUSDT | 40 | AVOID | - | - | - | 58.0 | 2.15 |
+| WLFIUSDT | 35 | AVOID | - | - | - | 50.0 | 0.99 |
+| USD1USDT | 33 | AVOID | - | - | - | 61.4 | 1.31 |
+| GTCUSDT | 30 | AVOID | - | - | - | 45.9 | 0.68 |
+| NEARUSDT | 25 | AVOID | - | - | - | 48.2 | 0.83 |
+| TRXUSDT | 25 | AVOID | - | - | - | 50.0 | 0.18 |
+| TIAUSDT | 25 | AVOID | - | - | - | 48.5 | 0.38 |
+| INJUSDT | 25 | AVOID | - | - | - | 51.6 | 0.37 |
+| ASTERUSDT | 25 | AVOID | - | - | - | 55.7 | 0.29 |
+| ADAUSDT | 25 | AVOID | - | - | - | 48.1 | 0.89 |
+| ARBUSDT | 25 | AVOID | - | - | - | 49.4 | 1.1 |
+| INTCBUSDT | 25 | AVOID | - | - | - | 24.3 | 2.14 |
+| ETHFIUSDT | 25 | AVOID | - | - | - | 50.0 | 0.74 |
+| AVAUSDT | 20 | AVOID | - | - | - | 19.8 | 0.87 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
