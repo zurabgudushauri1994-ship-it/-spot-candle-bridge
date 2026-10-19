@@ -5,6 +5,7 @@ import json
 import time
 from pathlib import Path
 from urllib.parse import urlencode
+from urllib.error import HTTPError
 from urllib.request import Request, urlopen
 
 import pandas as pd
@@ -19,13 +20,17 @@ COLS = ["time", "open", "high", "low", "close", "volume"]
 def _get(url: str, query: dict) -> object:
     req = Request(url + "?" + urlencode(query), headers={"User-Agent": "LattiaKattoBacktest/1.0"})
     err: Exception | None = None
-    for attempt in range(4):
+    for attempt in range(3):
         try:
-            with urlopen(req, timeout=20) as r:
+            with urlopen(req, timeout=10) as r:
                 return json.load(r)
-        except Exception as exc:  # network hiccup or HTTP error
+        except HTTPError as exc:
+            if exc.code in (400, 403, 404, 451):  # geo-block or unknown symbol: fail fast
+                raise RuntimeError(f"{url}: HTTP {exc.code}") from exc
             err = exc
-            time.sleep(2 ** attempt)
+        except Exception as exc:  # network hiccup
+            err = exc
+        time.sleep(0.5 * (attempt + 1))
     raise RuntimeError(f"{url}: {err}")
 
 
@@ -37,7 +42,6 @@ def binance(symbol: str, tf: str, start_ms: int, end_ms: int) -> list[list]:
             break
         rows += [[int(x[0]), *map(float, x[1:6])] for x in page]
         cur = int(page[-1][0]) + MINUTES[tf] * 60_000
-        time.sleep(0.05)
     return rows
 
 
@@ -53,7 +57,6 @@ def bybit(symbol: str, tf: str, start_ms: int, end_ms: int) -> list[list]:
                     break
                 rows += [[int(x[0]), *map(float, x[1:6])] for x in lst]
                 end = min(int(x[0]) for x in lst) - 1
-                time.sleep(0.05)
             if rows:
                 return rows
         except RuntimeError:

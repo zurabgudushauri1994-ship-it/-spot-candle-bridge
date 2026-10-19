@@ -9,7 +9,7 @@ import argparse
 import json
 import os
 import time
-from concurrent.futures import ProcessPoolExecutor
+from concurrent.futures import ProcessPoolExecutor, ThreadPoolExecutor
 from pathlib import Path
 
 import numpy as np
@@ -170,10 +170,11 @@ def main() -> None:
     out.mkdir(parents=True, exist_ok=True)
 
     sources = {}
-    for sym in args.symbols.split(","):
-        for tf in BASE_TFS:
-            df, src = fetch.load(sym, tf, START, END, cache)
-            print(f"{sym} {tf}: {len(df)} bars from {src}", flush=True)
+    markets = [(sym, tf) for sym in args.symbols.split(",") for tf in BASE_TFS]
+    with ThreadPoolExecutor(max_workers=12) as pool:
+        loaded = pool.map(lambda m: (m, *fetch.load(m[0], m[1], START, END, cache)), markets)
+        for (sym, tf), df, src in loaded:
+            print(f"{sym} {tf}: {len(df)} bars from {src} ({time.time() - t0:.0f}s)", flush=True)
             if len(df) >= 400:
                 DATA[(sym, tf)] = df
                 sources[(sym, tf)] = (src, len(df))

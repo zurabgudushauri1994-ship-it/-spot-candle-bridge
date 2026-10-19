@@ -25,7 +25,12 @@ jobs:
           key: lattia-katto-candles-2023-01-01-2026-10-18-v1
       - name: Engine tests
         run: python -m unittest tests/test_lattia_katto.py -v
+      - name: Probe data endpoints
+        run: |
+          curl -s -o /dev/null -w 'binance %{http_code}\n' 'https://data-api.binance.vision/api/v3/klines?symbol=BTCUSDT&interval=1h&limit=2' || true
+          curl -s -o /dev/null -w 'bybit %{http_code}\n' 'https://api.bybit.com/v5/market/kline?category=spot&symbol=BTCUSDT&interval=60&limit=2' || true
       - name: Backtest
+        timeout-minutes: 30
         run: python -m backtest.run --out data/lattia-katto
       - name: Save results to branch
         run: |
