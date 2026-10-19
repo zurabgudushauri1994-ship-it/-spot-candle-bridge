@@ -1,0 +1,238 @@
+//@version=6
+strategy("Lattia & Katto v3 — Universaali", shorttitle="Lattia&Katto v3", overlay=true,
+     initial_capital=1000, default_qty_type=strategy.percent_of_equity, default_qty_value=10,
+     commission_type=strategy.commission.percent, commission_value=0.1, slippage=1, pyramiding=0)
+
+// ═══════════════════════════════════════════════════════════════
+// 1. ASETUKSET
+// ═══════════════════════════════════════════════════════════════
+grp_lvl = "📏 Tasot (lattia & katto)"
+level_mode  = input.string("Automaattinen", "Tasojen lähde", options=["Automaattinen", "Pivot", "Manuaalinen"], group=grp_lvl,
+     tooltip="Automaattinen = N kynttilän ylin/alin (toimii millä tahansa tokenilla).\nPivot = viimeisimmät käännepisteet (vakaampi laatikko).\nManuaalinen = omat tasot alta.")
+auto_len    = input.int(50, "Laatikon pituus (kynttilää)", minval=10, group=grp_lvl)
+piv_len     = input.int(10, "Pivot-herkkyys (kynttilää)", minval=2, group=grp_lvl)
+man_ceiling = input.price(0.0, "Manuaalinen katto", group=grp_lvl, tooltip="Vain Manuaalinen-tilassa. Jos tasot puuttuvat tai ovat ristiin, käytetään automaattisia.")
+man_floor   = input.price(0.0, "Manuaalinen lattia", group=grp_lvl)
+zone_atr    = input.float(0.5, "Ostoalueen puskuri (× ATR)", minval=0.0, step=0.1, group=grp_lvl,
+     tooltip="ATR mukautuu tokenin volatiliteettiin, joten sama arvo toimii sekä BTC:llä että meemikolikoilla.")
+
+grp_flt = "🛡️ Suodattimet"
+use_vol   = input.bool(true, "Läpimurto vaatii volyymia", group=grp_flt, inline="vol")
+vol_mult  = input.float(1.3, "× keskiarvo", minval=1.0, step=0.1, group=grp_flt, inline="vol")
+use_trend = input.bool(false, "Vain EMA:n yläpuolella", group=grp_flt, inline="ema")
+ema_len   = input.int(200, "EMA", minval=10, group=grp_flt, inline="ema")
+min_rr    = input.float(1.5, "Pompun minimi tuotto/riski", minval=0.5, step=0.1, group=grp_flt,
+     tooltip="Pomppukauppa ohitetaan, jos matka kattoon on liian lyhyt stoppiin nähden.")
+cooldown  = input.int(10, "Jäähy kauppojen välillä (kynttilää)", minval=0, group=grp_flt,
+     tooltip="Lasketaan sekä oston että myynnin jälkeen. Estää sahaamisen samalla tasolla.")
+
+grp_risk = "🎯 Riski & tavoite"
+atr_len   = input.int(14, "ATR-pituus", minval=1, group=grp_risk)
+sl_b_atr  = input.float(1.0, "Pompun stop lattian alle (× ATR)", minval=0.1, step=0.1, group=grp_risk)
+sl_m_atr  = input.float(1.0, "Murron stop katon alle (× ATR)", minval=0.1, step=0.1, group=grp_risk)
+tp_m_rr   = input.float(2.5, "Murron tavoite (× riski)", minval=0.5, step=0.5, group=grp_risk)
+be_rr     = input.float(1.0, "Stop omiin, kun voitto ≥ (× riski)", minval=0.0, step=0.5, group=grp_risk, tooltip="0 = pois päältä")
+size_mode = input.string("% pääomasta", "Positiokoko", options=["% pääomasta", "Riski % per kauppa"], group=grp_risk,
+     tooltip="% pääomasta = Ominaisuudet-välilehden asetus.\nRiski % = koko lasketaan niin, että stoppiin osuessa menetät valitun osuuden pääomasta (ilman vipua).")
+risk_pct  = input.float(1.0, "Riski per kauppa (%)", minval=0.1, step=0.1, group=grp_risk)
+
+grp_vis = "🎨 Ulkoasu"
+show_dash = input.bool(true, "Kojelauta", group=grp_vis, inline="d")
+dash_pos  = input.string("Oikea ylä", "", options=["Oikea ylä", "Oikea ala", "Vasen ylä", "Vasen ala"], group=grp_vis, inline="d")
+show_mid  = input.bool(true, "Keskiviiva", group=grp_vis)
+c_ceil    = input.color(#ef5350, "Katto", group=grp_vis, inline="c")
+c_floor   = input.color(#26a69a, "Lattia", group=grp_vis, inline="c")
+c_break   = input.color(#2962ff, "Murto", group=grp_vis, inline="c")
+
+// ═══════════════════════════════════════════════════════════════
+// 2. LASKENTA
+// ═══════════════════════════════════════════════════════════════
+atr    = ta.atr(atr_len)
+ema    = ta.ema(close, ema_len)
+rsi    = ta.rsi(close, 14)
+vol_ma = ta.sma(volume, 20)
+[macd_line, sig_line, hist] = ta.macd(close, 12, 26, 9)
+
+// Automaattinen laatikko (edellisten N kynttilän ylin/alin)
+auto_ceil  = ta.highest(high, auto_len)[1]
+auto_floor = ta.lowest(low, auto_len)[1]
+
+// Pivot-laatikko (viimeisin vahvistettu käännepiste)
+ph = ta.pivothigh(high, piv_len, piv_len)
+pl = ta.pivotlow(low, piv_len, piv_len)
+var float piv_ceil  = na
+var float piv_floor = na
+if not na(ph)
+    piv_ceil := ph
+if not na(pl)
+    piv_floor := pl
+
+manual_ok = man_floor > 0 and man_ceiling > man_floor
+
+float ceil_raw = switch level_mode
+    "Pivot"       => piv_ceil
+    "Manuaalinen" => manual_ok ? man_ceiling : na
+    => auto_ceil
+float floor_raw = switch level_mode
+    "Pivot"       => piv_floor
+    "Manuaalinen" => manual_ok ? man_floor : na
+    => auto_floor
+
+// Jos valittu lähde ei anna järkevää laatikkoa, käytetään automaattista
+box_ok    = not na(ceil_raw) and not na(floor_raw) and ceil_raw > floor_raw
+lvl_ceil  = box_ok ? ceil_raw  : auto_ceil
+lvl_floor = box_ok ? floor_raw : auto_floor
+lvl_mid   = (lvl_ceil + lvl_floor) / 2
+zone      = atr * zone_atr
+floor_top = lvl_floor + zone
+box_pct   = (lvl_ceil - lvl_floor) / lvl_floor * 100
+
+momentum_up  = hist > hist[1] or macd_line > sig_line
+strong_green = close > open and (close - open) > (high - low) * 0.5
+has_volume   = not na(vol_ma) and vol_ma > 0   // indekseillä/forexilla ei aina ole volyymia
+volume_ok    = not use_vol or not has_volume or volume > vol_ma * vol_mult
+trend_ok     = not use_trend or close > ema
+cross_up     = ta.crossover(close, lvl_ceil)
+
+// ═══════════════════════════════════════════════════════════════
+// 3. POSITION TILA & JÄÄHY
+// ═══════════════════════════════════════════════════════════════
+var float  active_sl = na
+var float  active_tp = na
+var float  init_risk = na
+var string trade_id  = ""
+var bool   be_done   = false
+var int    last_event_bar = na
+
+// Kauppa sulkeutui → nollaa tasot ja käynnistä jäähy
+if strategy.closedtrades > strategy.closedtrades[1]
+    last_event_bar := bar_index
+    if strategy.position_size == 0
+        active_sl := na
+        active_tp := na
+        init_risk := na
+
+flat        = strategy.position_size == 0
+in_pos      = strategy.position_size > 0
+cooldown_ok = na(last_event_bar) or bar_index - last_event_bar >= cooldown
+
+// ═══════════════════════════════════════════════════════════════
+// 4. OSTOSIGNAALIT
+// ═══════════════════════════════════════════════════════════════
+// A: Lattiapomppu — käynti lattian tuntumassa (tai valepudotus) ja vahva paluu
+bounce_sl  = math.min(low, lvl_floor) - atr * sl_b_atr
+bounce_rr  = (lvl_ceil - close) / math.max(close - bounce_sl, syminfo.mintick)
+swept      = low <= floor_top
+reclaimed  = close > lvl_floor and close < lvl_mid and strong_green
+sig_bounce = swept and reclaimed and momentum_up and trend_ok and bounce_rr >= min_rr and cooldown_ok and flat
+
+// B: Katon läpimurto — selvä sulkeutuminen katon yli, volyymi ja järkevä RSI
+break_sl     = lvl_ceil - atr * sl_m_atr
+sig_breakout = cross_up and strong_green and volume_ok and rsi > 45 and rsi < 70 and momentum_up and trend_ok and cooldown_ok and flat
+
+// ═══════════════════════════════════════════════════════════════
+// 5. KAUPANKÄYNTI
+// ═══════════════════════════════════════════════════════════════
+fmt(x) => str.tostring(x, format.mintick)
+
+calc_qty(entry, sl) =>
+    float q = na   // na = käytä Ominaisuudet-välilehden kokoa
+    if size_mode == "Riski % per kauppa" and entry > sl
+        q := strategy.equity * risk_pct / 100 / ((entry - sl) * syminfo.pointvalue)
+        q := math.min(q, strategy.equity / (entry * syminfo.pointvalue))   // ei vipua
+    q
+
+if sig_bounce
+    trade_id       := "Pomppu"
+    active_sl      := bounce_sl
+    active_tp      := lvl_ceil
+    init_risk      := close - bounce_sl
+    be_done        := false
+    last_event_bar := bar_index
+    strategy.entry(trade_id, strategy.long, qty=calc_qty(close, bounce_sl), comment="🟢 Pomppu")
+    alert("🟢 Lattiapomppu " + syminfo.ticker + " @ " + fmt(close) + " | SL " + fmt(active_sl) + " | TP " + fmt(active_tp), alert.freq_once_per_bar_close)
+
+if sig_breakout
+    trade_id       := "Murto"
+    active_sl      := break_sl
+    active_tp      := close + (close - break_sl) * tp_m_rr
+    init_risk      := close - break_sl
+    be_done        := false
+    last_event_bar := bar_index
+    strategy.entry(trade_id, strategy.long, qty=calc_qty(close, break_sl), comment="🚀 Murto")
+    alert("🚀 Katon läpimurto " + syminfo.ticker + " @ " + fmt(close) + " | SL " + fmt(active_sl) + " | TP " + fmt(active_tp), alert.freq_once_per_bar_close)
+
+// Stop omiin, kun hinta on kulkenut riittävästi voitolle
+if in_pos and be_rr > 0 and not be_done and not na(init_risk)
+    entry_px = strategy.position_avg_price
+    if high >= entry_px + init_risk * be_rr
+        active_sl := math.max(active_sl, entry_px)
+        be_done   := true
+
+// Päivitetään stop/tavoite joka kynttilällä
+if in_pos or sig_bounce or sig_breakout
+    strategy.exit("Ulos " + trade_id, trade_id, stop=active_sl, limit=active_tp, comment_loss="🛑 Stop", comment_profit="🎯 Tavoite")
+
+// ═══════════════════════════════════════════════════════════════
+// 6. VISUAALISUUS
+// ═══════════════════════════════════════════════════════════════
+p_ceil  = plot(lvl_ceil, "Katto", color=c_ceil, linewidth=2, style=plot.style_linebr)
+p_floor = plot(lvl_floor, "Lattia", color=c_floor, linewidth=2, style=plot.style_linebr)
+p_zone  = plot(floor_top, "Ostoalue", color=na, editable=false)
+plot(show_mid ? lvl_mid : na, "Keskiviiva", color=color.new(color.gray, 55), style=plot.style_circles, linewidth=1)
+fill(p_ceil, p_floor, lvl_ceil, lvl_floor, color.new(c_ceil, 93), color.new(c_floor, 93), title="Laatikko")
+fill(p_floor, p_zone, color=color.new(c_floor, 80), title="Ostoalue")
+
+plot(in_pos ? active_sl : na, "Stop-Loss", color=color.new(#f23645, 0), style=plot.style_linebr, linewidth=1)
+plot(in_pos ? active_tp : na, "Take-Profit", color=color.new(#089981, 0), style=plot.style_linebr, linewidth=1)
+
+plotshape(sig_bounce, "Pomppu", shape.triangleup, location.belowbar, c_floor, size=size.tiny)
+plotshape(sig_breakout, "Murto", shape.triangleup, location.belowbar, c_break, size=size.tiny)
+
+// ═══════════════════════════════════════════════════════════════
+// 7. KOJELAUTA
+// ═══════════════════════════════════════════════════════════════
+pos_of(s) =>
+    switch s
+        "Oikea ala" => position.bottom_right
+        "Vasen ylä" => position.top_left
+        "Vasen ala" => position.bottom_left
+        => position.top_right
+
+var table dash = table.new(pos_of(dash_pos), 2, 8, bgcolor=color.new(#131722, 15), frame_color=color.new(color.gray, 60), frame_width=1, border_color=color.new(color.gray, 85), border_width=1)
+
+row(r, k, v, vc) =>
+    table.cell(dash, 0, r, k, text_color=color.new(color.white, 40), text_size=size.small, text_halign=text.align_left)
+    table.cell(dash, 1, r, v, text_color=vc, text_size=size.small, text_halign=text.align_right)
+
+if barstate.islast and show_dash
+    string st  = "🟡 Odota — laatikon keskellä"
+    color  stc = color.yellow
+    if in_pos
+        pnl = (close / strategy.position_avg_price - 1) * 100
+        st  := (pnl >= 0 ? "📈 " : "📉 ") + trade_id + " auki " + (pnl >= 0 ? "+" : "") + str.tostring(pnl, "0.00") + " %"
+        stc := pnl >= 0 ? color.lime : color.red
+    else if close < lvl_floor - zone
+        st  := "⚠️ Lattian alla — odota paluuta"
+        stc := color.red
+    else if close <= floor_top
+        st  := "🟢 Ostoalue — lattian tuntumassa"
+        stc := color.lime
+    else if close > lvl_ceil + zone
+        st  := "🚀 Läpimurto — katon yläpuolella"
+        stc := c_break
+    else if close >= lvl_ceil - zone
+        st  := "🔥 Katon testi — tarkkaile"
+        stc := color.orange
+
+    src_txt = level_mode == "Manuaalinen" and not manual_ok ? "Manuaalinen ⚠️ → auto" : level_mode
+
+    table.cell(dash, 0, 0, "LATTIA & KATTO", text_color=color.white, text_size=size.small, text_halign=text.align_left)
+    table.cell(dash, 1, 0, syminfo.ticker + " · " + timeframe.period, text_color=color.new(color.white, 40), text_size=size.small, text_halign=text.align_right)
+    row(1, "Tila", st, stc)
+    row(2, "Katto", fmt(lvl_ceil), c_ceil)
+    row(3, "Lattia", fmt(lvl_floor), c_floor)
+    row(4, "Laatikko", str.tostring(box_pct, "0.0") + " % · " + src_txt, color.silver)
+    row(5, "Momentum", momentum_up ? "🟢 Nouseva" : "🔴 Laskeva", momentum_up ? color.lime : color.red)
+    row(6, "RSI", str.tostring(rsi, "0"), rsi > 70 ? color.red : rsi < 30 ? color.lime : color.silver)
+    row(7, "Trendi (EMA " + str.tostring(ema_len) + ")", close > ema ? "▲ Yläpuolella" : "▼ Alapuolella", close > ema ? color.lime : color.red)
