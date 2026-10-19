@@ -2,7 +2,7 @@ name: Strategy research
 on:
   push:
     branches: [claude/lattia-katto-v3]
-    paths: ['backtest/strategies.py', 'backtest/research.py', '.github/workflows/strategy-research.yml']
+    paths: ['backtest/strategies.py', 'backtest/research.py', 'backtest/robustness.py', '.github/workflows/strategy-research.yml']
   workflow_dispatch:
 permissions:
   contents: write
@@ -32,6 +32,9 @@ jobs:
       - name: Backtest
         timeout-minutes: 20
         run: python -m backtest.research --out data/strategy-research
+      - name: Robustness checks
+        timeout-minutes: 15
+        run: python -m backtest.robustness --out data/strategy-research
       - name: Save results to branch
         run: |
           git config user.name 'github-actions[bot]'

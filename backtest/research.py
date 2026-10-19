@@ -97,16 +97,22 @@ def yearly(ret: pd.Series) -> dict:
     return {str(y): float((1 + g).prod() - 1) * 100 for y, g in ret.groupby(ret.index.year)}
 
 
-def per_coin_job(name: str) -> dict:
-    close, r_oo, eligible = PANEL["close"], PANEL["r_oo"], PANEL["eligible"]
-    fn = PER_COIN[name]
-    pos = pd.DataFrame(0.0, index=close.index, columns=close.columns)
-    for coin in close.columns:
+def coin_weights(fn, coins=None) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Per-coin positions (full capital each) and their equal-weight portfolio weights."""
+    close, eligible = PANEL["close"], PANEL["eligible"]
+    coins = list(close.columns) if coins is None else coins
+    pos = pd.DataFrame(0.0, index=close.index, columns=coins)
+    for coin in coins:
         df = PANEL["ohlc"][coin]
         pos.loc[df.index, coin] = 1.0 if fn is None else fn(df).fillna(0.0).to_numpy()
-    pos = pos.where(eligible, 0.0)
-    n_active = eligible.sum(axis=1).replace(0, np.nan)
-    w = pos.div(n_active, axis=0).fillna(0.0)
+    pos = pos.where(eligible[coins], 0.0)
+    n_active = eligible[coins].sum(axis=1).replace(0, np.nan)
+    return pos, pos.div(n_active, axis=0).fillna(0.0)
+
+
+def per_coin_job(name: str) -> dict:
+    close, r_oo, eligible = PANEL["close"], PANEL["r_oo"], PANEL["eligible"]
+    pos, w = coin_weights(PER_COIN[name])
     ret, expo = portfolio_returns(w, r_oo)
     coins = {}
     for coin in close.columns:   # each coin on its own, full capital, after its first year
@@ -181,17 +187,9 @@ def build(results: list[dict]) -> tuple[list[dict], str]:
     return rows, "\n".join(L) + "\n"
 
 
-def main() -> None:
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--out", default="data/strategy-research")
-    ap.add_argument("--cache", default=".cache/candles")
-    args = ap.parse_args()
-    t0 = time.time()
-    out = Path(args.out)
-    out.mkdir(parents=True, exist_ok=True)
-
+def load_panel(cache: Path) -> None:
     with ThreadPoolExecutor(max_workers=12) as pool:
-        loaded = list(pool.map(lambda c: (c, *fetch.load(c, "1d", START, END, Path(args.cache))), COINS))
+        loaded = list(pool.map(lambda c: (c, *fetch.load(c, "1d", START, END, cache)), COINS))
     ohlc = {}
     for coin, df, src in loaded:
         print(f"{coin}: {len(df)} days from {src}", flush=True)
@@ -203,6 +201,18 @@ def main() -> None:
     PANEL.update(ohlc=ohlc, close=close,
                  r_oo=(opn.shift(-1) / opn - 1).fillna(0.0),
                  eligible=close.notna() & (close.notna().cumsum() > MIN_HISTORY))
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--out", default="data/strategy-research")
+    ap.add_argument("--cache", default=".cache/candles")
+    args = ap.parse_args()
+    t0 = time.time()
+    out = Path(args.out)
+    out.mkdir(parents=True, exist_ok=True)
+
+    load_panel(Path(args.cache))
 
     with ProcessPoolExecutor() as pool:
         results = list(pool.map(per_coin_job, PER_COIN)) + list(pool.map(xs_job, XS))
