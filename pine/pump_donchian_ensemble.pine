@@ -1,0 +1,63 @@
+//@version=6
+strategy("PUMP Trendiporras — Donchian-ensemble", shorttitle="Trendiporras", overlay=true, max_bars_back=5000,
+     initial_capital=1000, commission_type=strategy.commission.percent, commission_value=0.1, slippage=2)
+
+// Zarattini, Pagani & Barbon (2025) -tyylinen trendimalli: 9 eripituista Donchian-kanavaa.
+// Jokainen kanava on joko "sisällä" tai "ulkona"; positio = sisällä olevien osuus (0–100 % pääomasta).
+// Testattu meemikolikoilla (DOGE, SHIB, PEPE, FLOKI, BONK, WIF) ja PUMPUSDT:lla, 4h-kaavio suositus.
+
+grp = "⚙️ Asetukset"
+show_dash = input.bool(true, "Kojelauta", group=grp)
+min_step  = input.float(5.0, "Muuta positiota vasta kun ero ≥ (% pääomasta)", minval=0.0, step=1.0, group=grp)
+
+k = math.max(1, math.round(86400 / timeframe.in_seconds()))   // kynttilöitä per päivä
+
+// Yksi kanava: osta kun päätös > edellisten L kynttilän ylin päätös,
+// stop nousee kanavan keskikohtaan, myy kun päätös < stop.
+channel(int days) =>
+    L = math.min(days * k, 4999)
+    var bool inpos = false
+    var float stop = na
+    hi  = ta.highest(close, L)
+    lo  = ta.lowest(close, L)
+    mid = (hi + lo) / 2
+    if inpos
+        stop := math.max(stop, mid)
+        if close < stop
+            inpos := false
+    else if not na(hi[1]) and close > hi[1]
+        inpos := true
+        stop  := mid
+    inpos ? 1.0 : 0.0
+
+s1 = channel(5)
+s2 = channel(10)
+s3 = channel(20)
+s4 = channel(30)
+s5 = channel(60)
+s6 = channel(90)
+s7 = channel(150)
+s8 = channel(250)
+s9 = channel(360)
+frac = (s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9) / 9
+
+// Tasapainota kohdeosuuteen (kauppa seuraavan kynttilän avauksessa)
+target_qty = strategy.equity * frac / close
+delta = target_qty - strategy.position_size
+if math.abs(delta) * close >= strategy.equity * min_step / 100 or (frac == 0 and strategy.position_size > 0)
+    if delta > 0
+        strategy.order("Osta", strategy.long, qty=delta, comment="🟢 " + str.tostring(frac * 100, "0") + " %")
+    else if delta < 0
+        strategy.order("Myy", strategy.short, qty=math.min(-delta, strategy.position_size), comment="🔴 " + str.tostring(frac * 100, "0") + " %")
+
+bgcolor(frac > 0 ? color.new(#26a69a, 100 - math.round(frac * 30)) : na, title="Positio")
+
+var table dash = table.new(position.top_right, 2, 3, bgcolor=color.new(#131722, 15), frame_color=color.new(color.gray, 60), frame_width=1)
+if barstate.islast and show_dash
+    on = s1 + s2 + s3 + s4 + s5 + s6 + s7 + s8 + s9
+    table.cell(dash, 0, 0, "TRENDIPORRAS", text_color=color.white, text_size=size.small)
+    table.cell(dash, 1, 0, syminfo.ticker + " · " + timeframe.period, text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 0, 1, "Pidä kolikossa", text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 1, 1, str.tostring(frac * 100, "0") + " % pääomasta", text_color=frac > 0 ? color.lime : color.red, text_size=size.small)
+    table.cell(dash, 0, 2, "Kanavia nousussa", text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 1, 2, str.tostring(on, "0") + " / 9", text_color=color.silver, text_size=size.small)
