@@ -1,0 +1,33 @@
+//@version=6
+strategy("BTC Trendisuodin — SMA 100 (päivä)", shorttitle="Trendisuodin", overlay=true,
+     initial_capital=1000, default_qty_type=strategy.percent_of_equity, default_qty_value=100,
+     commission_type=strategy.commission.percent, commission_value=0.1, slippage=2, pyramiding=0)
+
+// Testattu: BTCUSDT päiväkynttilät 2020–2026, kulut 0,15 % per kauppa.
+// Käytä PÄIVÄKAAVIOSSA (1D). Sääntö: omista BTC:tä, kun päivän päätöskurssi on SMA:n yläpuolella; muuten USDT:ssä.
+
+grp = "⚙️ Asetukset"
+sma_len   = input.int(100, "SMA-pituus (päivää)", minval=20, group=grp, tooltip="Testeissä 50–150 toimivat kaikki; 100 valittiin etukäteen.")
+show_dash = input.bool(true, "Kojelauta", group=grp)
+
+sma = ta.sma(close, sma_len)
+// Signaali päivän päätöskurssista, kauppa seuraavan päivän avauksessa (kuten backtestissä).
+trend_up = close > sma
+
+if trend_up and strategy.position_size == 0
+    strategy.entry("Long", strategy.long, comment="🟢 Osta")
+if not trend_up and strategy.position_size > 0
+    strategy.close("Long", comment="🔴 USDT:hen")
+
+plot(sma, "SMA", color=trend_up ? color.new(#26a69a, 0) : color.new(#ef5350, 0), linewidth=2, style=plot.style_linebr)
+bgcolor(strategy.position_size > 0 ? color.new(#26a69a, 94) : na, title="Positio auki")
+
+var table dash = table.new(position.top_right, 2, 3, bgcolor=color.new(#131722, 15), frame_color=color.new(color.gray, 60), frame_width=1)
+if barstate.islast and show_dash
+    dist = (close / sma - 1) * 100
+    table.cell(dash, 0, 0, "TRENDISUODIN", text_color=color.white, text_size=size.small)
+    table.cell(dash, 1, 0, syminfo.ticker, text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 0, 1, "Tila", text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 1, 1, trend_up ? "🟢 Nousutrendi — omista" : "🔴 Laskutrendi — USDT", text_color=trend_up ? color.lime : color.red, text_size=size.small)
+    table.cell(dash, 0, 2, "Etäisyys SMA:sta", text_color=color.new(color.white, 40), text_size=size.small)
+    table.cell(dash, 1, 2, (dist >= 0 ? "+" : "") + str.tostring(dist, "0.0") + " %", text_color=color.silver, text_size=size.small)
