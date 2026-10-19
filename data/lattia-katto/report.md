@@ -1,6 +1,6 @@
 # Lattia & Katto v3 — laaja backtest
 
-Jakso 2023-01-01 → 2026-10-18 · 68 markkinaa · 1768 ajoa · ajoaika 327 s
+Jakso 2023-01-01 → 2026-10-18 · 68 markkinaa · 1768 ajoa · ajoaika 54 s
 
 Oletusasetukset kuten Pine-skriptissä: 10 % pääomasta per kauppa, kulut 0,1 % per suunta + 0,02 % slippage.
 R = nettotulos jaettuna alkuperäisellä riskillä (kulut mukana). IS = ennen 2025-01-01, OOS = 2025-01-01 jälkeen.
