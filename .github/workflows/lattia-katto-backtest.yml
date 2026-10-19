@@ -2,7 +2,7 @@ name: Lattia & Katto backtest
 on:
   push:
     branches: [claude/lattia-katto-v3]
-    paths: ['backtest/**', 'tests/test_lattia_katto.py', '.github/workflows/lattia-katto-backtest.yml']
+    paths: ['backtest/lattia_katto.py', 'backtest/run.py', 'tests/test_lattia_katto.py', '.github/workflows/lattia-katto-backtest.yml']
   workflow_dispatch:
 permissions:
   contents: write
