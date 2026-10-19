@@ -263,4 +263,4 @@ Kolikko tulee mukaan vuoden kaupankäynnin jälkeen. Per-kolikko-strategiat = ta
 | XLMUSDT | 24.7 | 0.63 | -74.0 | 22.6 | 0.68 | -90.3 |
 | XRPUSDT | 20.8 | 0.61 | -82.0 | 32.5 | 0.76 | -83.2 |
 
-Ajoaika 5 s.
+Ajoaika 6 s.
