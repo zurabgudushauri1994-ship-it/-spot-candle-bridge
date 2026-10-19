@@ -13,11 +13,11 @@ from backtest.lattia_katto import atr, rsi
 DAYS = 365
 
 
-def vol_scale(close: pd.Series, target: float | None, window: int = 90) -> pd.Series:
+def vol_scale(close: pd.Series, target: float | None, window: int = 90, bars_per_day: int = 1) -> pd.Series:
     """Target-volatility multiplier, capped at 1 (spot, no leverage)."""
     if target is None:
         return pd.Series(1.0, index=close.index)
-    vol = close.pct_change().rolling(window).std() * np.sqrt(DAYS)
+    vol = close.pct_change().rolling(window * bars_per_day).std() * np.sqrt(DAYS * bars_per_day)
     return (target / vol).clip(upper=1.0).fillna(0.0)
 
 
@@ -36,14 +36,14 @@ def _hold(entry: np.ndarray, exit_: np.ndarray) -> np.ndarray:
 
 # ── Trend following ────────────────────────────────────────────────────────
 def donchian_ensemble(df: pd.DataFrame, lookbacks=(5, 10, 20, 30, 60, 90, 150, 250, 360),
-                      target_vol: float | None = 0.25) -> pd.Series:
+                      target_vol: float | None = 0.25, bars_per_day: int = 1) -> pd.Series:
     """Zarattini, Pagani & Barbon (2025): per lookback, enter on a close above the prior
     L-day highest close, trail a stop that ratchets up to the channel midpoint, exit on
     a close below it; average the sub-signals and size to a volatility target."""
     c = df["close"]
     cv = c.to_numpy()
     subs = []
-    for L in lookbacks:
+    for L in (x * bars_per_day for x in lookbacks):
         hi = c.rolling(L).max().shift(1).to_numpy()
         mid = ((c.rolling(L).max() + c.rolling(L).min()) / 2).to_numpy()
         pos = np.zeros(len(c))
@@ -59,20 +59,22 @@ def donchian_ensemble(df: pd.DataFrame, lookbacks=(5, 10, 20, 30, 60, 90, 150, 2
             pos[t] = inpos
         subs.append(pos)
     sig = pd.Series(np.mean(subs, axis=0), index=c.index)
-    return sig * vol_scale(c, target_vol)
+    return sig * vol_scale(c, target_vol, bars_per_day=bars_per_day)
 
 
-def ma_trend(df: pd.DataFrame, n: int = 200, target_vol: float | None = None) -> pd.Series:
+def ma_trend(df: pd.DataFrame, n: int = 200, target_vol: float | None = None, bars_per_day: int = 1) -> pd.Series:
     """Time-series momentum filter: long while the close is above its n-day SMA."""
     c = df["close"]
-    return (c > c.rolling(n).mean()).astype(float) * vol_scale(c, target_vol)
+    return (c > c.rolling(n * bars_per_day).mean()).astype(float) * vol_scale(c, target_vol, bars_per_day=bars_per_day)
 
 
-def ema_cross(df: pd.DataFrame, fast: int = 20, slow: int = 100, target_vol: float | None = None) -> pd.Series:
+def ema_cross(df: pd.DataFrame, fast: int = 20, slow: int = 100, target_vol: float | None = None,
+              bars_per_day: int = 1) -> pd.Series:
     c = df["close"]
+    fast, slow = fast * bars_per_day, slow * bars_per_day
     f, s = c.ewm(span=fast, adjust=False).mean(), c.ewm(span=slow, adjust=False).mean()
     valid = np.arange(len(c)) >= slow
-    return ((f > s) & valid).astype(float) * vol_scale(c, target_vol)
+    return ((f > s) & valid).astype(float) * vol_scale(c, target_vol, bars_per_day=bars_per_day)
 
 
 def supertrend(df: pd.DataFrame, n: int = 10, mult: float = 3.0, target_vol: float | None = None) -> pd.Series:
