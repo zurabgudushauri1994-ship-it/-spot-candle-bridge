@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-21T20:15:01.876819+00:00
-Status: ok | Source: binance_spot | analyzed: 98/100
+Updated UTC: 2026-10-21T23:28:14.478467+00:00
+Status: ok | Source: binance_spot | analyzed: 97/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| TSLABUSDT | 100 | ENTRY_CANDIDATE | 391.84 | 385.04 | 405.44 | 63.8 | 13.44 |
-| LINKUSDT | 75 | WATCH | 12.738 | 12.542 | 13.13 | 54.8 | 2.82 |
-| BEBUSDT | 75 | WATCH | 241.19 | 235.67 | 252.23 | 60.9 | 2.62 |
-| NVDABUSDT | 68 | WATCH | 221.65 | 219.98 | 224.99 | 57.1 | 1.26 |
-| CHIPUSDT | 65 | WATCH | 0.04979 | 0.04631 | 0.05675 | 61.1 | 1.72 |
-| ZECUSDT | 60 | WATCH | 1357.03 | 1314.22 | 1442.65 | 61.1 | 1.04 |
-| XRPUSDT | 60 | WATCH | 1.3912 | 1.3734 | 1.4268 | 57.3 | 0.59 |
-| HYPEUSDT | 60 | WATCH | 81.82 | 80.92 | 83.62 | 57.9 | 0.32 |
-| PUMPUSDT | 60 | WATCH | 0.005041 | 0.00486 | 0.005403 | 65.3 | 0.49 |
-| EURUSDT | 60 | WATCH | 1.1242 | 1.1226 | 1.1274 | 51.5 | 0.55 |
-| PHAUSDT | 60 | WATCH | 0.061 | 0.0582 | 0.0666 | 68.1 | 0.56 |
-| IOSTUSDT | 50 | AVOID | - | - | - | 55.6 | 0.42 |
-| PEPEUSDT | 50 | AVOID | - | - | - | 50.0 | 0.55 |
-| XAUTUSDT | 50 | AVOID | - | - | - | 50.1 | 0.24 |
-| QNTUSDT | 50 | AVOID | - | - | - | 69.7 | 0.42 |
-| FILUSDT | 50 | AVOID | - | - | - | 54.7 | 0.37 |
-| ONDOUSDT | 50 | AVOID | - | - | - | 50.7 | 0.61 |
-| PAXGUSDT | 50 | AVOID | - | - | - | 48.8 | 0.76 |
-| AVAUSDT | 50 | AVOID | - | - | - | 67.1 | 0.32 |
-| ZAMAUSDT | 50 | AVOID | - | - | - | 67.7 | 0.28 |
+| CRVUSDT | 85 | ENTRY_CANDIDATE | 0.4058 | 0.3896 | 0.4382 | 76.1 | 1.89 |
+| PROMUSDT | 68 | WATCH | 5.812 | 5.709 | 6.018 | 57.2 | 1.22 |
+| BMTUSDT | 60 | WATCH | 0.0221 | 0.02131 | 0.02368 | 61.7 | 2.64 |
+| CVXUSDT | 60 | WATCH | 2.631 | 2.538 | 2.817 | 58.0 | 0.43 |
+| WLFIUSDT | 60 | WATCH | 0.0567 | 0.0559 | 0.0583 | 71.4 | 2.53 |
+| PEPEUSDT | 50 | AVOID | - | - | - | 55.6 | 0.43 |
+| PUMPUSDT | 50 | AVOID | - | - | - | 58.4 | 0.67 |
+| ALTUSDT | 50 | AVOID | - | - | - | 51.3 | 0.63 |
+| EURUSDT | 50 | AVOID | - | - | - | 50.0 | 0.21 |
+| PHAUSDT | 50 | AVOID | - | - | - | 58.7 | 0.48 |
+| WLDUSDT | 45 | AVOID | - | - | - | 85.4 | 2.02 |
+| BFUSDUSDT | 45 | AVOID | - | - | - | 66.7 | 0.13 |
+| GRAMUSDT | 45 | AVOID | - | - | - | 70.4 | 0.42 |
+| ERAUSDT | 43 | AVOID | - | - | - | 57.1 | 1.29 |
+| FILUSDT | 38 | AVOID | - | - | - | 33.0 | 1.23 |
+| XLMUSDT | 38 | AVOID | - | - | - | 28.6 | 1.25 |
+| XRPUSDT | 35 | AVOID | - | - | - | 19.3 | 1.51 |
+| NEARUSDT | 35 | AVOID | - | - | - | 49.3 | 0.7 |
+| BNBUSDT | 35 | AVOID | - | - | - | 42.8 | 2.84 |
+| IOSTUSDT | 35 | AVOID | - | - | - | 21.4 | 2.05 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 3
+Errors: 4
