@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-22T12:56:09.357287+00:00
-Status: ok | Source: binance_spot | analyzed: 99/100
+Updated UTC: 2026-10-22T17:57:14.358756+00:00
+Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| BMTUSDT | 70 | WATCH | 0.02362 | 0.0205 | 0.02986 | 87.3 | 0.76 |
-| AIUSDT | 60 | WATCH | 0.0202 | 0.0188 | 0.023 | 64.1 | 0.01 |
-| BFUSDUSDT | 60 | WATCH | 1 | 0.9999 | 1.0002 | 60.0 | 0.11 |
-| GTCUSDT | 58 | WATCH | 0.28032 | 0.26672 | 0.30752 | 51.1 | 1.38 |
-| ZECUSDT | 50 | AVOID | - | - | - | 58.5 | 1.71 |
-| ORCAUSDT | 50 | AVOID | - | - | - | 70.0 | 1.69 |
-| MASKUSDT | 50 | AVOID | - | - | - | 54.0 | 0.33 |
-| MITOUSDT | 48 | AVOID | - | - | - | 60.6 | 1.43 |
-| AVAUSDT | 45 | AVOID | - | - | - | 54.7 | 0.66 |
-| FILUSDT | 40 | AVOID | - | - | - | 68.7 | 1.73 |
-| GRAMUSDT | 40 | AVOID | - | - | - | 50.0 | 2.33 |
-| ASTERUSDT | 40 | AVOID | - | - | - | 48.1 | 1.59 |
-| PUMPUSDT | 35 | AVOID | - | - | - | 69.3 | 0.26 |
-| MSTRBUSDT | 35 | AVOID | - | - | - | 53.9 | 0.97 |
-| RWUSDUSDT | 35 | AVOID | - | - | - | 50.0 | 0.01 |
-| TSLABUSDT | 35 | AVOID | - | - | - | 70.9 | 3.29 |
-| DYMUSDT | 35 | AVOID | - | - | - | 57.9 | 0.61 |
-| ENAUSDT | 33 | AVOID | - | - | - | 63.9 | 1.2 |
-| CRCLBUSDT | 33 | AVOID | - | - | - | 54.8 | 1.4 |
-| MARSCOINUSDT | 30 | AVOID | - | - | - | 58.3 | 2.17 |
+| USD1USDT | 75 | WATCH | 0.99989 | 0.99968 | 1.00031 | 63.6 | 1.05 |
+| ORCAUSDT | 75 | WATCH | 1.873 | 1.81 | 1.999 | 65.6 | 6.69 |
+| BMTUSDT | 60 | WATCH | 0.02675 | 0.02305 | 0.03415 | 48.3 | 0.67 |
+| AIUSDT | 50 | AVOID | - | - | - | 50.0 | 0.06 |
+| RLUSDUSDT | 50 | AVOID | - | - | - | 66.7 | 0.01 |
+| PHAUSDT | 50 | AVOID | - | - | - | 57.1 | 0.29 |
+| MASKUSDT | 35 | AVOID | - | - | - | 49.3 | 0.18 |
+| USDCUSDT | 25 | AVOID | - | - | - | 70.4 | 0.77 |
+| ALTUSDT | 25 | AVOID | - | - | - | 55.1 | 1.01 |
+| UUSDT | 25 | AVOID | - | - | - | 60.0 | 0.07 |
+| RWUSDUSDT | 25 | AVOID | - | - | - | 40.0 | 0.03 |
+| BFUSDUSDT | 25 | AVOID | - | - | - | 50.0 | 0.0 |
+| DASHUSDT | 25 | AVOID | - | - | - | 63.2 | 0.74 |
+| DYMUSDT | 25 | AVOID | - | - | - | 51.3 | 0.54 |
+| CHIPUSDT | 25 | AVOID | - | - | - | 50.5 | 0.26 |
+| TSLABUSDT | 20 | AVOID | - | - | - | 27.2 | 0.11 |
+| XUSDUSDT | 20 | AVOID | - | - | - | 80.0 | 0.0 |
+| GTCUSDT | 20 | AVOID | - | - | - | 25.6 | 0.41 |
+| ARKMUSDT | 20 | AVOID | - | - | - | 46.7 | 0.35 |
+| PROMUSDT | 20 | AVOID | - | - | - | 40.8 | 0.65 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 2
+Errors: 3
