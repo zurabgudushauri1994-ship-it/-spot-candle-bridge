@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-23T19:08:52.625186+00:00
+Updated UTC: 2026-10-23T22:24:05.125269+00:00
 Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| ENAUSDT | 65 | WATCH | 0.21 | 0.1986 | 0.2328 | 63.1 | 1.73 |
-| MITOUSDT | 65 | WATCH | 0.00962 | 0.0093 | 0.01026 | 63.4 | 2.62 |
-| ZECUSDT | 50 | AVOID | - | - | - | 51.9 | 2.16 |
-| TRXUSDT | 50 | AVOID | - | - | - | 55.0 | 0.85 |
-| DASHUSDT | 50 | AVOID | - | - | - | 54.1 | 0.58 |
-| FDUSDUSDT | 50 | AVOID | - | - | - | 66.7 | 0.24 |
-| ZAMAUSDT | 43 | AVOID | - | - | - | 59.5 | 1.24 |
-| ICPUSDT | 40 | AVOID | - | - | - | 53.8 | 2.61 |
-| ETHFIUSDT | 40 | AVOID | - | - | - | 57.3 | 1.14 |
-| RLUSDUSDT | 35 | AVOID | - | - | - | 50.0 | 0.02 |
-| BCHUSDT | 35 | AVOID | - | - | - | 48.4 | 0.35 |
-| SUSDT | 35 | AVOID | - | - | - | 65.9 | 0.08 |
-| BONKUSDT | 35 | AVOID | - | - | - | 50.0 | 0.29 |
-| BNCBUSDT | 35 | AVOID | - | - | - | 48.0 | 0.37 |
-| PYTHUSDT | 30 | AVOID | - | - | - | 54.5 | 1.9 |
-| SEIUSDT | 30 | AVOID | - | - | - | 55.6 | 0.42 |
-| QNTUSDT | 25 | AVOID | - | - | - | 63.1 | 0.55 |
-| AIUSDT | 25 | AVOID | - | - | - | 50.0 | 0.01 |
-| BEBUSDT | 25 | AVOID | - | - | - | 53.5 | 1.1 |
-| INITUSDT | 25 | AVOID | - | - | - | 74.1 | 0.47 |
+| DASHUSDT | 60 | WATCH | 54.28 | 53.17 | 56.5 | 53.2 | 1.02 |
+| AVAUSDT | 60 | WATCH | 0.419 | 0.3801 | 0.4968 | 85.0 | 9.36 |
+| ETHFIUSDT | 58 | WATCH | 0.6642 | 0.6467 | 0.6992 | 54.2 | 1.28 |
+| ERAUSDT | 50 | AVOID | - | - | - | 60.3 | 0.57 |
+| ARKUSDT | 50 | AVOID | - | - | - | 53.6 | 0.24 |
+| MITOUSDT | 50 | AVOID | - | - | - | 54.1 | 0.54 |
+| TRXUSDT | 48 | AVOID | - | - | - | 50.0 | 1.38 |
+| EURUSDT | 40 | AVOID | - | - | - | 65.0 | 24.78 |
+| AMDBUSDT | 40 | AVOID | - | - | - | 52.2 | 0.14 |
+| UUSDT | 25 | AVOID | - | - | - | 66.7 | 0.27 |
+| SKHYBUSDT | 25 | AVOID | - | - | - | 52.2 | 0.12 |
+| AIUSDT | 25 | AVOID | - | - | - | 57.1 | 0.01 |
+| INTCBUSDT | 25 | AVOID | - | - | - | 51.3 | 0.3 |
+| QQQBUSDT | 25 | AVOID | - | - | - | 53.6 | 0.03 |
+| TIAUSDT | 25 | AVOID | - | - | - | 34.7 | 1.68 |
+| BNCBUSDT | 25 | AVOID | - | - | - | 13.0 | 4.3 |
+| REZUSDT | 25 | AVOID | - | - | - | 51.0 | 0.2 |
+| ENAUSDT | 20 | AVOID | - | - | - | 27.7 | 0.36 |
+| INITUSDT | 20 | AVOID | - | - | - | 45.0 | 1.1 |
+| PENGUUSDT | 20 | AVOID | - | - | - | 24.6 | 0.55 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
