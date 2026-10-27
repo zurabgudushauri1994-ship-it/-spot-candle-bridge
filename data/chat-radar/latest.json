@@ -1,520 +1,610 @@
 {
-  "generated_at_utc": "2026-10-26T21:56:14.130982+00:00",
-  "source": "binance_spot",
-  "status": "ok",
-  "scanned": 98,
+  "generated_at_utc": "2026-10-27T01:27:14.568047+00:00",
+  "source": "bybit_spot",
+  "status": "partial",
+  "scanned": 74,
   "requested": 100,
   "candidates": [
     {
-      "symbol": "ZAMAUSDT",
-      "score": 85,
-      "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.0721,
-      "entry_reference": 0.0721,
-      "stop_reference": 0.07091,
-      "tp_reference": 0.07447999999999999,
-      "rsi": 55.2,
-      "relative_volume": 1.02,
+      "symbol": "BNBUSDT",
+      "score": 100,
+      "state": "ENTRY_CANDIDATE",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 746.15,
+      "entry_reference": 746.15,
+      "stop_reference": 739.6,
+      "tp_reference": 759.2499999999999,
+      "rsi": 67.7,
+      "relative_volume": 1.78,
       "breakout": true,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 4724227.49965
+      "turnover24h_usdt": 4178811.1919941
     },
     {
-      "symbol": "UNIUSDT",
+      "symbol": "BRUSDT",
+      "score": 85,
+      "state": "ENTRY_CANDIDATE",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.50594,
+      "entry_reference": 0.50594,
+      "stop_reference": 0.47241,
+      "tp_reference": 0.5729999999999998,
+      "rsi": 77.0,
+      "relative_volume": 6.13,
+      "breakout": true,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1053843.47158
+    },
+    {
+      "symbol": "ORDERUSDT",
       "score": 75,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 7.107,
-      "entry_reference": 7.107,
-      "stop_reference": 7.015,
-      "tp_reference": 7.291000000000001,
-      "rsi": 49.0,
-      "relative_volume": 5.33,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.04307,
+      "entry_reference": 0.04307,
+      "stop_reference": 0.03734,
+      "tp_reference": 0.054529999999999995,
+      "rsi": 80.5,
+      "relative_volume": 1.83,
+      "breakout": true,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2319603.7447659
+    },
+    {
+      "symbol": "DOODUSDT",
+      "score": 70,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.002346,
+      "entry_reference": 0.002346,
+      "stop_reference": 0.00184,
+      "tp_reference": 0.003358,
+      "rsi": 71.1,
+      "relative_volume": 7.6,
+      "breakout": true,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 8645361.9472887
+    },
+    {
+      "symbol": "SPXUSDT",
+      "score": 68,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.3772,
+      "entry_reference": 0.3772,
+      "stop_reference": 0.3677,
+      "tp_reference": 0.3961999999999999,
+      "rsi": 68.1,
+      "relative_volume": 1.39,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 26875592.79751
+      "turnover24h_usdt": 1424552.88065
     },
     {
-      "symbol": "INJUSDT",
-      "score": 75,
+      "symbol": "ICNTUSDT",
+      "score": 68,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 8.044,
-      "entry_reference": 8.044,
-      "stop_reference": 7.787,
-      "tp_reference": 8.558000000000002,
-      "rsi": 64.6,
-      "relative_volume": 1.53,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.1923,
+      "entry_reference": 0.1923,
+      "stop_reference": 0.1777,
+      "tp_reference": 0.2215,
+      "rsi": 62.2,
+      "relative_volume": 1.44,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 10399357.03175
+      "turnover24h_usdt": 1019362.37194
     },
     {
       "symbol": "ENAUSDT",
-      "score": 60,
+      "score": 65,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.2089,
-      "entry_reference": 0.2089,
-      "stop_reference": 0.2054,
-      "tp_reference": 0.2159,
-      "rsi": 40.8,
-      "relative_volume": 1.54,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.20866,
+      "entry_reference": 0.20866,
+      "stop_reference": 0.20482,
+      "tp_reference": 0.21634000000000003,
+      "rsi": 48.8,
+      "relative_volume": 1.74,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 42994873.735211
+      "turnover24h_usdt": 35200269.755041
     },
     {
-      "symbol": "SKHYBUSDT",
+      "symbol": "XDCUSDT",
       "score": 60,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 143.43,
-      "entry_reference": 143.43,
-      "stop_reference": 141.07,
-      "tp_reference": 148.15000000000003,
-      "rsi": 55.2,
-      "relative_volume": 0.01,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 10060663.38545
-    },
-    {
-      "symbol": "NVDABUSDT",
-      "score": 60,
-      "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 216.62,
-      "entry_reference": 216.62,
-      "stop_reference": 215.23,
-      "tp_reference": 219.40000000000003,
-      "rsi": 53.2,
-      "relative_volume": 0.73,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 6827420.54542
-    },
-    {
-      "symbol": "TIAUSDT",
-      "score": 60,
-      "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.5484,
-      "entry_reference": 0.5484,
-      "stop_reference": 0.53,
-      "tp_reference": 0.5851999999999999,
-      "rsi": 54.6,
-      "relative_volume": 0.47,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 5837152.931827
-    },
-    {
-      "symbol": "KORUBUSDT",
-      "score": 60,
-      "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 11.08,
-      "entry_reference": 11.08,
-      "stop_reference": 10.84,
-      "tp_reference": 11.56,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.03367,
+      "entry_reference": 0.03367,
+      "stop_reference": 0.03343,
+      "tp_reference": 0.03414999999999999,
       "rsi": 50.0,
-      "relative_volume": 0.71,
+      "relative_volume": 0.31,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 3456911.6543
+      "turnover24h_usdt": 2248857.679951
     },
     {
-      "symbol": "MEGAUSDT",
+      "symbol": "ELSAUSDT",
       "score": 60,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.04685,
-      "entry_reference": 0.04685,
-      "stop_reference": 0.04634,
-      "tp_reference": 0.04787000000000001,
-      "rsi": 49.8,
-      "relative_volume": 0.63,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.0793,
+      "entry_reference": 0.0793,
+      "stop_reference": 0.07501,
+      "tp_reference": 0.08788,
+      "rsi": 68.9,
+      "relative_volume": 0.88,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 3181015.303393
+      "turnover24h_usdt": 1880250.40873
     },
     {
-      "symbol": "CAKEUSDT",
+      "symbol": "NIGHTUSDT",
       "score": 60,
       "state": "WATCH",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 2.132,
-      "entry_reference": 2.132,
-      "stop_reference": 2.104,
-      "tp_reference": 2.188,
-      "rsi": 56.2,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.03995,
+      "entry_reference": 0.03995,
+      "stop_reference": 0.03945,
+      "tp_reference": 0.04095,
+      "rsi": 51.0,
+      "relative_volume": 1.03,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1353482.539229
+    },
+    {
+      "symbol": "PONSUSDT",
+      "score": 60,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.2458,
+      "entry_reference": 0.2458,
+      "stop_reference": 0.241,
+      "tp_reference": 0.25539999999999996,
+      "rsi": 41.3,
+      "relative_volume": 2.65,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1123001.81429
+    },
+    {
+      "symbol": "TRUMPUSDT",
+      "score": 60,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.713,
+      "entry_reference": 1.713,
+      "stop_reference": 1.68,
+      "tp_reference": 1.7790000000000004,
+      "rsi": 71.4,
+      "relative_volume": 2.83,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1119250.68873
+    },
+    {
+      "symbol": "BTCUSDT",
+      "score": 58,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 80329.8,
+      "entry_reference": 80329.8,
+      "stop_reference": 79716.5,
+      "tp_reference": 81556.40000000001,
+      "rsi": 61.9,
+      "relative_volume": 1.21,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 728260670.9712605
+    },
+    {
+      "symbol": "XLMUSDT",
+      "score": 58,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.1695,
+      "entry_reference": 0.1695,
+      "stop_reference": 0.1673,
+      "tp_reference": 0.17390000000000003,
+      "rsi": 62.8,
+      "relative_volume": 1.16,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1693854.49703
+    },
+    {
+      "symbol": "BIRBUSDT",
+      "score": 55,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.07701,
+      "entry_reference": 0.07701,
+      "stop_reference": 0.06721,
+      "tp_reference": 0.09660999999999997,
+      "rsi": 64.8,
+      "relative_volume": 1.63,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 3526611.870026
+    },
+    {
+      "symbol": "HBARUSDT",
+      "score": 55,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.07738,
+      "entry_reference": 0.07738,
+      "stop_reference": 0.07627,
+      "tp_reference": 0.0796,
+      "rsi": 69.4,
+      "relative_volume": 2.05,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1301440.522592
+    },
+    {
+      "symbol": "ICPUSDT",
+      "score": 55,
+      "state": "WATCH",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 2.622,
+      "entry_reference": 2.622,
+      "stop_reference": 2.593,
+      "tp_reference": 2.6799999999999997,
+      "rsi": 56.6,
+      "relative_volume": 2.51,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1089204.83972
+    },
+    {
+      "symbol": "ZIGUSDT",
+      "score": 50,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.04235,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 56.0,
+      "relative_volume": 0.03,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 7298905.4373253
+    },
+    {
+      "symbol": "ONDOUSDT",
+      "score": 50,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.4131,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 48.4,
+      "relative_volume": 1.77,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 3796747.5625281
+    },
+    {
+      "symbol": "UNIUSDT",
+      "score": 50,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 7.148,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 60.5,
       "relative_volume": 1.01,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 3128628.82302
+      "turnover24h_usdt": 2825981.261476
     },
     {
-      "symbol": "USDCUSDT",
+      "symbol": "USDEUSDT",
       "score": 50,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.0013,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.0012,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 68.6,
-      "relative_volume": 0.31,
+      "rsi": 60.0,
+      "relative_volume": 0.01,
       "breakout": false,
       "trend": {
-        "1h": "up",
+        "1h": "down",
         "4h": "up"
       },
-      "turnover24h_usdt": 1451586826.20556
+      "turnover24h_usdt": 2105584.820946
     },
     {
-      "symbol": "STRKUSDT",
+      "symbol": "POLUSDT",
       "score": 50,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.04688,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.09104,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 61.6,
-      "relative_volume": 0.58,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 6217286.9964069
-    },
-    {
-      "symbol": "GTCUSDT",
-      "score": 50,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.23868,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 54.8,
-      "relative_volume": 0.83,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 4261692.667358
-    },
-    {
-      "symbol": "RLUSDUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.0017,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 75.0,
-      "relative_volume": 0.0,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 156577686.9553
-    },
-    {
-      "symbol": "SOXLBUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 92.13,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 43.2,
-      "relative_volume": 0.84,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 29397464.56135
-    },
-    {
-      "symbol": "HUMAUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.02444,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 34.8,
-      "relative_volume": 0.31,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 15587730.7447
-    },
-    {
-      "symbol": "MUBUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 909.42,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.0,
-      "relative_volume": 0.36,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 11950962.29541
-    },
-    {
-      "symbol": "PAXGUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 4029.37,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.8,
-      "relative_volume": 0.24,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7696099.658385
-    },
-    {
-      "symbol": "BABYUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.01422,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 50.7,
-      "relative_volume": 0.48,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 6638379.77195
-    },
-    {
-      "symbol": "INTCBUSDT",
-      "score": 45,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 91.42,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.6,
+      "rsi": 57.1,
       "relative_volume": 0.23,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 6568263.74702
+      "turnover24h_usdt": 1238694.031389
     },
     {
-      "symbol": "DASHUSDT",
+      "symbol": "DOGEUSDT",
       "score": 45,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 53.01,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.07799,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 45.7,
-      "relative_volume": 0.69,
+      "rsi": 70.1,
+      "relative_volume": 1.03,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 6234624.13524
+      "turnover24h_usdt": 5195085.099482
     },
     {
-      "symbol": "ETHFIUSDT",
-      "score": 45,
+      "symbol": "PEPEUSDT",
+      "score": 43,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.6436,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 4.344e-06,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 43.1,
-      "relative_volume": 0.41,
+      "rsi": 75.7,
+      "relative_volume": 1.31,
+      "breakout": true,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 4969077.216264874
+    },
+    {
+      "symbol": "MEGAUSDT",
+      "score": 43,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.04675,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 48.1,
+      "relative_volume": 1.15,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 3831974.77035
+      "turnover24h_usdt": 1243911.877022
     },
     {
-      "symbol": "BEBUSDT",
-      "score": 45,
+      "symbol": "WLDUSDT",
+      "score": 40,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 207.28,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.4441,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 46.7,
-      "relative_volume": 0.92,
+      "rsi": 72.7,
+      "relative_volume": 1.73,
       "breakout": false,
       "trend": {
         "1h": "up",
-        "4h": "up"
+        "4h": "down"
       },
-      "turnover24h_usdt": 3788594.87598
+      "turnover24h_usdt": 16430989.579884
     },
     {
-      "symbol": "TQQQBUSDT",
-      "score": 45,
+      "symbol": "SUIUSDT",
+      "score": 40,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 68.72,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.9185,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 42.8,
-      "relative_volume": 0.09,
+      "rsi": 63.1,
+      "relative_volume": 0.35,
       "breakout": false,
       "trend": {
         "1h": "up",
-        "4h": "up"
+        "4h": "down"
       },
-      "turnover24h_usdt": 3127991.9766
+      "turnover24h_usdt": 4892819.362168
+    },
+    {
+      "symbol": "STRKUSDT",
+      "score": 40,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.04702,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 52.4,
+      "relative_volume": 0.55,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2645538.5016725
+    },
+    {
+      "symbol": "LTCUSDT",
+      "score": 40,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 56.74,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 54.2,
+      "relative_volume": 0.51,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2525837.1317107
+    },
+    {
+      "symbol": "GRASSUSDT",
+      "score": 40,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.6799,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 58.1,
+      "relative_volume": 2.45,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2042009.31606
+    },
+    {
+      "symbol": "AVAXUSDT",
+      "score": 40,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 8.939,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 58.0,
+      "relative_volume": 0.39,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2013184.313872
     },
     {
       "symbol": "ADAUSDT",
       "score": 40,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.2055,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.2064,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 39.3,
-      "relative_volume": 1.85,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 14058948.37248
-    },
-    {
-      "symbol": "USD1USDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.00016,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 77.1,
-      "relative_volume": 0.29,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 156755139.51142
-    },
-    {
-      "symbol": "BNBUSDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 742.99,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.9,
-      "relative_volume": 0.53,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 73677001.45209
-    },
-    {
-      "symbol": "SNDKBUSDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1265.39,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 32.8,
-      "relative_volume": 0.11,
+      "rsi": 57.7,
+      "relative_volume": 0.35,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "down"
       },
-      "turnover24h_usdt": 34853316.638466
+      "turnover24h_usdt": 1815825.303674
     },
     {
-      "symbol": "UUSDT",
+      "symbol": "BBSOLUSDT",
+      "score": 40,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 118.93,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 60.9,
+      "relative_volume": 1.57,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1416888.478629
+    },
+    {
+      "symbol": "USDCUSDT",
       "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.0003,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.0013,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
@@ -525,1264 +615,729 @@
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 32979123.9814
+      "turnover24h_usdt": 224948232.375512
     },
     {
-      "symbol": "XAUTUSDT",
+      "symbol": "ETHUSDT",
       "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 4019.18,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 2331.09,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 41.5,
-      "relative_volume": 0.3,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 19854540.605224
-    },
-    {
-      "symbol": "ERAUSDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.0867,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 53.8,
-      "relative_volume": 0.69,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 16892236.13513
-    },
-    {
-      "symbol": "XUSDUSDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.0013,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 57.1,
-      "relative_volume": 0.13,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7612825.4468
-    },
-    {
-      "symbol": "SNXXBUSDT",
-      "score": 35,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 8.5,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 32.6,
-      "relative_volume": 0.09,
+      "rsi": 72.9,
+      "relative_volume": 0.84,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "down"
       },
-      "turnover24h_usdt": 6684889.6017
+      "turnover24h_usdt": 162876514.4127671
     },
     {
-      "symbol": "BEAMXUSDT",
+      "symbol": "HYPEUSDT",
       "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.003349,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 78.577,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 48.0,
-      "relative_volume": 0.21,
+      "rsi": 77.5,
+      "relative_volume": 0.58,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 5643426.761864
+      "turnover24h_usdt": 24097331.366932
     },
     {
-      "symbol": "QQQBUSDT",
+      "symbol": "XRPUSDT",
       "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 713.69,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.3085,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 42.3,
-      "relative_volume": 0.37,
+      "rsi": 73.0,
+      "relative_volume": 1.11,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 4126169.79501
+      "turnover24h_usdt": 21105959.500813
     },
     {
-      "symbol": "TSLABUSDT",
-      "score": 30,
+      "symbol": "USD1USDT",
+      "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 392.87,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.0001,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 34.2,
-      "relative_volume": 0.22,
+      "rsi": 50.0,
+      "relative_volume": 0.02,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 8373984.31711
+      "turnover24h_usdt": 10189112.525458
     },
     {
-      "symbol": "DODOUSDT",
-      "score": 30,
+      "symbol": "VVVUSDT",
+      "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.02403,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 25.137,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 73.9,
-      "relative_volume": 0.2,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7873978.603333
-    },
-    {
-      "symbol": "KATUSDT",
-      "score": 30,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.00441,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 85.0,
-      "relative_volume": 0.29,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7568345.44258
-    },
-    {
-      "symbol": "POLUSDT",
-      "score": 30,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.09071,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.7,
+      "rsi": 48.6,
       "relative_volume": 0.33,
       "breakout": false,
       "trend": {
         "1h": "up",
         "4h": "up"
       },
-      "turnover24h_usdt": 3054416.224254
+      "turnover24h_usdt": 5900100.50441
     },
     {
-      "symbol": "XRPUSDT",
-      "score": 25,
+      "symbol": "ASTERUSDT",
+      "score": 35,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.2944,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.7114,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 39.9,
-      "relative_volume": 0.58,
+      "rsi": 56.7,
+      "relative_volume": 0.15,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 5726795.252837
+    },
+    {
+      "symbol": "PUMPUSDT",
+      "score": 35,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.004301,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 72.3,
+      "relative_volume": 0.53,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 4691861.4388422
+    },
+    {
+      "symbol": "NEARUSDT",
+      "score": 30,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 4.492,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 53.1,
+      "relative_volume": 1.66,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 95876743.93847
+      "turnover24h_usdt": 11298810.264204
     },
     {
-      "symbol": "DOGEUSDT",
-      "score": 25,
+      "symbol": "AEROUSDT",
+      "score": 30,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.07736,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.6774,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 42.2,
-      "relative_volume": 0.65,
+      "rsi": 51.1,
+      "relative_volume": 0.62,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 27950979.61424
+      "turnover24h_usdt": 2859316.410038
     },
     {
-      "symbol": "CRCLBUSDT",
-      "score": 25,
+      "symbol": "CCUSDT",
+      "score": 30,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 80.21,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.09947,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 58.8,
+      "rsi": 60.8,
+      "relative_volume": 2.07,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 2644992.186789
+    },
+    {
+      "symbol": "SOLUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 100.93,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 56.8,
+      "relative_volume": 0.73,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 36377146.67367
+    },
+    {
+      "symbol": "LITUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 3.0254,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 60.1,
+      "relative_volume": 0.1,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 7241948.514177
+    },
+    {
+      "symbol": "XAUTUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 4015.95,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 44.8,
+      "relative_volume": 2.81,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 4102003.8474034
+    },
+    {
+      "symbol": "MONUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.02171,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 55.2,
+      "relative_volume": 0.27,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 3865417.556848
+    },
+    {
+      "symbol": "SPCXXUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 148.19,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 57.3,
+      "relative_volume": 0.1,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1712044.1544
+    },
+    {
+      "symbol": "BMTUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.02916,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 60.5,
+      "relative_volume": 0.71,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1314291.1392866
+    },
+    {
+      "symbol": "ERAUSDT",
+      "score": 25,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.08416,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 30.2,
+      "relative_volume": 3.94,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1005503.487724
+    },
+    {
+      "symbol": "AAVEUSDT",
+      "score": 23,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 135.5,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 51.2,
+      "relative_volume": 1.16,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 23570820.789058
+    },
+    {
+      "symbol": "CAPUSDT",
+      "score": 20,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.09342,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 36.3,
+      "relative_volume": 0.59,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 22422103.344649
+    },
+    {
+      "symbol": "RLUSDUSDT",
+      "score": 20,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.0016,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 40.0,
+      "relative_volume": 0.01,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 14083990.882769
+    },
+    {
+      "symbol": "QNTUSDT",
+      "score": 20,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 202.65,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 47.6,
+      "relative_volume": 0.52,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 5437943.78367
+    },
+    {
+      "symbol": "CHIPUSDT",
+      "score": 20,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.05105,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 42.0,
+      "relative_volume": 0.5,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 4189727.720367
+    },
+    {
+      "symbol": "INJUSDT",
+      "score": 20,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 7.955,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 40.7,
+      "relative_volume": 0.76,
+      "breakout": false,
+      "trend": {
+        "1h": "up",
+        "4h": "up"
+      },
+      "turnover24h_usdt": 1613217.61828
+    },
+    {
+      "symbol": "LINKUSDT",
+      "score": 15,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 11.388,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 51.2,
+      "relative_volume": 0.91,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 26435909.0338821
+    },
+    {
+      "symbol": "DATAUSDT",
+      "score": 15,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.1411,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 51.3,
+      "relative_volume": 0.8,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 6674483.39837
+    },
+    {
+      "symbol": "MNTUSDT",
+      "score": 15,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.5135,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 63.1,
+      "relative_volume": 0.51,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 4468844.58881
+    },
+    {
+      "symbol": "ARBUSDT",
+      "score": 15,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.16821,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 53.2,
+      "relative_volume": 1.14,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1628444.1879324
+    },
+    {
+      "symbol": "XPLUSDT",
+      "score": 15,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.07289,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 52.4,
       "relative_volume": 1.05,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 26510061.45
+      "turnover24h_usdt": 1583070.937423
     },
     {
-      "symbol": "BMTUSDT",
-      "score": 25,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.02844,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 63.0,
-      "relative_volume": 0.52,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 17279804.650956
-    },
-    {
-      "symbol": "FETUSDT",
-      "score": 25,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.1745,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.8,
-      "relative_volume": 1.77,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 6886934.30134
-    },
-    {
-      "symbol": "VANAUSDT",
-      "score": 25,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.812,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 61.1,
-      "relative_volume": 0.62,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 4975186.96993
-    },
-    {
-      "symbol": "ZECUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1230.01,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.6,
-      "relative_volume": 0.98,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 196051256.93178
-    },
-    {
-      "symbol": "QNTUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 203.32,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 37.1,
-      "relative_volume": 0.92,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 36312432.51839
-    },
-    {
-      "symbol": "HYPEUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 77.52,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 25.9,
-      "relative_volume": 0.6,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 18403064.08566
-    },
-    {
-      "symbol": "CHIPUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.05169,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 12.7,
-      "relative_volume": 0.26,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 12520310.12433
-    },
-    {
-      "symbol": "ONDOUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.4136,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 35.2,
-      "relative_volume": 0.64,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 10526269.58533
-    },
-    {
-      "symbol": "TRUMPUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.692,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 39.2,
-      "relative_volume": 0.82,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7928581.069182
-    },
-    {
-      "symbol": "BCHUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 279.6,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 46.4,
-      "relative_volume": 0.43,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 7582329.4581
-    },
-    {
-      "symbol": "RWUSDUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.9998,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.0,
-      "relative_volume": 0.04,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 6329060.2059
-    },
-    {
-      "symbol": "NILUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.08854,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 36.8,
-      "relative_volume": 0.39,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 6107915.869723
-    },
-    {
-      "symbol": "BANKUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.0255,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 42.9,
-      "relative_volume": 0.23,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 6094395.87023
-    },
-    {
-      "symbol": "ASTERUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.7097,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 29.2,
-      "relative_volume": 0.27,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 5065335.036221
-    },
-    {
-      "symbol": "PYTHUSDT",
-      "score": 20,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.07365,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 37.7,
-      "relative_volume": 0.31,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 4148927.289622
-    },
-    {
-      "symbol": "FILUSDT",
-      "score": 18,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.9066,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.1,
-      "relative_volume": 1.32,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 8175687.441568
-    },
-    {
-      "symbol": "NBISBUSDT",
-      "score": 18,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 155.47,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 26.2,
-      "relative_volume": 1.35,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 5784379.46369
-    },
-    {
-      "symbol": "FDUSDUSDT",
+      "symbol": "METAXUSDT",
       "score": 15,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.9981,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 636.14,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 50.0,
-      "relative_volume": 0.21,
+      "rsi": 54.2,
+      "relative_volume": 0.91,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 8561015.3901
+      "turnover24h_usdt": 1228863.12551
     },
     {
-      "symbol": "ETHUSDT",
-      "score": 10,
+      "symbol": "CRVUSDT",
+      "score": 15,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 2313.81,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.3402,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 36.8,
-      "relative_volume": 0.81,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 478495285.225317
-    },
-    {
-      "symbol": "SOLUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 100.71,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.2,
-      "relative_volume": 0.98,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 169409803.60933
-    },
-    {
-      "symbol": "BTCUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 80128.0,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 43.7,
-      "relative_volume": 0.85,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 1258258525.5453541
-    },
-    {
-      "symbol": "NEARUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 4.478,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.0,
-      "relative_volume": 0.38,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 95418068.279
-    },
-    {
-      "symbol": "SPCXBUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 147.9,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.8,
-      "relative_volume": 0.42,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 35506520.49206
-    },
-    {
-      "symbol": "SUIUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.9124,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 44.2,
-      "relative_volume": 0.74,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 34031522.95777
-    },
-    {
-      "symbol": "WLDUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.4371,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.5,
-      "relative_volume": 0.42,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 32413695.58528
-    },
-    {
-      "symbol": "TRXUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.33,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 16.7,
-      "relative_volume": 0.62,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 21788934.07681
-    },
-    {
-      "symbol": "LINKUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 11.383,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 35.3,
-      "relative_volume": 0.57,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 16868851.46671
-    },
-    {
-      "symbol": "PUMPUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.004238,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.2,
-      "relative_volume": 0.83,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 15397920.548361
-    },
-    {
-      "symbol": "AAVEUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 135.37,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.4,
-      "relative_volume": 0.39,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 13317341.42397
-    },
-    {
-      "symbol": "LTCUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 56.65,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 47.6,
-      "relative_volume": 0.41,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 11486499.6093
-    },
-    {
-      "symbol": "TAOUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 250.4,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 31.9,
-      "relative_volume": 0.42,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 11375382.79379
-    },
-    {
-      "symbol": "AVAXUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 8.917,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 37.2,
-      "relative_volume": 0.38,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 10344700.92001
-    },
-    {
-      "symbol": "MSTRBUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 140.54,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.6,
-      "relative_volume": 0.17,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 10018083.32648
-    },
-    {
-      "symbol": "AIUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.0194,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 33.3,
-      "relative_volume": 0.13,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "up"
-      },
-      "turnover24h_usdt": 9778880.10829
-    },
-    {
-      "symbol": "EURUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.1196,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 31.8,
-      "relative_volume": 0.17,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 9144827.52385
-    },
-    {
-      "symbol": "ZROUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.631,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 29.6,
-      "relative_volume": 0.39,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 8756532.28754
-    },
-    {
-      "symbol": "ARBUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.1678,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.3,
-      "relative_volume": 0.6,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 8308743.13238
-    },
-    {
-      "symbol": "XLMUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.1683,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.2,
-      "relative_volume": 0.54,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 8024552.0475
-    },
-    {
-      "symbol": "CELOUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.07838,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 37.5,
-      "relative_volume": 0.32,
-      "breakout": false,
-      "trend": {
-        "1h": "up",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 7091098.948536
-    },
-    {
-      "symbol": "GRAMUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.214,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 40.0,
+      "rsi": 48.3,
       "relative_volume": 0.37,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 7068940.79211
+      "turnover24h_usdt": 1047625.615049
     },
     {
-      "symbol": "GOOGLBUSDT",
+      "symbol": "TIAUSDT",
       "score": 10,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 318.23,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.5418,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 46.1,
-      "relative_volume": 0.26,
+      "rsi": 39.1,
+      "relative_volume": 0.57,
       "breakout": false,
       "trend": {
         "1h": "down",
-        "4h": "down"
+        "4h": "up"
       },
-      "turnover24h_usdt": 6105231.46099
+      "turnover24h_usdt": 2268124.579351
     },
     {
-      "symbol": "HBARUSDT",
+      "symbol": "MINAUSDT",
       "score": 10,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.07664,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.06383,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 42.0,
-      "relative_volume": 0.62,
+      "rsi": 41.3,
+      "relative_volume": 0.21,
       "breakout": false,
       "trend": {
-        "1h": "down",
+        "1h": "up",
         "4h": "down"
       },
-      "turnover24h_usdt": 5863084.55176
+      "turnover24h_usdt": 1479632.7948501
     },
     {
-      "symbol": "DOTUSDT",
+      "symbol": "TRXUSDT",
       "score": 10,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 1.009,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.3296,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 41.5,
-      "relative_volume": 0.56,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 5161261.94287
-    },
-    {
-      "symbol": "ICPUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 2.613,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 43.3,
-      "relative_volume": 0.27,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 5001228.40375
-    },
-    {
-      "symbol": "BNCBUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 5.37,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.5,
-      "relative_volume": 0.07,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 4800032.586
-    },
-    {
-      "symbol": "APTUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.6947,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 43.2,
+      "rsi": 33.3,
       "relative_volume": 0.52,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 4626555.896102
+      "turnover24h_usdt": 1473753.873551
     },
     {
-      "symbol": "XPLUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.07272,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 28.0,
-      "relative_volume": 0.7,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 4609066.400851
-    },
-    {
-      "symbol": "AEROUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.6767,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.2,
-      "relative_volume": 0.46,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3987732.81724
-    },
-    {
-      "symbol": "PENGUUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.007482,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 36.1,
-      "relative_volume": 0.59,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3752499.758108
-    },
-    {
-      "symbol": "PLUMEUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.01609,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.3,
-      "relative_volume": 0.42,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3628837.42271
-    },
-    {
-      "symbol": "SEIUSDT",
-      "score": 10,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.05209,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.0,
-      "relative_volume": 0.83,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3039226.35475
-    },
-    {
-      "symbol": "PEPEUSDT",
+      "symbol": "ZROUSDT",
       "score": 0,
       "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 4.28e-06,
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.6217,
       "entry_reference": null,
       "stop_reference": null,
       "tp_reference": null,
-      "rsi": 29.4,
-      "relative_volume": 0.33,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 27053542.08655516
-    },
-    {
-      "symbol": "WLFIUSDT",
-      "score": 0,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.053,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 41.7,
-      "relative_volume": 0.29,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 4471463.93746
-    },
-    {
-      "symbol": "CRVUSDT",
-      "score": 0,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.3404,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 38.5,
-      "relative_volume": 0.75,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3847392.71393
-    },
-    {
-      "symbol": "ZKUSDT",
-      "score": 0,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.01222,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 16.1,
-      "relative_volume": 0.36,
-      "breakout": false,
-      "trend": {
-        "1h": "down",
-        "4h": "down"
-      },
-      "turnover24h_usdt": 3819979.574404
-    },
-    {
-      "symbol": "PHAUSDT",
-      "score": 0,
-      "state": "AVOID",
-      "closed_15m_utc": "2026-10-26T21:45:00+00:00",
-      "price_at_close": 0.0499,
-      "entry_reference": null,
-      "stop_reference": null,
-      "tp_reference": null,
-      "rsi": 27.3,
+      "rsi": 42.1,
       "relative_volume": 0.31,
       "breakout": false,
       "trend": {
         "1h": "down",
         "4h": "down"
       },
-      "turnover24h_usdt": 3621083.8699
-    }
-  ],
-  "errors": [
-    {
-      "source": "bybit_spot",
-      "reason": "All Bybit endpoints failed: https://api.bybit.com/v5/market/: HTTP Error 403: Forbidden; https://api.bytick.com/v5/market/: HTTP Error 403: Forbidden; https://api.bybit.nl/v5/market/: HTTP Error 403: Forbidden"
+      "turnover24h_usdt": 4646964.693395
     },
     {
-      "symbol": "TONUSDT",
-      "reason": "stale candles"
+      "symbol": "GRAMUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.21,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 40.9,
+      "relative_volume": 0.3,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 3396390.33315
     },
     {
-      "symbol": "NFPUSDT",
-      "reason": "stale candles"
+      "symbol": "ZKUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.012184,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 44.1,
+      "relative_volume": 0.7,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1487437.28486898
+    },
+    {
+      "symbol": "KASUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.03519,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 39.4,
+      "relative_volume": 0.42,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1432139.54953
+    },
+    {
+      "symbol": "DOTUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 1.0062,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 46.2,
+      "relative_volume": 1.02,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1345677.9070403
+    },
+    {
+      "symbol": "HUMAUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.02158,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 15.0,
+      "relative_volume": 0.4,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1129612.780176
+    },
+    {
+      "symbol": "WLFIUSDT",
+      "score": 0,
+      "state": "AVOID",
+      "closed_15m_utc": "2026-10-27T01:15:00+00:00",
+      "price_at_close": 0.05281,
+      "entry_reference": null,
+      "stop_reference": null,
+      "tp_reference": null,
+      "rsi": 43.3,
+      "relative_volume": 0.81,
+      "breakout": false,
+      "trend": {
+        "1h": "down",
+        "4h": "down"
+      },
+      "turnover24h_usdt": 1102879.199357
     }
   ],
+  "errors": [],
   "disclaimer": "Binance prices are NOT Bybit executable prices. Verify symbol listing, live Bybit quote, spread and risk."
 }
