@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-10-29T22:41:53.339955+00:00
+Updated UTC: 2026-10-30T02:10:49.329808+00:00
 Status: ok | Source: binance_spot | analyzed: 99/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| TRXUSDT | 65 | WATCH | 0.3426 | 0.3286 | 0.3706 | 60.6 | 4.06 |
-| PARTIUSDT | 60 | WATCH | 0.0599 | 0.0475 | 0.0847 | 55.5 | 0.24 |
-| USDCUSDT | 50 | AVOID | - | - | - | 68.7 | 0.7 |
-| RUNEUSDT | 50 | AVOID | - | - | - | 63.4 | 0.95 |
-| XUSDUSDT | 48 | AVOID | - | - | - | 70.0 | 1.25 |
-| EURUSDT | 45 | AVOID | - | - | - | 84.4 | 0.84 |
-| LSKUSDT | 45 | AVOID | - | - | - | 41.3 | 0.39 |
-| SOXSBUSDT | 35 | AVOID | - | - | - | 78.2 | 1.1 |
-| XPLUSDT | 28 | AVOID | - | - | - | 32.2 | 1.43 |
-| PEPEUSDT | 25 | AVOID | - | - | - | 10.9 | 2.03 |
-| UNIUSDT | 25 | AVOID | - | - | - | 18.3 | 2.48 |
-| RLUSDUSDT | 25 | AVOID | - | - | - | 55.6 | 0.02 |
-| SKHYBUSDT | 25 | AVOID | - | - | - | 27.8 | 2.77 |
-| ZROUSDT | 25 | AVOID | - | - | - | 27.1 | 2.42 |
-| ASTERUSDT | 25 | AVOID | - | - | - | 27.3 | 2.16 |
-| PAXGUSDT | 25 | AVOID | - | - | - | 55.6 | 0.4 |
-| HYPEUSDT | 20 | AVOID | - | - | - | 39.7 | 1.14 |
-| LTCUSDT | 20 | AVOID | - | - | - | 31.4 | 0.81 |
-| BCHUSDT | 20 | AVOID | - | - | - | 31.1 | 0.59 |
-| ZAMAUSDT | 20 | AVOID | - | - | - | 25.1 | 0.64 |
+| USDCUSDT | 50 | AVOID | - | - | - | 58.0 | 0.38 |
+| TRXUSDT | 50 | AVOID | - | - | - | 64.1 | 0.23 |
+| RLUSDUSDT | 50 | AVOID | - | - | - | 58.3 | 0.12 |
+| RUNEUSDT | 50 | AVOID | - | - | - | 51.9 | 0.48 |
+| SOXSBUSDT | 45 | AVOID | - | - | - | 85.9 | 0.87 |
+| EURUSDT | 43 | AVOID | - | - | - | 78.9 | 1.18 |
+| INITUSDT | 40 | AVOID | - | - | - | 51.6 | 3.45 |
+| XUSDUSDT | 35 | AVOID | - | - | - | 50.0 | 0.08 |
+| BNBUSDT | 25 | AVOID | - | - | - | 51.7 | 0.43 |
+| UNIUSDT | 25 | AVOID | - | - | - | 56.7 | 0.65 |
+| XPLUSDT | 25 | AVOID | - | - | - | 56.3 | 0.56 |
+| HYPEUSDT | 20 | AVOID | - | - | - | 33.4 | 0.32 |
+| PARTIUSDT | 20 | AVOID | - | - | - | 39.4 | 0.75 |
+| PEPEUSDT | 15 | AVOID | - | - | - | 60.8 | 0.4 |
+| FDUSDUSDT | 15 | AVOID | - | - | - | 50.0 | 0.33 |
+| INTCBUSDT | 15 | AVOID | - | - | - | 21.4 | 1.6 |
+| MSTRBUSDT | 15 | AVOID | - | - | - | 29.9 | 2.73 |
+| RWUSDUSDT | 15 | AVOID | - | - | - | 52.9 | 0.62 |
+| QNTUSDT | 15 | AVOID | - | - | - | 34.9 | 1.82 |
+| NVDABUSDT | 15 | AVOID | - | - | - | 28.8 | 2.07 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
