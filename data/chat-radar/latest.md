@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-01T15:19:39.885336+00:00
-Status: ok | Source: binance_spot | analyzed: 95/100
+Updated UTC: 2026-11-01T19:50:26.378259+00:00
+Status: ok | Source: binance_spot | analyzed: 96/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| FILUSDT | 68 | WATCH | 0.8827 | 0.8712 | 0.9057 | 62.0 | 1.43 |
-| FETUSDT | 65 | WATCH | 0.163 | 0.1608 | 0.1674 | 58.1 | 2.09 |
-| CRCLBUSDT | 65 | WATCH | 73.19 | 72.66 | 74.25 | 58.6 | 1.84 |
-| TRXUSDT | 60 | WATCH | 0.3121 | 0.3101 | 0.3161 | 80.8 | 0.46 |
-| UNIUSDT | 60 | WATCH | 7.304 | 7.17 | 7.572 | 56.7 | 0.66 |
-| AVAXUSDT | 60 | WATCH | 8.795 | 8.678 | 9.029 | 50.5 | 0.61 |
-| AAVEUSDT | 60 | WATCH | 138.86 | 136.45 | 143.68 | 64.3 | 0.72 |
-| ZROUSDT | 60 | WATCH | 1.908 | 1.839 | 2.046 | 66.7 | 0.42 |
-| GRAMUSDT | 60 | WATCH | 1.227 | 1.2206786 | 1.2396429 | 51.7 | 0.42 |
-| KITEUSDT | 60 | WATCH | 0.1209 | 0.1181 | 0.1265 | 67.3 | 0.54 |
-| SOLVUSDT | 60 | WATCH | 0.005736 | 0.005236 | 0.006736 | 78.7 | 3.76 |
-| ASTERUSDT | 53 | AVOID | - | - | - | 55.7 | 1.23 |
-| BTCUSDT | 50 | AVOID | - | - | - | 60.6 | 0.55 |
-| ETHUSDT | 50 | AVOID | - | - | - | 55.2 | 0.99 |
-| DOGEUSDT | 50 | AVOID | - | - | - | 48.5 | 0.39 |
-| TRUMPUSDT | 50 | AVOID | - | - | - | 92.4 | 3.84 |
-| MSTRBUSDT | 50 | AVOID | - | - | - | 50.3 | 0.95 |
-| TIAUSDT | 50 | AVOID | - | - | - | 50.3 | 0.42 |
-| ICPUSDT | 50 | AVOID | - | - | - | 69.8 | 0.27 |
-| PROMUSDT | 45 | AVOID | - | - | - | 63.3 | 0.53 |
+| BIOUSDT | 60 | WATCH | 0.02359 | 0.0228 | 0.02517 | 54.5 | 0.27 |
+| KITEUSDT | 60 | WATCH | 0.1215 | 0.1197 | 0.1251 | 58.5 | 0.54 |
+| 牛来USDT | 50 | AVOID | - | - | - | 55.9 | 0.14 |
+| TRUMPUSDT | 50 | AVOID | - | - | - | 52.8 | 0.39 |
+| INITUSDT | 50 | AVOID | - | - | - | 60.2 | 0.5 |
+| EURUSDT | 50 | AVOID | - | - | - | 73.8 | 3.63 |
+| HOTUSDT | 50 | AVOID | - | - | - | 60.4 | 0.75 |
+| ASTERUSDT | 43 | AVOID | - | - | - | 48.0 | 1.38 |
+| USD1USDT | 40 | AVOID | - | - | - | 64.2 | 0.19 |
+| BEAMXUSDT | 38 | AVOID | - | - | - | 99.4 | 1.24 |
+| PROMUSDT | 35 | AVOID | - | - | - | 53.8 | 0.35 |
+| GUSDT | 35 | AVOID | - | - | - | 50.0 | 0.7 |
+| GTCUSDT | 35 | AVOID | - | - | - | 58.1 | 0.64 |
+| STXUSDT | 35 | AVOID | - | - | - | 61.7 | 0.21 |
+| HEMIUSDT | 35 | AVOID | - | - | - | 50.8 | 0.41 |
+| AVAXUSDT | 28 | AVOID | - | - | - | 23.6 | 1.19 |
+| TRXUSDT | 25 | AVOID | - | - | - | 50.0 | 0.48 |
+| PEPEUSDT | 25 | AVOID | - | - | - | 59.1 | 0.27 |
+| HYPEUSDT | 25 | AVOID | - | - | - | 25.7 | 1.88 |
+| QNTUSDT | 25 | AVOID | - | - | - | 36.1 | 5.04 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 6
+Errors: 5
