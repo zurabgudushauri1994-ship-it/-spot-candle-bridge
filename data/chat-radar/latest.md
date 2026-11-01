@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-01T01:43:45.170762+00:00
-Status: ok | Source: binance_spot | analyzed: 96/100
+Updated UTC: 2026-11-01T08:14:25.404977+00:00
+Status: ok | Source: binance_spot | analyzed: 95/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| PAXGUSDT | 80 | WATCH | 3899.73 | 3898 | 3903.19 | 58.1 | 1.96 |
-| NEARUSDT | 75 | WATCH | 4.463 | 4.406 | 4.577 | 50.3 | 5.36 |
-| AAVEUSDT | 75 | WATCH | 134.41 | 133.37 | 136.49 | 57.7 | 2.99 |
-| 牛来USDT | 75 | WATCH | 0.06152 | 0.06016 | 0.06424 | 50.3 | 3.12 |
-| NVDABUSDT | 75 | WATCH | 204.47 | 204.1 | 205.21 | 68.1 | 0.27 |
-| INTCBUSDT | 73 | WATCH | 65.39 | 65 | 66.17 | 60.9 | 1.17 |
-| BTCUSDT | 65 | WATCH | 77664 | 77450 | 78092 | 48.2 | 3.72 |
-| HYPEUSDT | 65 | WATCH | 88.21 | 87.5 | 89.63 | 50.3 | 1.95 |
-| SUIUSDT | 65 | WATCH | 0.9013 | 0.8956 | 0.9127 | 54.2 | 1.53 |
-| INJUSDT | 65 | WATCH | 7.289 | 7.194 | 7.479 | 60.3 | 1.6 |
-| UNIUSDT | 60 | WATCH | 7.109 | 7.0659286 | 7.1951429 | 43.3 | 1.62 |
-| ZROUSDT | 60 | WATCH | 1.863 | 1.786 | 2.017 | 58.9 | 0.61 |
-| ZAMAUSDT | 60 | WATCH | 0.0702 | 0.06807 | 0.07446 | 62.9 | 0.45 |
-| PUMPUSDT | 60 | WATCH | 0.004226 | 0.004185 | 0.004308 | 49.0 | 0.38 |
-| INITUSDT | 60 | WATCH | 0.18718 | 0.17269 | 0.21616 | 78.7 | 0.81 |
-| PYTHUSDT | 60 | WATCH | 0.06642 | 0.06504 | 0.06918 | 60.1 | 0.43 |
-| PEPEUSDT | 58 | WATCH | 5.06e-06 | 4.97e-06 | 5.24e-06 | 52.6 | 1.36 |
-| XAUTUSDT | 58 | WATCH | 3881.23 | 3878.49 | 3886.71 | 57.2 | 1.46 |
-| ETHUSDT | 50 | AVOID | - | - | - | 63.4 | 0.91 |
-| RWUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 0.14 |
+| GUSDT | 85 | ENTRY_CANDIDATE | 0.00412 | 0.00363 | 0.0051 | 72.6 | 5.3 |
+| SUIUSDT | 75 | WATCH | 0.9065 | 0.899 | 0.9215 | 54.7 | 1.96 |
+| QNTUSDT | 75 | WATCH | 201.27 | 198.73 | 206.35 | 61.6 | 1.63 |
+| ONDOUSDT | 75 | WATCH | 0.4145 | 0.4084 | 0.4267 | 60.7 | 2.47 |
+| BNBUSDT | 65 | WATCH | 706.78 | 702.33 | 715.68 | 57.4 | 4.45 |
+| VIRTUALUSDT | 65 | WATCH | 0.5967 | 0.5912 | 0.6077 | 53.8 | 2.02 |
+| PROMUSDT | 60 | WATCH | 5.82 | 5.43 | 6.6 | 73.2 | 1.91 |
+| REZUSDT | 60 | WATCH | 0.004323 | 0.004124 | 0.004721 | 53.0 | 0.49 |
+| FILUSDT | 60 | WATCH | 0.8804 | 0.8737 | 0.8938 | 59.0 | 1.02 |
+| GUNUSDT | 60 | WATCH | 0.002175 | 0.002127 | 0.002271 | 55.3 | 0.51 |
+| BTCUSDT | 58 | WATCH | 77991.28 | 77714.36 | 78545.12 | 59.8 | 1.27 |
+| ETHUSDT | 58 | WATCH | 2270.3 | 2264.9 | 2281.1 | 51.7 | 1.21 |
+| BEAMXUSDT | 58 | WATCH | 0.005904 | 0.004931 | 0.00785 | 67.8 | 1.4 |
+| KITEUSDT | 58 | WATCH | 0.1218 | 0.1138 | 0.1378 | 67.9 | 1.37 |
+| XRPUSDT | 50 | AVOID | - | - | - | 56.6 | 0.39 |
+| AVAXUSDT | 50 | AVOID | - | - | - | 67.7 | 0.63 |
+| DOGEUSDT | 50 | AVOID | - | - | - | 54.1 | 0.76 |
+| UUSDT | 50 | AVOID | - | - | - | 60.0 | 2.17 |
+| STXUSDT | 50 | AVOID | - | - | - | 50.9 | 0.66 |
+| 牛来USDT | 50 | AVOID | - | - | - | 66.9 | 0.79 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 5
+Errors: 6
