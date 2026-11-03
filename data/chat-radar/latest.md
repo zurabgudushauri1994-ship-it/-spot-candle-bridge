@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-03T10:02:00.239050+00:00
-Status: ok | Source: binance_spot | analyzed: 97/100
+Updated UTC: 2026-11-03T17:47:57.791633+00:00
+Status: ok | Source: binance_spot | analyzed: 96/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| UUSDT | 65 | WATCH | 0.9999 | 0.99965357 | 1.0003929 | 50.0 | 2.23 |
-| MSTRBUSDT | 65 | WATCH | 130.97 | 129.04 | 134.83 | 60.7 | 1.61 |
-| BTCUSDT | 60 | WATCH | 77070.99 | 76388.88 | 78435.21 | 63.3 | 0.91 |
-| USD1USDT | 60 | WATCH | 0.99925 | 0.99889 | 0.99997 | 66.7 | 0.55 |
-| RLUSDUSDT | 60 | WATCH | 1.0016 | 1.001375 | 1.00205 | 50.0 | 0.2 |
-| SUIUSDT | 60 | WATCH | 0.8737 | 0.8595 | 0.9021 | 63.4 | 1.01 |
-| BCHUSDT | 60 | WATCH | 277.7 | 274 | 285.1 | 65.8 | 1.0 |
-| SOLUSDT | 50 | AVOID | - | - | - | 63.9 | 0.68 |
-| BNBUSDT | 50 | AVOID | - | - | - | 57.3 | 0.7 |
-| XRPUSDT | 50 | AVOID | - | - | - | 61.6 | 0.42 |
-| FDUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 0.17 |
-| QNTUSDT | 50 | AVOID | - | - | - | 57.2 | 5.12 |
-| INJUSDT | 50 | AVOID | - | - | - | 64.9 | 0.87 |
-| USDEUSDT | 50 | AVOID | - | - | - | 100 | 5.3 |
-| ZROUSDT | 50 | AVOID | - | - | - | 67.2 | 0.12 |
-| KORUBUSDT | 50 | AVOID | - | - | - | 65.7 | 3.54 |
-| RUNEUSDT | 50 | AVOID | - | - | - | 41.4 | 1.88 |
-| WLFIUSDT | 50 | AVOID | - | - | - | 50.0 | 0.23 |
-| TRXUSDT | 45 | AVOID | - | - | - | 75.9 | 0.59 |
-| INTCBUSDT | 45 | AVOID | - | - | - | 77.2 | 0.75 |
+| TRXUSDT | 85 | ENTRY_CANDIDATE | 0.3235 | 0.3218 | 0.3269 | 77.8 | 2.73 |
+| SAGAUSDT | 68 | WATCH | 0.01772 | 0.01658 | 0.02 | 63.6 | 1.21 |
+| XRPUSDT | 60 | WATCH | 1.2831 | 1.2709 | 1.3075 | 51.5 | 0.5 |
+| SUIUSDT | 60 | WATCH | 0.8968 | 0.8875 | 0.9154 | 63.2 | 0.4 |
+| BFUSDUSDT | 60 | WATCH | 0.9997 | 0.9993 | 1.0005 | 63.6 | 0.0 |
+| RUNEUSDT | 60 | WATCH | 0.651 | 0.575 | 0.803 | 75.4 | 2.5 |
+| NBISBUSDT | 60 | WATCH | 151.01 | 144.12 | 164.79 | 61.7 | 0.13 |
+| AEROUSDT | 55 | WATCH | 0.6106 | 0.60389286 | 0.62401429 | 50.0 | 2.77 |
+| BTCUSDT | 50 | AVOID | - | - | - | 65.2 | 0.42 |
+| ETHUSDT | 50 | AVOID | - | - | - | 61.8 | 0.27 |
+| ZECUSDT | 50 | AVOID | - | - | - | 69.8 | 0.67 |
+| HYPEUSDT | 50 | AVOID | - | - | - | 53.7 | 0.24 |
+| DOGEUSDT | 50 | AVOID | - | - | - | 55.6 | 0.39 |
+| NVDABUSDT | 50 | AVOID | - | - | - | 59.3 | 0.36 |
+| PUMPUSDT | 50 | AVOID | - | - | - | 56.2 | 0.58 |
+| TAOUSDT | 50 | AVOID | - | - | - | 50.0 | 0.39 |
+| ZROUSDT | 50 | AVOID | - | - | - | 51.1 | 0.89 |
+| HUMAUSDT | 50 | AVOID | - | - | - | 58.0 | 0.53 |
+| BNCBUSDT | 50 | AVOID | - | - | - | 63.3 | 0.63 |
+| MORPHOUSDT | 50 | AVOID | - | - | - | 86.5 | 1.86 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 4
+Errors: 5
