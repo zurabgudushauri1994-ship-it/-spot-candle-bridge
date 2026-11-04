@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-03T22:39:11.047592+00:00
+Updated UTC: 2026-11-04T02:45:44.866023+00:00
 Status: ok | Source: binance_spot | analyzed: 96/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| SPCXBUSDT | 60 | WATCH | 142.52 | 140.37 | 146.82 | 59.6 | 0.35 |
-| USDEUSDT | 60 | WATCH | 1.0005 | 1.0001 | 1.0013 | 66.7 | 0.06 |
-| AEROUSDT | 60 | WATCH | 0.6273 | 0.6041 | 0.6737 | 70.2 | 0.52 |
-| HAEDALUSDT | 60 | WATCH | 0.02846 | 0.02636 | 0.03266 | 84.7 | 2.12 |
-| PEPEUSDT | 50 | AVOID | - | - | - | 58.3 | 0.6 |
-| BMTUSDT | 50 | AVOID | - | - | - | 55.9 | 0.59 |
-| PUMPUSDT | 50 | AVOID | - | - | - | 61.9 | 0.78 |
-| NVDABUSDT | 50 | AVOID | - | - | - | 61.3 | 0.31 |
-| GOOGLBUSDT | 50 | AVOID | - | - | - | 56.8 | 0.13 |
-| ZROUSDT | 50 | AVOID | - | - | - | 47.1 | 2.83 |
-| WLFIUSDT | 50 | AVOID | - | - | - | 60.0 | 0.31 |
-| MEGAUSDT | 50 | AVOID | - | - | - | 53.2 | 0.6 |
-| NIGHTUSDT | 50 | AVOID | - | - | - | 53.3 | 0.56 |
-| DOGEUSDT | 48 | AVOID | - | - | - | 53.3 | 1.18 |
-| USD1USDT | 45 | AVOID | - | - | - | 74.6 | 1.15 |
-| XAUTUSDT | 45 | AVOID | - | - | - | 55.2 | 0.6 |
-| HOTUSDT | 45 | AVOID | - | - | - | 70.7 | 1.06 |
-| XRPUSDT | 43 | AVOID | - | - | - | 48.1 | 1.24 |
-| BTCUSDT | 40 | AVOID | - | - | - | 61.7 | 0.47 |
-| ZECUSDT | 40 | AVOID | - | - | - | 57.5 | 0.3 |
+| USDEUSDT | 60 | WATCH | 1.0006 | 1.0001 | 1.0016 | 57.1 | 0.03 |
+| MEGAUSDT | 60 | WATCH | 0.04591 | 0.04424 | 0.04925 | 57.0 | 0.76 |
+| XAUTUSDT | 58 | WATCH | 3934.23 | 3916.75 | 3969.19 | 54.5 | 1.27 |
+| RWUSDUSDT | 55 | WATCH | 0.9996 | 0.9993 | 1.0002 | 66.7 | 1.94 |
+| PAXGUSDT | 50 | AVOID | - | - | - | 54.5 | 0.31 |
+| LSKUSDT | 50 | AVOID | - | - | - | 76.9 | 4.71 |
+| BMTUSDT | 45 | AVOID | - | - | - | 73.6 | 0.69 |
+| AEROUSDT | 45 | AVOID | - | - | - | 37.5 | 0.53 |
+| USDCUSDT | 43 | AVOID | - | - | - | 90.5 | 1.24 |
+| TRXUSDT | 43 | AVOID | - | - | - | 56.0 | 1.27 |
+| BFUSDUSDT | 40 | AVOID | - | - | - | 50.0 | 2.88 |
+| EURUSDT | 35 | AVOID | - | - | - | 76.7 | 0.21 |
+| FDUSDUSDT | 35 | AVOID | - | - | - | 50.0 | 0.44 |
+| SOXSBUSDT | 35 | AVOID | - | - | - | 85.2 | 0.39 |
+| NILUSDT | 33 | AVOID | - | - | - | 52.3 | 1.34 |
+| USD1USDT | 28 | AVOID | - | - | - | 42.9 | 1.45 |
+| XRPUSDT | 28 | AVOID | - | - | - | 22.4 | 1.19 |
+| UNIUSDT | 25 | AVOID | - | - | - | 28.2 | 1.81 |
+| RLUSDUSDT | 25 | AVOID | - | - | - | 66.7 | 1.06 |
+| SPCXBUSDT | 25 | AVOID | - | - | - | 12.9 | 3.4 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
