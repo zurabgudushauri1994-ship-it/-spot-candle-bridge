@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-04T02:45:44.866023+00:00
-Status: ok | Source: binance_spot | analyzed: 96/100
+Updated UTC: 2026-11-04T17:57:58.502676+00:00
+Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USDEUSDT | 60 | WATCH | 1.0006 | 1.0001 | 1.0016 | 57.1 | 0.03 |
-| MEGAUSDT | 60 | WATCH | 0.04591 | 0.04424 | 0.04925 | 57.0 | 0.76 |
-| XAUTUSDT | 58 | WATCH | 3934.23 | 3916.75 | 3969.19 | 54.5 | 1.27 |
-| RWUSDUSDT | 55 | WATCH | 0.9996 | 0.9993 | 1.0002 | 66.7 | 1.94 |
-| PAXGUSDT | 50 | AVOID | - | - | - | 54.5 | 0.31 |
-| LSKUSDT | 50 | AVOID | - | - | - | 76.9 | 4.71 |
-| BMTUSDT | 45 | AVOID | - | - | - | 73.6 | 0.69 |
-| AEROUSDT | 45 | AVOID | - | - | - | 37.5 | 0.53 |
-| USDCUSDT | 43 | AVOID | - | - | - | 90.5 | 1.24 |
-| TRXUSDT | 43 | AVOID | - | - | - | 56.0 | 1.27 |
-| BFUSDUSDT | 40 | AVOID | - | - | - | 50.0 | 2.88 |
-| EURUSDT | 35 | AVOID | - | - | - | 76.7 | 0.21 |
-| FDUSDUSDT | 35 | AVOID | - | - | - | 50.0 | 0.44 |
-| SOXSBUSDT | 35 | AVOID | - | - | - | 85.2 | 0.39 |
-| NILUSDT | 33 | AVOID | - | - | - | 52.3 | 1.34 |
-| USD1USDT | 28 | AVOID | - | - | - | 42.9 | 1.45 |
-| XRPUSDT | 28 | AVOID | - | - | - | 22.4 | 1.19 |
-| UNIUSDT | 25 | AVOID | - | - | - | 28.2 | 1.81 |
-| RLUSDUSDT | 25 | AVOID | - | - | - | 66.7 | 1.06 |
-| SPCXBUSDT | 25 | AVOID | - | - | - | 12.9 | 3.4 |
+| XAUTUSDT | 68 | WATCH | 4053.52 | 4015.33 | 4129.9 | 65.1 | 1.25 |
+| SPYBUSDT | 65 | WATCH | 769.08 | 760.6 | 786.04 | 65.6 | 2.21 |
+| ENAUSDT | 60 | WATCH | 0.1832 | 0.177 | 0.1956 | 60.8 | 0.6 |
+| PAXGUSDT | 60 | WATCH | 4064.96 | 4028.12 | 4138.64 | 65.2 | 0.29 |
+| QNTUSDT | 60 | WATCH | 204.42 | 197.26 | 218.74 | 60.7 | 0.39 |
+| INJUSDT | 60 | WATCH | 7.858 | 7.6 | 8.374 | 65.7 | 0.43 |
+| SOXSBUSDT | 60 | WATCH | 58.1 | 52.41 | 69.48 | 55.8 | 0.47 |
+| SOLUSDT | 50 | AVOID | - | - | - | 66.4 | 0.54 |
+| XRPUSDT | 50 | AVOID | - | - | - | 65.2 | 0.68 |
+| NEARUSDT | 50 | AVOID | - | - | - | 62.1 | 0.49 |
+| UNIUSDT | 50 | AVOID | - | - | - | 69.7 | 0.21 |
+| SUIUSDT | 50 | AVOID | - | - | - | 67.6 | 0.41 |
+| DOGEUSDT | 50 | AVOID | - | - | - | 65.2 | 0.35 |
+| SPCXBUSDT | 50 | AVOID | - | - | - | 64.5 | 0.2 |
+| FDUSDUSDT | 50 | AVOID | - | - | - | 62.1 | 0.03 |
+| LINKUSDT | 50 | AVOID | - | - | - | 67.5 | 0.36 |
+| CRCLBUSDT | 50 | AVOID | - | - | - | 56.7 | 0.37 |
+| GOOGLBUSDT | 50 | AVOID | - | - | - | 65.2 | 0.15 |
+| ADAUSDT | 50 | AVOID | - | - | - | 67.5 | 0.52 |
+| LTCUSDT | 50 | AVOID | - | - | - | 64.1 | 0.73 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 5
+Errors: 3
