@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-08T01:33:52.540709+00:00
+Updated UTC: 2026-11-08T07:57:38.369746+00:00
 Status: ok | Source: binance_spot | analyzed: 91/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USDCUSDT | 60 | WATCH | 1.00117 | 1.00104 | 1.00143 | 61.4 | 0.48 |
-| XAUTUSDT | 60 | WATCH | 4063.71 | 4061.9 | 4067.33 | 48.4 | 0.7 |
-| RWUSDUSDT | 60 | WATCH | 1.0001 | 0.9998 | 1.0007 | 62.5 | 0.05 |
-| MITOUSDT | 60 | WATCH | 0.00812 | 0.0077096429 | 0.0089407143 | 57.1 | 0.26 |
-| USD1USDT | 50 | AVOID | - | - | - | 63.2 | 0.99 |
-| RLUSDUSDT | 50 | AVOID | - | - | - | 57.1 | 0.0 |
-| ACTUSDT | 50 | AVOID | - | - | - | 56.6 | 0.95 |
-| BFUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 51.75 |
-| RAYUSDT | 50 | AVOID | - | - | - | 66.0 | 0.41 |
-| DASHUSDT | 50 | AVOID | - | - | - | 77.6 | 2.99 |
-| TRXUSDT | 45 | AVOID | - | - | - | 75.0 | 0.57 |
-| FDUSDUSDT | 45 | AVOID | - | - | - | 50.0 | 2.11 |
-| ERAUSDT | 43 | AVOID | - | - | - | 64.6 | 1.33 |
-| BTCUSDT | 40 | AVOID | - | - | - | 53.2 | 1.54 |
-| SIGNUSDT | 40 | AVOID | - | - | - | 68.3 | 4.01 |
-| WLFIUSDT | 40 | AVOID | - | - | - | 55.6 | 1.58 |
-| BMTUSDT | 40 | AVOID | - | - | - | 79.2 | 27.71 |
-| UNIUSDT | 35 | AVOID | - | - | - | 52.8 | 0.78 |
-| UUSDT | 35 | AVOID | - | - | - | 44.4 | 10.0 |
-| INJUSDT | 35 | AVOID | - | - | - | 48.5 | 0.7 |
+| ERAUSDT | 85 | ENTRY_CANDIDATE | 0.0802 | 0.0739 | 0.0928 | 84.1 | 7.31 |
+| BNBUSDT | 75 | WATCH | 701.36 | 694.2 | 715.68 | 81.6 | 3.28 |
+| BMTUSDT | 75 | WATCH | 0.02599 | 0.0236 | 0.03077 | 58.1 | 1.61 |
+| ARBUSDT | 75 | WATCH | 0.1698 | 0.1676 | 0.1742 | 50.0 | 2.32 |
+| MEGAUSDT | 75 | WATCH | 0.0507 | 0.04953 | 0.05304 | 69.9 | 2.96 |
+| GTCUSDT | 68 | WATCH | 0.17255 | 0.16042 | 0.19681 | 73.6 | 1.18 |
+| NVDABUSDT | 65 | WATCH | 187.49 | 186.86 | 188.75 | 66.7 | 2.21 |
+| BEAMXUSDT | 65 | WATCH | 0.004084 | 0.0039 | 0.004452 | 67.5 | 3.75 |
+| UUSDT | 60 | WATCH | 1.0006 | 1.0003 | 1.0012 | 62.5 | 0.49 |
+| RSRUSDT | 60 | WATCH | 0.001621 | 0.001546 | 0.001771 | 78.9 | 1.68 |
+| QQQBUSDT | 58 | WATCH | 656.61 | 655.71 | 658.41 | 67.0 | 1.42 |
+| POLUSDT | 55 | WATCH | 0.09082 | 0.09023 | 0.092 | 48.8 | 2.56 |
+| NEARUSDT | 50 | AVOID | - | - | - | 53.2 | 0.97 |
+| TRXUSDT | 50 | AVOID | - | - | - | 42.1 | 2.76 |
+| RLUSDUSDT | 50 | AVOID | - | - | - | 55.6 | 0.01 |
+| RWUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 0.66 |
+| SOXLBUSDT | 50 | AVOID | - | - | - | 67.9 | 1.0 |
+| INJUSDT | 50 | AVOID | - | - | - | 56.5 | 2.02 |
+| CRCLBUSDT | 50 | AVOID | - | - | - | 71.7 | 0.07 |
+| SPCXBUSDT | 50 | AVOID | - | - | - | 47.4 | 1.93 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
