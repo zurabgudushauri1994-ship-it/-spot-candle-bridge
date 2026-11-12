@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-12T18:27:23.249225+00:00
+Updated UTC: 2026-11-12T23:51:58.083173+00:00
 Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| PROMUSDT | 68 | WATCH | 4.981 | 4.66 | 5.623 | 97.1 | 1.29 |
-| 牛来USDT | 65 | WATCH | 0.0582 | 0.05481 | 0.06498 | 69.4 | 1.94 |
-| USD1USDT | 60 | WATCH | 0.99952 | 0.99897 | 1.00062 | 60.8 | 0.27 |
-| SOXLBUSDT | 60 | WATCH | 65.61 | 58.42 | 79.99 | 56.0 | 0.28 |
-| MUBUSDT | 60 | WATCH | 792.9 | 761.07 | 856.56 | 51.8 | 0.28 |
-| INTCBUSDT | 60 | WATCH | 61.87 | 59.3 | 67.01 | 59.3 | 0.47 |
-| ASTERUSDT | 60 | WATCH | 0.6652 | 0.6476 | 0.7004 | 67.4 | 0.24 |
-| AMDBUSDT | 60 | WATCH | 579.7 | 551 | 637.1 | 58.1 | 0.11 |
-| DODOUSDT | 60 | WATCH | 0.02783 | 0.02314 | 0.03721 | 80.4 | 1.61 |
-| AVGOBUSDT | 60 | WATCH | 364.1 | 345.24 | 401.82 | 53.2 | 0.14 |
-| OPGUSDT | 60 | WATCH | 0.1396 | 0.1367 | 0.1454 | 53.5 | 0.62 |
-| JUPUSDT | 60 | WATCH | 0.262 | 0.2522 | 0.2816 | 59.9 | 0.18 |
-| MRVLBUSDT | 60 | WATCH | 165.53 | 155.05 | 186.49 | 58.1 | 0.19 |
-| JSTUSDT | 60 | WATCH | 0.1464 | 0.14438 | 0.15044 | 66.3 | 0.22 |
-| NVDABUSDT | 50 | AVOID | - | - | - | 69.1 | 0.12 |
-| RLUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 4.15 |
-| QQQBUSDT | 50 | AVOID | - | - | - | 59.7 | 0.16 |
-| TQQQBUSDT | 50 | AVOID | - | - | - | 59.2 | 0.13 |
-| TIAUSDT | 50 | AVOID | - | - | - | 65.9 | 0.19 |
-| MEGAUSDT | 50 | AVOID | - | - | - | 55.5 | 0.1 |
+| AVGOBUSDT | 100 | ENTRY_CANDIDATE | 367.39 | 361.44 | 379.29 | 65.6 | 1.78 |
+| QQQBUSDT | 85 | ENTRY_CANDIDATE | 693.14 | 686.9 | 705.62 | 83.4 | 4.03 |
+| TQQQBUSDT | 85 | ENTRY_CANDIDATE | 61.09 | 59.38 | 64.51 | 81.1 | 3.67 |
+| MRVLBUSDT | 78 | ENTRY_CANDIDATE | 168.9 | 163.96 | 178.78 | 80.7 | 1.27 |
+| INTCBUSDT | 75 | WATCH | 62.09 | 60.98 | 64.31 | 62.7 | 3.52 |
+| MUBUSDT | 70 | WATCH | 812.51 | 789.52 | 858.49 | 80.2 | 0.65 |
+| KORUBUSDT | 70 | WATCH | 8.41 | 7.96 | 9.31 | 82.5 | 0.51 |
+| SKHYBUSDT | 70 | WATCH | 139.82 | 136.44 | 146.58 | 82.9 | 0.5 |
+| GOOGLBUSDT | 68 | WATCH | 301.52 | 298.31 | 307.94 | 63.6 | 1.2 |
+| ASTERUSDT | 68 | WATCH | 0.6686 | 0.6606 | 0.6846 | 65.3 | 1.4 |
+| BARDUSDT | 60 | WATCH | 0.1261 | 0.11704643 | 0.14420714 | 39.7 | 1.98 |
+| DODOUSDT | 60 | WATCH | 0.02822 | 0.02658 | 0.0315 | 53.1 | 0.38 |
+| FETUSDT | 60 | WATCH | 0.1484 | 0.145 | 0.1552 | 66.7 | 0.83 |
+| AMDBUSDT | 60 | WATCH | 586.23 | 577.08 | 604.53 | 52.0 | 0.14 |
+| JUPUSDT | 60 | WATCH | 0.2659 | 0.262 | 0.2737 | 52.1 | 0.44 |
+| MEGAUSDT | 58 | WATCH | 0.04644 | 0.0457 | 0.04792 | 54.2 | 1.25 |
+| XUSDUSDT | 55 | WATCH | 1.001 | 1.0008 | 1.0014 | 66.7 | 8.01 |
+| APTUSDT | 55 | WATCH | 0.5538 | 0.5467 | 0.568 | 65.1 | 1.7 |
+| SNDKBUSDT | 53 | AVOID | - | - | - | 87.3 | 1.44 |
+| SPCXBUSDT | 50 | AVOID | - | - | - | 56.9 | 1.04 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
