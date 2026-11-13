@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-12T23:51:58.083173+00:00
-Status: ok | Source: binance_spot | analyzed: 98/100
+Updated UTC: 2026-11-13T05:17:00.036305+00:00
+Status: ok | Source: binance_spot | analyzed: 100/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| AVGOBUSDT | 100 | ENTRY_CANDIDATE | 367.39 | 361.44 | 379.29 | 65.6 | 1.78 |
-| QQQBUSDT | 85 | ENTRY_CANDIDATE | 693.14 | 686.9 | 705.62 | 83.4 | 4.03 |
-| TQQQBUSDT | 85 | ENTRY_CANDIDATE | 61.09 | 59.38 | 64.51 | 81.1 | 3.67 |
-| MRVLBUSDT | 78 | ENTRY_CANDIDATE | 168.9 | 163.96 | 178.78 | 80.7 | 1.27 |
-| INTCBUSDT | 75 | WATCH | 62.09 | 60.98 | 64.31 | 62.7 | 3.52 |
-| MUBUSDT | 70 | WATCH | 812.51 | 789.52 | 858.49 | 80.2 | 0.65 |
-| KORUBUSDT | 70 | WATCH | 8.41 | 7.96 | 9.31 | 82.5 | 0.51 |
-| SKHYBUSDT | 70 | WATCH | 139.82 | 136.44 | 146.58 | 82.9 | 0.5 |
-| GOOGLBUSDT | 68 | WATCH | 301.52 | 298.31 | 307.94 | 63.6 | 1.2 |
-| ASTERUSDT | 68 | WATCH | 0.6686 | 0.6606 | 0.6846 | 65.3 | 1.4 |
-| BARDUSDT | 60 | WATCH | 0.1261 | 0.11704643 | 0.14420714 | 39.7 | 1.98 |
-| DODOUSDT | 60 | WATCH | 0.02822 | 0.02658 | 0.0315 | 53.1 | 0.38 |
-| FETUSDT | 60 | WATCH | 0.1484 | 0.145 | 0.1552 | 66.7 | 0.83 |
-| AMDBUSDT | 60 | WATCH | 586.23 | 577.08 | 604.53 | 52.0 | 0.14 |
-| JUPUSDT | 60 | WATCH | 0.2659 | 0.262 | 0.2737 | 52.1 | 0.44 |
-| MEGAUSDT | 58 | WATCH | 0.04644 | 0.0457 | 0.04792 | 54.2 | 1.25 |
-| XUSDUSDT | 55 | WATCH | 1.001 | 1.0008 | 1.0014 | 66.7 | 8.01 |
-| APTUSDT | 55 | WATCH | 0.5538 | 0.5467 | 0.568 | 65.1 | 1.7 |
-| SNDKBUSDT | 53 | AVOID | - | - | - | 87.3 | 1.44 |
-| SPCXBUSDT | 50 | AVOID | - | - | - | 56.9 | 1.04 |
+| HUMAUSDT | 80 | WATCH | 0.00825 | 0.0078 | 0.00915 | 60.2 | 4.37 |
+| RWUSDUSDT | 65 | WATCH | 1 | 0.9998 | 1.0004 | 50.0 | 1.83 |
+| BARDUSDT | 60 | WATCH | 0.1387 | 0.1163 | 0.1835 | 51.4 | 0.86 |
+| PAXGUSDT | 55 | WATCH | 3907.92 | 3880.97 | 3961.82 | 50.3 | 5.78 |
+| GOOGLBUSDT | 45 | AVOID | - | - | - | 38.3 | 0.68 |
+| TSLABUSDT | 45 | AVOID | - | - | - | 22.6 | 2.82 |
+| CBRSBUSDT | 45 | AVOID | - | - | - | 38.3 | 0.52 |
+| XAUTUSDT | 40 | AVOID | - | - | - | 52.3 | 0.61 |
+| JSTUSDT | 38 | AVOID | - | - | - | 41.6 | 1.31 |
+| USD1USDT | 35 | AVOID | - | - | - | 41.7 | 1.59 |
+| MUBUSDT | 35 | AVOID | - | - | - | 22.6 | 3.0 |
+| AVGOBUSDT | 30 | AVOID | - | - | - | 25.8 | 0.77 |
+| XRPUSDT | 25 | AVOID | - | - | - | 23.7 | 1.67 |
+| UNIUSDT | 25 | AVOID | - | - | - | 20.0 | 1.96 |
+| HYPEUSDT | 25 | AVOID | - | - | - | 26.8 | 1.81 |
+| GRAMUSDT | 25 | AVOID | - | - | - | 55.6 | 0.76 |
+| ERAUSDT | 25 | AVOID | - | - | - | 53.7 | 0.42 |
+| SOXSBUSDT | 25 | AVOID | - | - | - | 74.0 | 0.6 |
+| INJUSDT | 25 | AVOID | - | - | - | 25.3 | 1.98 |
+| XUSDUSDT | 25 | AVOID | - | - | - | 40.0 | 6.75 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 3
+Errors: 1
