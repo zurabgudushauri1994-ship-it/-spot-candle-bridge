@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-13T20:32:37.502829+00:00
+Updated UTC: 2026-11-14T01:01:22.499642+00:00
 Status: ok | Source: binance_spot | analyzed: 100/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| FETUSDT | 100 | ENTRY_CANDIDATE | 0.1486 | 0.1448 | 0.1562 | 59.7 | 9.24 |
-| SHELLUSDT | 85 | ENTRY_CANDIDATE | 0.04777 | 0.02016 | 0.10299 | 96.4 | 2.51 |
-| JUPUSDT | 85 | WATCH | 0.2656 | 0.2556 | 0.2856 | 68.0 | 0.39 |
-| MARSCOINUSDT | 65 | WATCH | 0.0408 | 0.04 | 0.0424 | 59.1 | 1.84 |
-| STRKUSDT | 60 | WATCH | 0.03755 | 0.03661 | 0.03943 | 65.5 | 0.41 |
-| BERAUSDT | 60 | WATCH | 0.1119 | 0.1045 | 0.1267 | 74.4 | 2.47 |
-| STOUSDT | 60 | WATCH | 0.0287 | 0.0262 | 0.0337 | 59.2 | 0.86 |
-| GUNUSDT | 60 | WATCH | 0.001968 | 0.001657 | 0.00259 | 76.9 | 1.69 |
-| ZECUSDT | 50 | AVOID | - | - | - | 64.7 | 0.34 |
-| USD1USDT | 50 | AVOID | - | - | - | 68.6 | 0.43 |
-| NEARUSDT | 50 | AVOID | - | - | - | 60.5 | 0.25 |
-| TAOUSDT | 50 | AVOID | - | - | - | 56.3 | 0.4 |
-| INJUSDT | 50 | AVOID | - | - | - | 51.9 | 1.05 |
-| XLMUSDT | 50 | AVOID | - | - | - | 69.2 | 0.41 |
-| PUMPUSDT | 50 | AVOID | - | - | - | 64.8 | 0.34 |
-| 牛来USDT | 50 | AVOID | - | - | - | 74.8 | 1.55 |
-| PENGUUSDT | 50 | AVOID | - | - | - | 66.5 | 0.69 |
-| PENDLEUSDT | 50 | AVOID | - | - | - | 55.1 | 0.36 |
-| XPLUSDT | 50 | AVOID | - | - | - | 60.5 | 0.41 |
-| RENDERUSDT | 50 | AVOID | - | - | - | 56.1 | 1.01 |
+| STRKUSDT | 65 | WATCH | 0.03753 | 0.03671 | 0.03917 | 52.8 | 2.22 |
+| SOXSBUSDT | 60 | WATCH | 53.07 | 50.1 | 59.01 | 63.9 | 0.22 |
+| BMTUSDT | 60 | WATCH | 0.02328 | 0.02233 | 0.02518 | 56.4 | 1.75 |
+| 牛来USDT | 60 | WATCH | 0.06309 | 0.0619 | 0.06547 | 35.9 | 1.77 |
+| DODOUSDT | 60 | WATCH | 0.02953 | 0.02858 | 0.03143 | 56.3 | 0.7 |
+| TAOUSDT | 58 | WATCH | 216.8 | 211.2 | 228 | 52.2 | 1.29 |
+| UUSDT | 50 | AVOID | - | - | - | 50.0 | 0.31 |
+| FDUSDUSDT | 50 | AVOID | - | - | - | 60.0 | 0.41 |
+| FETUSDT | 50 | AVOID | - | - | - | 52.7 | 0.42 |
+| NIGHTUSDT | 50 | AVOID | - | - | - | 50.4 | 0.61 |
+| PENDLEUSDT | 50 | AVOID | - | - | - | 48.8 | 0.25 |
+| JUPUSDT | 50 | AVOID | - | - | - | 54.0 | 0.81 |
+| RENDERUSDT | 50 | AVOID | - | - | - | 51.0 | 0.53 |
+| DASHUSDT | 50 | AVOID | - | - | - | 59.4 | 0.88 |
+| BERAUSDT | 45 | AVOID | - | - | - | 70.8 | 1.03 |
+| BARDUSDT | 43 | AVOID | - | - | - | 48.7 | 1.22 |
+| XPLUSDT | 40 | AVOID | - | - | - | 50.4 | 0.55 |
+| PYTHUSDT | 40 | AVOID | - | - | - | 49.8 | 2.16 |
+| USDCUSDT | 35 | AVOID | - | - | - | 32.0 | 0.3 |
+| ZROUSDT | 35 | AVOID | - | - | - | 52.8 | 0.5 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
