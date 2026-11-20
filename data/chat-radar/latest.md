@@ -1,30 +1,30 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-20T00:43:40.976015+00:00
-Status: ok | Source: binance_spot | analyzed: 99/100
+Updated UTC: 2026-11-20T07:50:20.541525+00:00
+Status: ok | Source: binance_spot | analyzed: 98/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| BMTUSDT | 65 | WATCH | 0.02057 | 0.01979 | 0.02213 | 67.6 | 5.62 |
-| SOXSBUSDT | 60 | WATCH | 64.99 | 60.08 | 74.81 | 60.8 | 0.83 |
-| LUNCUSDT | 60 | WATCH | 4.744e-05 | 4.594e-05 | 5.044e-05 | 50.5 | 0.73 |
-| MEGAUSDT | 60 | WATCH | 0.05918 | 0.05665 | 0.06424 | 47.6 | 1.87 |
-| RWUSDUSDT | 60 | WATCH | 1.0001 | 0.999875 | 1.00055 | 50.0 | 0.77 |
-| WLFIUSDT | 58 | WATCH | 0.0465 | 0.0461 | 0.0473 | 53.8 | 1.23 |
-| UUSDT | 50 | AVOID | - | - | - | 62.5 | 0.99 |
-| HUMAUSDT | 45 | AVOID | - | - | - | 81.5 | 0.71 |
-| GTCUSDT | 43 | AVOID | - | - | - | 64.6 | 1.25 |
-| SOPHUSDT | 40 | AVOID | - | - | - | 54.5 | 2.71 |
-| KAVAUSDT | 40 | AVOID | - | - | - | 59.0 | 2.88 |
-| EWYBUSDT | 40 | AVOID | - | - | - | 54.4 | 8.87 |
-| MMTUSDT | 35 | AVOID | - | - | - | 48.2 | 0.49 |
-| SENTUSDT | 35 | AVOID | - | - | - | 55.2 | 0.87 |
-| XPLUSDT | 35 | AVOID | - | - | - | 50.0 | 0.73 |
-| XLMUSDT | 33 | AVOID | - | - | - | 53.3 | 1.2 |
-| ZKCUSDT | 33 | AVOID | - | - | - | 57.7 | 1.41 |
-| USD1USDT | 30 | AVOID | - | - | - | 47.7 | 0.45 |
-| BTCUSDT | 25 | AVOID | - | - | - | 48.7 | 0.4 |
-| RLUSDUSDT | 25 | AVOID | - | - | - | 40.0 | 0.32 |
+| RAREUSDT | 75 | WATCH | 0.0126 | 0.012131786 | 0.013536429 | 54.3 | 1.68 |
+| UUSDT | 60 | WATCH | 1.0005 | 1.0003 | 1.0009 | 66.7 | 0.45 |
+| SOXSBUSDT | 60 | WATCH | 67.84 | 64.84 | 73.84 | 68.4 | 0.51 |
+| SAPIENUSDT | 60 | WATCH | 0.04055 | 0.03933 | 0.04299 | 52.9 | 0.63 |
+| RWUSDUSDT | 50 | AVOID | - | - | - | 50.0 | 0.08 |
+| EURUSDT | 50 | AVOID | - | - | - | 65.5 | 0.8 |
+| FDUSDUSDT | 48 | AVOID | - | - | - | 57.1 | 1.25 |
+| BMTUSDT | 45 | AVOID | - | - | - | 74.7 | 0.3 |
+| STRKUSDT | 45 | AVOID | - | - | - | 73.7 | 0.23 |
+| HYPEUSDT | 40 | AVOID | - | - | - | 53.1 | 3.53 |
+| FETUSDT | 40 | AVOID | - | - | - | 59.6 | 2.03 |
+| FILUSDT | 40 | AVOID | - | - | - | 66.5 | 4.07 |
+| SYRUPUSDT | 40 | AVOID | - | - | - | 61.2 | 0.92 |
+| ENAUSDT | 35 | AVOID | - | - | - | 87.8 | 0.83 |
+| YBUSDT | 35 | AVOID | - | - | - | 52.1 | 0.67 |
+| BARDUSDT | 35 | AVOID | - | - | - | 35.6 | 0.36 |
+| TRXUSDT | 33 | AVOID | - | - | - | 61.9 | 1.39 |
+| ASTERUSDT | 33 | AVOID | - | - | - | 51.7 | 1.47 |
+| CRCLBUSDT | 30 | AVOID | - | - | - | 51.5 | 1.76 |
+| BFUSDUSDT | 30 | AVOID | - | - | - | 50.0 | 1.92 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
-Errors: 2
+Errors: 3
