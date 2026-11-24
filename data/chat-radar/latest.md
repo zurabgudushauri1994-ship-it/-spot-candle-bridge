@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-23T20:23:31.193425+00:00
+Updated UTC: 2026-11-24T04:57:43.328146+00:00
 Status: ok | Source: binance_spot | analyzed: 99/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USDEUSDT | 65 | WATCH | 1.001 | 1.0006 | 1.0018 | 55.6 | 3.02 |
-| NVDABUSDT | 60 | WATCH | 165.83 | 163.28 | 170.93 | 55.8 | 0.28 |
-| SOXLBUSDT | 60 | WATCH | 42.99 | 41.84 | 45.29 | 56.8 | 0.36 |
-| QQQBUSDT | 60 | WATCH | 652.19 | 647.14 | 662.29 | 58.2 | 0.18 |
-| TQQQBUSDT | 60 | WATCH | 49.31 | 48.29 | 51.35 | 58.5 | 0.08 |
-| MUBARAKUSDT | 60 | WATCH | 0.02645 | 0.02492 | 0.02951 | 59.0 | 1.0 |
-| 牛来USDT | 60 | WATCH | 0.04308 | 0.04179 | 0.04566 | 57.1 | 0.25 |
-| MRVLBUSDT | 60 | WATCH | 144.59 | 142.15 | 149.47 | 58.7 | 0.36 |
-| MUBUSDT | 50 | AVOID | - | - | - | 60.4 | 0.11 |
-| KORUBUSDT | 50 | AVOID | - | - | - | 53.1 | 0.48 |
-| GOOGLBUSDT | 50 | AVOID | - | - | - | 60.7 | 0.32 |
-| SKHYBUSDT | 50 | AVOID | - | - | - | 50.2 | 0.5 |
-| ONEUSDT | 50 | AVOID | - | - | - | 61.5 | 0.88 |
-| EWYBUSDT | 50 | AVOID | - | - | - | 53.8 | 0.37 |
-| INTCBUSDT | 45 | AVOID | - | - | - | 70.7 | 0.32 |
-| LISTAUSDT | 45 | AVOID | - | - | - | 39.0 | 0.66 |
-| SKYUSDT | 40 | AVOID | - | - | - | 61.4 | 0.33 |
-| XLMUSDT | 38 | AVOID | - | - | - | 30.8 | 1.41 |
-| TSLABUSDT | 35 | AVOID | - | - | - | 47.3 | 0.37 |
-| NIGHTUSDT | 35 | AVOID | - | - | - | 55.7 | 0.42 |
+| ARBUSDT | 65 | WATCH | 0.1162 | 0.1113 | 0.126 | 61.7 | 2.43 |
+| ACEUSDT | 65 | WATCH | 0.0805 | 0.0744 | 0.0927 | 62.7 | 3.4 |
+| XRPUSDT | 60 | WATCH | 0.9544 | 0.9323 | 0.9986 | 55.5 | 1.9 |
+| ICPUSDT | 60 | WATCH | 2.094 | 2.028 | 2.226 | 58.1 | 0.28 |
+| FILUSDT | 60 | WATCH | 0.5622 | 0.5426 | 0.6014 | 53.1 | 1.06 |
+| GRAMUSDT | 60 | WATCH | 0.991 | 0.974 | 1.025 | 63.6 | 1.05 |
+| CHIPUSDT | 60 | WATCH | 0.02874 | 0.02788 | 0.03046 | 59.9 | 0.56 |
+| USDEUSDT | 60 | WATCH | 1.0013 | 1.0011 | 1.0017 | 50.0 | 0.03 |
+| ATOMUSDT | 60 | WATCH | 1.299 | 1.266 | 1.365 | 56.4 | 0.75 |
+| KORUBUSDT | 50 | AVOID | - | - | - | 52.0 | 0.34 |
+| LISTAUSDT | 50 | AVOID | - | - | - | 54.9 | 0.66 |
+| EWYBUSDT | 50 | AVOID | - | - | - | 52.2 | 0.26 |
+| MUBUSDT | 45 | AVOID | - | - | - | 33.4 | 0.45 |
+| LINKUSDT | 45 | AVOID | - | - | - | 47.9 | 0.66 |
+| WLDUSDT | 45 | AVOID | - | - | - | 51.9 | 0.76 |
+| GOOGLBUSDT | 45 | AVOID | - | - | - | 36.6 | 0.45 |
+| QQQBUSDT | 45 | AVOID | - | - | - | 37.0 | 0.25 |
+| 牛来USDT | 45 | AVOID | - | - | - | 38.6 | 0.43 |
+| SAHARAUSDT | 45 | AVOID | - | - | - | 71.8 | 0.63 |
+| PEPEUSDT | 43 | AVOID | - | - | - | 56.5 | 1.33 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
