@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-24T15:47:18.908052+00:00
+Updated UTC: 2026-11-25T00:11:10.274555+00:00
 Status: ok | Source: binance_spot | analyzed: 99/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| LISTAUSDT | 68 | WATCH | 0.1092 | 0.0993 | 0.129 | 64.6 | 1.5 |
-| ATMUSDT | 60 | WATCH | 0.99 | 0.809 | 1.352 | 54.2 | 0.62 |
-| LUNCUSDT | 60 | WATCH | 4.517e-05 | 4.393e-05 | 4.765e-05 | 59.1 | 0.8 |
-| USD1USDT | 50 | AVOID | - | - | - | 46.2 | 1.79 |
-| EURUSDT | 50 | AVOID | - | - | - | 52.9 | 0.57 |
-| INITUSDT | 48 | AVOID | - | - | - | 59.5 | 1.26 |
-| AIGENSYNUSDT | 45 | AVOID | - | - | - | 56.1 | 1.05 |
-| RWUSDUSDT | 40 | AVOID | - | - | - | 50.0 | 15.77 |
-| UUSDT | 35 | AVOID | - | - | - | 50.0 | 0.77 |
-| SOXSBUSDT | 35 | AVOID | - | - | - | 80.9 | 0.88 |
-| SAHARAUSDT | 35 | AVOID | - | - | - | 58.5 | 0.47 |
-| TRXUSDT | 25 | AVOID | - | - | - | 43.2 | 2.38 |
-| XAUTUSDT | 25 | AVOID | - | - | - | 29.4 | 2.36 |
-| QQQBUSDT | 25 | AVOID | - | - | - | 35.8 | 1.77 |
-| CHIPUSDT | 25 | AVOID | - | - | - | 24.8 | 2.26 |
-| MMTUSDT | 20 | AVOID | - | - | - | 47.9 | 0.86 |
-| TSLABUSDT | 20 | AVOID | - | - | - | 39.6 | 0.49 |
-| NIGHTUSDT | 20 | AVOID | - | - | - | 45.3 | 0.16 |
-| REUSDT | 20 | AVOID | - | - | - | 43.2 | 0.61 |
-| PEPEUSDT | 18 | AVOID | - | - | - | 24.0 | 1.41 |
+| SOXSBUSDT | 65 | WATCH | 61.55 | 59.12 | 66.41 | 49.1 | 7.04 |
+| USD1USDT | 60 | WATCH | 1.00116 | 1.00089 | 1.0017 | 53.6 | 0.31 |
+| AIGENSYNUSDT | 60 | WATCH | 0.01683 | 0.01641 | 0.01767 | 65.2 | 0.74 |
+| DODOUSDT | 60 | WATCH | 0.04392 | 0.04311 | 0.04554 | 70.7 | 1.72 |
+| OPGUSDT | 53 | AVOID | - | - | - | 78.7 | 1.28 |
+| INITUSDT | 53 | AVOID | - | - | - | 44.1 | 1.25 |
+| USDCUSDT | 50 | AVOID | - | - | - | 52.6 | 0.44 |
+| RLUSDUSDT | 50 | AVOID | - | - | - | 58.3 | 0.0 |
+| WLDUSDT | 50 | AVOID | - | - | - | 65.7 | 0.71 |
+| XUSDUSDT | 50 | AVOID | - | - | - | 55.6 | 0.02 |
+| TSLABUSDT | 50 | AVOID | - | - | - | 63.6 | 0.57 |
+| NIGHTUSDT | 50 | AVOID | - | - | - | 56.3 | 0.31 |
+| KITEUSDT | 50 | AVOID | - | - | - | 76.2 | 2.78 |
+| LISTAUSDT | 45 | AVOID | - | - | - | 41.4 | 0.62 |
+| BABYUSDT | 40 | AVOID | - | - | - | 51.3 | 1.5 |
+| LUNCUSDT | 35 | AVOID | - | - | - | 52.0 | 1.12 |
+| SKYUSDT | 35 | AVOID | - | - | - | 72.1 | 0.82 |
+| ACEUSDT | 35 | AVOID | - | - | - | 70.3 | 0.72 |
+| FETUSDT | 33 | AVOID | - | - | - | 59.2 | 1.33 |
+| SOXLBUSDT | 30 | AVOID | - | - | - | 53.5 | 1.64 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
