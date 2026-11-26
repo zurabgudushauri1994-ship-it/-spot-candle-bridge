@@ -1,20 +1,20 @@
 # Bybit + Kronos – ChatGPT-raportti
 
-Päivitetty (UTC): 2026-11-26T02:17:53.559342+00:00
+Päivitetty (UTC): 2026-11-26T10:59:00.549246+00:00
 
 Kronos-mini on ajettu oikeilla Bybit Spot -kynttilöillä. Ennuste on tutkimustulos; mallin luotettavuutta tai tuottoa ei ole vahvistettu.
 
 | Pari | Aikaväli | Trend | RSI | Kronos-suunta | Ennustettu muutos | MAE / ennallaan-baseline |
 |---|---|---|---:|---|---:|---|
-| BTCUSDT | 15m | up | 64.9 | down | -0.26% | 0.224% / 0.325% |
-| BTCUSDT | 1h | mixed | 66.5 | hylätty | – | 0.839% / 0.768% |
-| BTCUSDT | 4h | mixed | 51.1 | hylätty | – | 1.498% / 1.248% |
-| SOLUSDT | 15m | up | 67.1 | hylätty | – | 0.249% / 0.251% |
-| SOLUSDT | 1h | mixed | 65.9 | hylätty | – | 0.895% / 1.154% |
-| SOLUSDT | 4h | mixed | 50.6 | hylätty | – | 1.353% / 1.559% |
-| PUMPUSDT | 15m | up | 74.1 | down | -0.11% | 0.776% / 0.623% |
-| PUMPUSDT | 1h | up | 74.1 | down | -0.62% | 2.385% / 2.322% |
-| PUMPUSDT | 4h | mixed | 56.7 | hylätty | – | 2.766% / 2.763% |
+| BTCUSDT | 15m | mixed | 43.4 | up | +0.19% | 0.247% / 0.197% |
+| BTCUSDT | 1h | up | 62.8 | up | +0.13% | 0.403% / 0.335% |
+| BTCUSDT | 4h | mixed | 51.2 | hylätty | – | 2.158% / 2.054% |
+| SOLUSDT | 15m | mixed | 40.2 | up | +0.28% | 0.316% / 0.198% |
+| SOLUSDT | 1h | up | 62.8 | hylätty | – | 0.454% / 0.227% |
+| SOLUSDT | 4h | mixed | 52.0 | hylätty | – | 3.634% / 3.072% |
+| PUMPUSDT | 15m | mixed | 51.0 | hylätty | – | 0.873% / 0.510% |
+| PUMPUSDT | 1h | up | 71.4 | up | +0.18% | 1.627% / 1.204% |
+| PUMPUSDT | 4h | mixed | 59.5 | hylätty | – | 5.784% / 5.871% |
 
 Kukin ennuste kattaa seuraavat 4 kynttilää. Viiden simuloidun polun vaihteluväli ei ole kalibroitu todennäköisyys. Testi sisältää vain 3 historiallista ennustehetkeä per aikaväli; ei näyttöä kaupankäynnin kannattavuudesta.
 
