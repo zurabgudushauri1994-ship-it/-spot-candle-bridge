@@ -1,29 +1,29 @@
 # Bybit Spot Radar 100
-Updated UTC: 2026-11-27T12:05:27.809432+00:00
+Updated UTC: 2026-11-27T21:14:25.754515+00:00
 Status: ok | Source: binance_spot | analyzed: 99/100
 
 | Pair | Score | State | Entry ref | Stop ref | TP ref | RSI | RVOL |
 |---|---:|---|---:|---:|---:|---:|---:|
-| USD1USDT | 93 | ENTRY_CANDIDATE | 1.0011 | 1.00072 | 1.00186 | 66.7 | 1.24 |
-| WIFUSDT | 85 | ENTRY_CANDIDATE | 0.1402 | 0.1367 | 0.1472 | 76.9 | 2.55 |
-| JSTUSDT | 75 | WATCH | 0.14562 | 0.14197 | 0.15292 | 75.3 | 1.65 |
-| ENAUSDT | 68 | WATCH | 0.1084 | 0.1057 | 0.1138 | 63.3 | 1.35 |
-| ASTERUSDT | 68 | WATCH | 0.5094 | 0.5064 | 0.5154 | 55.2 | 1.45 |
-| NEARUSDT | 65 | WATCH | 3.12 | 3.075 | 3.21 | 57.1 | 2.5 |
-| HYPEUSDT | 65 | WATCH | 65.95 | 65.27 | 67.31 | 56.6 | 1.71 |
-| LTCUSDT | 65 | WATCH | 44.63 | 44.19 | 45.51 | 56.4 | 1.52 |
-| PAXGUSDT | 65 | WATCH | 3663.38 | 3639.56 | 3711.02 | 49.8 | 1.79 |
-| AVAXUSDT | 65 | WATCH | 6.807 | 6.729 | 6.963 | 61.8 | 1.51 |
-| UUSDT | 60 | WATCH | 1.0006 | 1.0004 | 1.001 | 66.7 | 0.48 |
-| UNIUSDT | 60 | WATCH | 4.905 | 4.856 | 5.003 | 48.1 | 0.82 |
-| RWUSDUSDT | 60 | WATCH | 1.0001 | 0.99989643 | 1.0005071 | 50.0 | 0.11 |
-| ADAUSDT | 60 | WATCH | 0.1533 | 0.1522 | 0.1555 | 50.0 | 0.58 |
-| FETUSDT | 60 | WATCH | 0.1291 | 0.1243 | 0.1387 | 65.9 | 0.9 |
-| SEIUSDT | 60 | WATCH | 0.03951 | 0.0383 | 0.04193 | 60.6 | 0.49 |
-| TAOUSDT | 60 | WATCH | 189.4 | 187.3 | 193.6 | 62.5 | 0.76 |
-| PUMPUSDT | 60 | WATCH | 0.002692 | 0.002637 | 0.002802 | 68.9 | 0.68 |
-| FDUSDUSDT | 60 | WATCH | 0.9963 | 0.99612857 | 0.99664286 | 50.0 | 0.57 |
-| CFGUSDT | 60 | WATCH | 0.0592 | 0.0513 | 0.075 | 55.5 | 0.53 |
+| TAOUSDT | 85 | ENTRY_CANDIDATE | 186.7 | 183.1 | 193.9 | 63.1 | 3.36 |
+| PORTALUSDT | 60 | WATCH | 0.03951 | 0.02596 | 0.06661 | 51.7 | 0.27 |
+| KORUBUSDT | 60 | WATCH | 6.03 | 5.87 | 6.35 | 63.3 | 0.01 |
+| MUBUSDT | 60 | WATCH | 646.1 | 633.85 | 670.6 | 62.9 | 0.01 |
+| QQQBUSDT | 60 | WATCH | 651.39 | 644.79 | 664.59 | 69.2 | 0.04 |
+| SKYUSDT | 60 | WATCH | 0.05112 | 0.04569 | 0.06198 | 92.2 | 3.83 |
+| 牛来USDT | 60 | WATCH | 0.04755 | 0.04522 | 0.05221 | 80.4 | 2.91 |
+| JUPUSDT | 60 | WATCH | 0.2485 | 0.2443 | 0.2569 | 66.7 | 0.46 |
+| SENTUSDT | 60 | WATCH | 0.02307 | 0.02232 | 0.02457 | 63.5 | 0.65 |
+| RENDERUSDT | 58 | WATCH | 1.404 | 1.358 | 1.496 | 62.2 | 1.23 |
+| LTCUSDT | 53 | AVOID | - | - | - | 66.9 | 1.4 |
+| SOXLBUSDT | 50 | AVOID | - | - | - | 62.4 | 0.06 |
+| UNIUSDT | 50 | AVOID | - | - | - | 66.0 | 0.38 |
+| PAXGUSDT | 50 | AVOID | - | - | - | 68.4 | 0.09 |
+| SPCXBUSDT | 50 | AVOID | - | - | - | 60.0 | 0.2 |
+| SNXXBUSDT | 50 | AVOID | - | - | - | 66.7 | 0.21 |
+| NIGHTUSDT | 50 | AVOID | - | - | - | 62.6 | 0.45 |
+| THEUSDT | 50 | AVOID | - | - | - | 65.5 | 0.85 |
+| DRAMBUSDT | 50 | AVOID | - | - | - | 63.0 | 0.16 |
+| JSTUSDT | 50 | AVOID | - | - | - | 52.0 | 0.41 |
 
 Do not treat historical close references as executable live quotes. Confirm spread, freshness, and risk.
 
